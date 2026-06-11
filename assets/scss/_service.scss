@@ -1,0 +1,393 @@
+//service
+.service-item {
+	padding: 30px 30px;
+	transition: all 0.4s;
+	.icon-area {
+		margin-bottom: 30px;
+		.icon {
+			width: 80px;
+			height: 80px;
+			min-width: 80px;
+			border: 1px solid var(--cmn-border);
+			border-radius: 50%;
+			transition: all 0.4s;
+		}
+	}
+	p {
+		margin-bottom: 30px;
+	}
+	.service-btn-inner {
+		margin-top: -30px;
+	}
+	.common-btn {
+		border: 1px solid var(--cmn-border);
+	}
+	&:hover {
+		transform: translateY(5px);
+		.icon {
+			background: $p1-clr;
+			border-color: $p1-clr;
+		}
+		.common-btn {
+			background: $p1-clr;
+			border-color: $p1-clr;
+		}
+	}
+	@include breakpoint(max-xl) {
+		padding: 19px 19px;
+		.icon-area {
+			margin-bottom: 16px;
+			.icon {
+				width: 60px;
+				height: 60px;
+				min-width: 60px;
+				img {
+					width: 30px;
+				}
+			}
+		}
+		p {
+			margin-bottom: 20px;
+		}
+		.service-btn-inner {
+			margin-top: -30px;
+		}
+		.common-btn {
+			border: 1px solid var(--cmn-border);
+		}
+	}
+}
+.services-section {
+	&.main-style {
+		.service-item {
+			.icon {
+				border: unset;
+			}
+		}
+	}
+}
+
+//Service Details
+.category-service {
+	.cates {
+		display: grid;
+		gap: 20px;
+		li {
+			a {
+				border: 1px solid $cmnbg;
+				padding: 12px 20px;
+				border-radius: 100px;
+				background: $cmnbg;
+				font-size: 14px;
+				color: $pra;
+				.just-serial {
+					width: 32px;
+					height: 32px;
+					background: $p2-clr;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					i{
+						color: $white;
+					}
+				}
+				transition: all 0.5s;
+				&:hover {
+					color: $white;
+					background: $p1-clr;
+					border-color: $p2-clr;
+					span,
+					i {
+						color: $white !important;
+					}
+				}
+			}
+		}
+	}
+}
+.download-area {
+	display: grid;
+	gap: 20px;
+	.download-item {
+		background: $cmnbg;
+		border-radius: 100px;
+		padding: 16px 24px;
+	}
+	.social-wrapper {
+		a {
+			background: #f5f6f8;
+			i {
+				color: $black;
+			}
+			&:hover {
+				background: $p2-clr;
+				i {
+					color: $white;
+				}
+				svg {
+					path {
+						stroke: $white;
+					}
+				}
+			}
+		}
+	}
+}
+.service-preview-next{
+	border-radius: 20px;
+	padding: 22px 60px;
+	box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.07);
+	background: $white;
+	h3{
+		a{
+			&:hover{
+				color: $p2-clr;
+			}
+		}
+	}
+	@include breakpoint(max-lg){
+		padding: 18px 24px;
+	}
+	@include breakpoint(max-sm){
+		h3{
+			font-size: 15px;
+		}
+	}
+}
+
+//Gain Services Style
+.data-gain-content-wrap {
+	display: flex;
+	align-items: flex-start;
+	gap: 24px 60px;
+	.thumb {
+		max-width: 300px;
+		img {
+			width: 100%;
+		}
+	}
+	@include breakpoint(max-md) {
+		gap: 24px 24px;
+	}
+	@include breakpoint(max-sm) {
+		gap: 20px 24px;
+		flex-wrap: wrap;
+		.thumb {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+.data-gain-counter {
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	align-items: center;
+	margin-bottom: 64px;
+	.data-counter-item {
+		h2 {
+			margin-bottom: 5px;
+			.count,
+			.count-text {
+				color: $black;
+			}
+			span {
+				font-size: 72px;
+				font-weight: 600;
+				line-height: 78px;
+			}
+			.sorke-text {
+				-webkit-text-stroke: 1px #000;
+				-webkit-text-fill-color: #fff;
+				-webkit-animation: fill 0.5s infinite alternate;
+			}
+		}
+	}
+	.line {
+		width: 100px;
+		height: 1px;
+		background: #000;
+	}
+	@include breakpoint(max-xl) {
+		margin-bottom: 20px;
+		.data-counter-item {
+			h2 {
+				margin-bottom: 5px;
+				span {
+					font-size: 58px;
+					font-weight: 600;
+					line-height: 60px;
+				}
+			}
+		}
+		.line {
+			width: 30px;
+		}
+	}
+	@include breakpoint(max-md) {
+		margin-bottom: 20px;
+		.data-counter-item {
+			h2 {
+				margin-bottom: 5px;
+				span {
+					font-size: 36px;
+					font-weight: 600;
+					line-height: 40px;
+				}
+			}
+		}
+		.line {
+			width: 30px;
+		}
+	}
+	@include breakpoint(max-sm) {
+		margin-bottom: 20px;
+		gap: 20px;
+		flex-wrap: wrap;
+		justify-content: center;
+		.data-counter-item {
+			h2 {
+				margin-bottom: 5px;
+				span {
+					font-size: 27px;
+					font-weight: 600;
+					line-height: 40px;
+				}
+			}
+		}
+		.line {
+			display: none;
+		}
+	}
+}
+
+//Working Section
+.working-section6 {
+	.worke-items {
+		box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.07);
+		&:hover {
+			.rarrow {
+				background: $p1-clr !important;
+			}
+		}
+		@include breakpoint(max-xl) {
+			.rarrow {
+				svg {
+					width: 30px;
+				}
+			}
+		}
+	}
+}
+//Working Section
+
+//Coming Soon
+.comming-sson-wrap {
+	padding: 60px;
+	.comming-sson-inner {
+		margin-bottom: 60px;
+		.countdown {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			justify-content: center;
+			.comming-sson-item {
+				background: $cmnbg;
+				border-radius: 20px;
+				padding: 20px 12px;
+				font-weight: 500;
+				width: 250px;
+				span {
+					font-size: 50px;
+					line-height: 55px;
+					text-align: center;
+					font-weight: 500;
+					display: block;
+					color: $black;
+				}
+			}
+		}
+		@include breakpoint(max-lg) {
+			margin-bottom: 40px;
+			.countdown {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				justify-content: center;
+				.comming-sson-item {
+					padding: 20px 12px;
+					font-weight: 500;
+					width: 250px;
+					span {
+						font-size: 29px;
+						line-height: 32px;
+						text-align: center;
+						font-weight: 500;
+						display: block;
+						color: $black;
+					}
+				}
+			}
+		}
+		@include breakpoint(max-md) {
+			margin-bottom: 40px;
+			.countdown {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				justify-content: center;
+				.comming-sson-item {
+					padding: 20px 12px;
+					font-weight: 500;
+					width: 250px;
+					span {
+						font-size: 19px;
+						line-height: 24px;
+						text-align: center;
+						font-weight: 500;
+						display: block;
+						color: $black;
+					}
+				}
+			}
+		}
+		@include breakpoint(max-sm) {
+			margin-bottom: 40px;
+			.countdown {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				flex-wrap: wrap;
+				justify-content: center;
+				.comming-sson-item {
+					padding: 20px 12px;
+					font-weight: 500;
+					width: 250px;
+					span {
+						font-size: 19px;
+						line-height: 24px;
+						text-align: center;
+						font-weight: 500;
+						display: block;
+						color: $black;
+					}
+				}
+			}
+		}
+	}
+	.form-cmn-style {
+		max-width: 476px;
+		margin: 0 auto;
+	}
+	@include breakpoint(max-xxl) {
+		padding: 40px;
+	}
+	@include breakpoint(max-xl) {
+		padding: 30px;
+	}
+	@include breakpoint(max-lg) {
+		padding: 30px 24px;
+	}
+}
+//Coming Soon

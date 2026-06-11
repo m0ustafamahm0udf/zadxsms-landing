@@ -1,0 +1,252 @@
+//Pricing
+.pricing-section {
+	&.style3 {
+		.pricing-items {
+			overflow: hidden;
+			h3 {
+				padding: 26px 0;
+				text-align: center;
+				transition: all 0.4s;
+			}
+			.boxes {
+				padding: 30px 40px 40px;
+			}
+			&.active,
+			&:hover {
+				background: $white;
+				h3 {
+					background: $p2-clr !important;
+					color: $white !important;
+				}
+				.common-btn {
+					background: $p2-clr !important;
+				}
+			}
+			@include breakpoint(max-xl) {
+				.boxes {
+					padding: 24px 20px 30px;
+				}
+			}
+		}
+	}
+}
+.pricing-items {
+	padding: 30px 30px;
+	h2 {
+		font-size: 50px;
+		color: $black;
+		span {
+			font-size: 16px;
+			color: $black2;
+		}
+	}
+	&.premium-items {
+		background: linear-gradient(
+			180deg,
+			#ffdc26 0%,
+			rgba(255, 220, 38, 0) 100%
+		);
+		.common-btn {
+			background: $p5-clr;
+		}
+	}
+	&.style2 {
+		.common-btn {
+			border-color: $cmnbg !important;
+		}
+		&.active,
+		&:hover {
+			background: linear-gradient(
+				180deg,
+				#fb421f 0%,
+				rgba(255, 220, 38, 0) 100%
+			);
+			h2 {
+				border-bottom: 1px solid rgba(34, 34, 32, 0.288) !important;
+				span {
+					color: $black;
+				}
+			}
+			.price-list {
+				li {
+					color: $black;
+				}
+			}
+			.common-btn {
+				background: $p1-clr !important;
+				color: $white !important;
+				i {
+					color: $white !important;
+				}
+			}
+		}
+	}
+	&.style5 {
+		transition: all 0.4s;
+		h2 {
+			color: $white;
+			span {
+				color: $white;
+			}
+		}
+		.price-list {
+			.line {
+				width: 100%;
+				height: 1px;
+				background: rgb(255, 255, 255, 0.2);
+			}
+		}
+		.common-btn {
+			background: #121212;
+			border: 1px solid $p5-clr !important;
+		}
+		&.active,
+		&:hover {
+			background: $p5-clr;
+			h3,
+			h2 {
+				color: $black !important;
+				span {
+					color: $black !important;
+				}
+			}
+			.price-list {
+				i,
+				li {
+					color: $black !important;
+				}
+				.line {
+					width: 100%;
+					height: 1px;
+					background: rgba(63, 59, 59, 0.2);
+				}
+			}
+		}
+	}
+	&.style6 {
+		position: relative;
+		padding: 40px;
+		.p-head {
+			margin-top: -60px;
+			position: relative;
+			z-index: 1;
+		}
+		h3 {
+			background: $white;
+			border-radius: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: 600;
+			padding: 9px 16px;
+			margin: 0 auto 30px;
+			width: 197px;
+			transition: all 0.4s;
+			border: 1px solid $white;
+		}
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			content: "";
+			border: 1px solid $black;
+			border-radius: 20px;
+			transform: skewX(-10deg);
+		}
+		&.active,
+		&:hover {
+			h3 {
+				background: transparent;
+				border-color: $p4-clr;
+				background: $cmnbg;
+			}
+			.common-btn {
+				background: $p4-clr;
+				border-color: $p4-clr;
+				color: $white !important;
+				i {
+					color: $white !important;
+				}
+			}
+		}
+		@include breakpoint(max-xl) {
+			&::before {
+				transform: skewX(-0deg);
+			}
+		}
+		@include breakpoint(max-lg) {
+			.p-head {
+				margin-top: 0px;
+				position: relative;
+				z-index: 1;
+			}
+		}
+		@include breakpoint(max-md) {
+			padding: 30px 22px;
+		}
+	}
+	@include breakpoint(max-xxl) {
+		padding: 24px 20px;
+	}
+}
+.pricing-hover1 {
+	transition: all 0.4s;
+	&:hover {
+		background: linear-gradient(
+			180deg,
+			#ffdc26 0%,
+			rgba(255, 220, 38, 0) 100%
+		);
+		.common-btn {
+			background: $p5-clr;
+		}
+	}
+}
+.pricing-tabbing {
+	border: 1px solid $border-color;
+	border-radius: 100px;
+	overflow: hidden;
+	.nav-item {
+		.nav-link {
+			padding: 14px 28px;
+			font-size: 17px;
+			background: transparent;
+			border: unset;
+			transition: all 0.4s;
+			color: $black;
+			&.active {
+				background: $p2-clr;
+				color: $white;
+				border-radius: 0;
+			}
+			@include breakpoint(max-xxl) {
+				padding: 10px 28px;
+			}
+		}
+	}
+	&.style3 {
+		.nav-item {
+			.nav-link {
+				&.active {
+					background: $p3-clr;
+					color: $white;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+	@include breakpoint(max-sm) {
+		margin: 0 auto;
+		.nav-link {
+			margin: 0 auto;
+		}
+	}
+}
+
+@keyframes cir360 {
+	0% {
+		transform: rotate(360deg);
+	}
+}

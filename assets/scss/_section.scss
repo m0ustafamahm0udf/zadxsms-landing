@@ -1,0 +1,375 @@
+//>>>>> Section Title Start <<<<<//
+
+.section-title {
+	position: relative;
+	.cmn-tag {
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-weight: 500;
+	}
+	.title-badge1 {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+}
+.title-badge1 {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.section-title-area {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	z-index: 9;
+
+	@include breakpoint(max-md) {
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+}
+
+//gsap animation
+.reveal-left,
+.reveal-bottom {
+	visibility: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+//>>>>> Section Title End <<<<<//
+
+//>>>>> Basic Css Start <<<<<//
+
+.center {
+	text-align: center;
+	margin: 0 auto;
+}
+.mb-60 {
+	margin-bottom: 60px;
+	@include breakpoint(max-xxl) {
+		margin-bottom: 50px;
+	}
+	@include breakpoint(max-xl) {
+		margin-bottom: 40px;
+	}
+	@include breakpoint(max-lg) {
+		margin-bottom: 30px;
+	}
+}
+
+.section-bg {
+	background-color: $bg-color;
+}
+
+.section-bg-2 {
+	background-color: $bg-color-2;
+}
+
+.section-bg-3 {
+	background-color: $theme-color-2;
+}
+
+.section-padding {
+	padding: 120px 0;
+
+	@include breakpoint(max-xl) {
+		padding: 100px 0;
+	}
+
+	@include breakpoint(max-lg) {
+		padding: 80px 0;
+	}
+}
+.space-top {
+	padding-top: 120px;
+	@include breakpoint(max-xl) {
+		padding-top: 100px;
+	}
+	@include breakpoint(max-lg) {
+		padding-top: 80px;
+	}
+}
+.space-bottom {
+	padding-bottom: 120px;
+	@include breakpoint(max-xl) {
+		padding-bottom: 100px;
+	}
+	@include breakpoint(max-lg) {
+		padding-bottom: 80px;
+	}
+}
+
+.pb-80{
+	padding-bottom: 80px;
+	@include breakpoint(max-lg){
+		padding-bottom: 70px;
+	}
+}
+.pt-80{
+	padding-top: 80px;
+	@include breakpoint(max-lg){
+		padding-top: 70px;
+	}
+}
+.pb-60{
+	padding-bottom: 60px;
+	@include breakpoint(max-lg){
+		padding-bottom: 40px;
+	}
+}
+.pt-60{
+	padding-top: 60px;
+	@include breakpoint(max-lg){
+		padding-top: 40px;
+	}
+}
+.pb-50{
+	padding-bottom: 50px;
+	@include breakpoint(max-lg){
+		padding-bottom: 40px;
+	}
+	@include breakpoint(max-md){
+		padding-bottom: 30px;
+	}
+}
+.pt-50{
+	padding-top: 50px;
+	@include breakpoint(max-lg){
+		padding-top: 40px;
+	}
+	@include breakpoint(max-md){
+		padding-top: 30px;
+	}
+}
+.pb-40{
+	padding-bottom: 40px;
+	@include breakpoint(max-lg){
+		padding-bottom: 30px;
+	}
+	@include breakpoint(max-md){
+		padding-bottom: 22px;
+	}
+}
+.pt-40{
+	padding-top: 40px;
+	@include breakpoint(max-lg){
+		padding-top: 30px;
+	}
+	@include breakpoint(max-md){
+		padding-top: 22px;
+	}
+}
+.pb-30{
+	padding-bottom: 30px;
+	@include breakpoint(max-lg){
+		padding-bottom: 22px;
+	}
+	@include breakpoint(max-md){
+		padding-bottom: 20px;
+	}
+}
+.pt-30{
+	padding-top: 30px;
+	@include breakpoint(max-lg){
+		padding-top: 22px;
+	}
+	@include breakpoint(max-md){
+		padding-top: 20px;
+	}
+}
+.pb-20{
+	padding-bottom: 20px;
+	@include breakpoint(max-lg){
+		padding-bottom: 15px;
+	}
+}
+.pt-20{
+	padding-top: 20px;
+	@include breakpoint(max-lg){
+		padding-top: 15px;
+	}
+}
+.pb-16{
+	padding-bottom: 16px;
+	@include breakpoint(max-lg){
+		padding-bottom: 10px;
+	}
+}
+.pt-16{
+	padding-top: 16px;
+	@include breakpoint(max-lg){
+		padding-top: 10px;
+	}
+}
+
+//Margin
+.mb-80{
+	margin-bottom: 80px;
+	@include breakpoint(max-lg){
+		margin-bottom: 70px;
+	}
+}
+.mt-80{
+	margin-top: 80px;
+	@include breakpoint(max-lg){
+		margin-top: 70px;
+	}
+}
+.mb-60{
+	margin-bottom: 60px;
+	@include breakpoint(max-lg){
+		margin-bottom: 40px;
+	}
+}
+.mt-60{
+	margin-top: 60px;
+	@include breakpoint(max-lg){
+		margin-top: 40px;
+	}
+}
+.mb-50{
+	margin-bottom: 50px;
+	@include breakpoint(max-lg){
+		margin-bottom: 40px;
+	}
+	@include breakpoint(max-md){
+		margin-bottom: 30px;
+	}
+}
+.mt-50{
+	margin-top: 50px;
+	@include breakpoint(max-lg){
+		margin-top: 40px;
+	}
+	@include breakpoint(max-md){
+		margin-top: 30px;
+	}
+}
+.mb-40{
+	padding-bottom: 40px;
+	@include breakpoint(max-lg){
+		margin-bottom: 30px;
+	}
+	@include breakpoint(max-md){
+		margin-bottom: 22px;
+	}
+}
+.mt-40{
+	margin-top: 40px;
+	@include breakpoint(max-lg){
+		margin-top: 30px;
+	}
+	@include breakpoint(max-md){
+		margin-top: 22px;
+	}
+}
+.mb-30{
+	margin-bottom: 30px;
+	@include breakpoint(max-lg){
+		margin-bottom: 22px;
+	}
+	@include breakpoint(max-md){
+		margin-bottom: 20px;
+	}
+}
+.mt-30{
+	margin-top: 30px;
+	@include breakpoint(max-lg){
+		margin-top: 22px;
+	}
+	@include breakpoint(max-md){
+		margin-top: 20px;
+	}
+}
+.mb-20{
+	margin-bottom: 20px;
+	@include breakpoint(max-lg){
+		margin-bottom: 15px;
+	}
+}
+.mt-20{
+	margin-top: 20px;
+	@include breakpoint(max-lg){
+		margin-top: 15px;
+	}
+}
+.mb-16{
+	margin-bottom: 16px;
+	@include breakpoint(max-lg){
+		margin-bottom: 10px;
+	}
+}
+.mt-16{
+	margin-top: 16px;
+	@include breakpoint(max-lg){
+		margin-top: 10px;
+	}
+}
+
+.w-30{
+	width: 30px;
+	height: 30px;
+	min-width: 30px;
+}
+.w-38{
+	width: 38px;
+	height: 38px;
+	min-width: 38px;
+}
+.w-40{
+	width: 40px;
+	height: 40px;
+	min-width: 40px;
+}
+.w-44{
+	width: 44px;
+	height: 44px;
+	min-width: 44px;
+}
+.w-48{
+	width: 48px;
+	height: 48px;
+	min-width: 48px;
+}
+.w-50{
+	width: 50px;
+	height: 50px;
+	min-width: 50px;
+}
+.w-55{
+	width: 55px;
+	height: 55px;
+	min-width: 55px;
+}
+.w-60{
+	width: 60px;
+	height: 60px;
+	min-width: 60px;
+}
+.w-70{
+	width: 70px;
+	height: 70px;
+	min-width: 70px;
+}
+.w-80{
+	width: 80px;
+	height: 80px;
+	min-width: 80px;
+}
+.w-90{
+	width: 90px;
+	height: 90px;
+	min-width: 90px;
+}
+.w-99{
+	width: 100px;
+	height: 100px;
+	min-width: 100px;
+}
+//>>>>> Basic Css End <<<<<//

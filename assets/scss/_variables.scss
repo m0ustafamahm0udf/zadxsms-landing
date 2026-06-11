@@ -1,0 +1,86 @@
+
+:root {
+    
+    --body: #F5F6F8;
+    --black: #000000;
+    --black2: #535353;
+    --white: #fff;
+    --p1-clr: #FB421F;
+    --p2-clr: #3E89FF;
+    --p3-clr: #FF90E7;
+    --p4-clr: #27DAB7;
+    --p5-clr: #FFDC26;
+    --blogbox: #EFEFEF;
+    --cmnbg: #F6F2EA;
+    --n100-clr: rgba(235, 243, 246, 1);
+    --n200-clr: rgba(221, 221, 221, 1);
+    --n700-clr: rgba(36, 36, 38, 1);
+    --n800-clr: #535353;
+    --n900-clr: #000000;
+    --theme: rgba(32, 109, 255, 1);
+    --pra: #535353;
+    --cmn-border: #E3E3E3;
+    --pra2: #DDD;
+    --text: #666666;
+    --cmnwhite: #CBCBCC;
+    --star: #FFA336;
+
+    --theme2: #70A6B1;
+    --header: #090A0B;
+    --text-2: #ffffffcc;
+    --border: #E5E5E5;
+    --border2: #242449;
+    --border3: #5262FF;
+    --bg: #F4EEE5;
+    --bg2: #EFF5F6;
+    --bg3: #70A6B1;
+    --bg4: #E0E4E9;
+    --bg5: #0E384C;
+    --bg6: #121212;
+    --box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.06);
+
+}
+
+// Theme Color - Defualt Colors
+$body: var(--body);
+$p1-clr: var(--p1-clr);
+$p2-clr: var(--p2-clr);
+$p3-clr: var(--p3-clr);
+$p4-clr: var(--p4-clr);
+$p5-clr: var(--p5-clr);
+$cmnbg: var(--cmnbg);
+$blogbox: var(--blogbox);
+$n100-clr: var(--n100-clr);
+$n200-clr: var(--n200-clr);
+$n700-clr: var(--n700-clr);
+$n800-clr: var(--n800-clr);
+$pra: var(--pra);
+$pra2: var(--pra2);
+$cmn-white: var(--cmnwhite);
+$star-clr: var(--star);
+
+$black: var(--black);
+$black2: var(--black2);
+$white: var(--white);
+$theme: var(--theme);
+$theme2: var(--theme2);
+$theme-color: var(--theme);
+$theme-color-2: var(--theme2);
+$text: var(--text);
+$text-color: var(--text);
+$text-color-2: var(--text-2);
+$header: var(--header);
+$header-color: var(--header);
+$border-color: var(--border);
+$border-color-2: var(--border2);
+$border-color-3: var(--border3);
+$bg-color: var(--bg);
+$bg-color-2: var(--bg2);
+$bg-color-3: var(--bg3);
+$bg-color-4: var(--bg4);
+$bg-color-5: var(--bg5);
+$bg-color-6: var(--bg6);
+$shadow: var(--box-shadow);
+
+
+

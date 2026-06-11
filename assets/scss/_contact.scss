@@ -1,0 +1,371 @@
+//Contact
+.getin-wrappper {
+	border: 1px solid $black;
+	gap: 38px;
+	&.style3 {
+		background: $cmnbg;
+		justify-content: space-between;
+		.thumb-getin {
+			max-width: 600px;
+		}
+		form {
+			input,
+			textarea {
+				background: $white;
+				border: unset;
+				font-size: 18px;
+			}
+			.nice-select {
+				background: $white;
+				border: unset !important;
+				.current {
+					font-size: 18px;
+				}
+			}
+		}
+		@include breakpoint(max-xl) {
+			.thumb-getin {
+				max-width: 500px;
+			}
+		}
+		@include breakpoint(max-md) {
+			.get-inform {
+				max-width: 100%;
+				width: 100%;
+				padding: 10px 10px 10px !important;
+			}
+			.thumb-getin {
+				max-width: 100%;
+			}
+		}
+	}
+	@include breakpoint(max-xxl) {
+		gap: 10px;
+	}
+	@include breakpoint(max-md) {
+		gap: 10px;
+		flex-wrap: wrap;
+
+		.thumb-getin {
+			width: 100%;
+		}
+	}
+}
+.get-inform {
+	width: 650px;
+	padding: 0 0 0 60px;
+	h3 {
+		font-size: 50px;
+		line-height: 60px;
+	}
+	input,
+	textarea,
+	.nice-select {
+		width: 100%;
+		outline: none;
+		border-top: 1px solid $black;
+		border-bottom: 3px solid $black;
+		border-left: 1px solid $black;
+		border-right: 1px solid $black;
+		border-radius: 100px;
+		background: $cmnbg;
+		font-size: 20px;
+		padding: 14px 22px;
+		color: $pra;
+		&::placeholder {
+			color: $pra;
+		}
+	}
+	textarea {
+		border-radius: 20px;
+	}
+	.nice-select {
+		outline: none;
+		border-top: 1px solid $black !important;
+		border-bottom: 3px solid $black !important;
+		border-left: 1px solid $black !important;
+		border-right: 1px solid $black !important;
+		.list {
+			width: 100%;
+			right: 0;
+			li {
+				background: $white;
+			}
+		}
+		.current {
+			color: $pra !important;
+			font-size: 20px;
+		}
+		&.open {
+			border-top: 1px solid $black;
+			border-bottom: 3px solid $black;
+			border-left: 1px solid $black;
+			border-right: 1px solid $black;
+		}
+		&::after {
+			right: 18px;
+			top: 20px;
+			margin-top: 0;
+		}
+		&:hover {
+			border-top: 1px solid $black;
+			border-bottom: 3px solid $black;
+			border-left: 1px solid $black;
+			border-right: 1px solid $black;
+		}
+	}
+	.common-btn {
+		&:hover {
+			background: $black !important;
+		}
+	}
+	&.style4 {
+		border-radius: 20px !important;
+		width: 100%;
+		padding: 40px 40px;
+		.nice-select,
+		textarea,
+		input {
+			border: 1px solid $white !important;
+			background: transparent;
+			font-size: 16px;
+			color: $white;
+			&::placeholder {
+				color: $white;
+			}
+		}
+		.nice-select {
+			.current {
+				font-size: 16px;
+				color: $white !important;
+			}
+			&::after {
+				border-color: $white;
+			}
+			.list {
+				li {
+					color: $black;
+				}
+			}
+		}
+		@include breakpoint(max-lg) {
+			padding: 24px 24px;
+		}
+	}
+
+	&.style6 {
+		input,
+		textarea,
+		.nice-select {
+			background: rgb(255, 255, 255, 0.1);
+			border: 1px solid rgb(255, 255, 255, 0.1) !important;
+		}
+	}
+
+	&.get-inform-black {
+		border: 2px solid $p5-clr;
+		textarea,
+		input {
+			border: 1px solid rgb(255, 255, 255, 0.35) !important;
+			font-size: 14px;
+		}
+	}
+	@include breakpoint(max-xl) {
+		padding: 16px 0 16px 30px;
+	}
+	@include breakpoint(max-md) {
+		padding: 20px 20px 30px 20px;
+	}
+	@include breakpoint(max-sm) {
+		h3 {
+			font-size: 34px;
+			line-height: 44px;
+		}
+	}
+}
+
+.contact-info-area {
+	.contact-info {
+		border-radius: 20px;
+		background: $white;
+		box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.07);
+		padding: 20px 36px;
+		.icon {
+			width: 70px;
+			height: 70px;
+			min-width: 70px;
+			background: $p2-clr;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			transition: all 0.4s;
+			justify-content: center;
+			i {
+				font-size: 24px;
+				transition: all 0.4s;
+				color: $white;
+			}
+		}
+		&:hover {
+			.icon {
+				background: $p1-clr;
+			}
+		}
+		@include breakpoint(max-xl) {
+			padding: 28px 24px;
+			.icon {
+				width: 50px;
+				height: 50px;
+				min-width: 50px;
+				i {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+//Contact
+
+//Map area
+.map-area {
+	iframe {
+		width: 100%;
+		height: 650px;
+		border-radius: 16px;
+	}
+	@include breakpoint(max-xxxl) {
+		iframe {
+			height: 500px;
+		}
+	}
+	@include breakpoint(max-xxxl) {
+		iframe {
+			height: 400px;
+		}
+	}
+}
+//Map area
+
+//Contact 04
+.contact-content4 {
+	border: 1px solid $black;
+	border-radius: 20px;
+	padding: 40px 36px;
+	.co-title {
+		border-bottom: 1px solid $black;
+	}
+	@include breakpoint(max-md) {
+		padding: 24px 24px;
+	}
+}
+
+.get-inform.get-inform-main {
+	border-bottom: 5px solid #e3e3e3 !important;
+	textarea,
+	input,
+	.nice-select {
+		border: 1px solid #e3e3e3 !important;
+		color: #6d6b6b !important;
+		&::placeholder {
+			color: #6d6b6b !important;
+		}
+		.current {
+			color: #6d6b6b !important;
+		}
+		&::after {
+			border-color: #6d6b6b;
+		}
+	}
+}
+
+//Cart Getinform
+.getin-wrappper-cart {
+	padding: 40px 80px;
+	input,
+	.nice-select {
+		border: 1px solid #e3e3e3 !important;
+		color: #6d6b6b !important;
+		padding: 16px 30px;
+		background: $cmnbg;
+		border-radius: 100px;
+		width: 100%;
+		&::placeholder {
+			color: #6d6b6b !important;
+		}
+		.current {
+			color: #6d6b6b !important;
+			font-size: 14px;
+		}
+		&::after {
+			right: 30px !important;
+			border-color: #6d6b6b;
+		}
+	}
+	.nice-select {
+		outline: none;
+		.list {
+			width: 100%;
+			right: 0;
+			li {
+				background: $white;
+			}
+		}
+		.current {
+			color: $pra !important;
+			font-size: 14px;
+		}
+		&.open {
+			border-top: 1px solid $black;
+			border-bottom: 3px solid $black;
+			border-left: 1px solid $black;
+			border-right: 1px solid $black;
+		}
+		&::after {
+			right: 18px;
+			top: 20px;
+			margin-top: 0;
+		}
+		&:hover {
+			border-top: 1px solid $black;
+			border-bottom: 3px solid $black;
+			border-left: 1px solid $black;
+			border-right: 1px solid $black;
+		}
+	}
+	@include breakpoint(max-xxl){
+		padding: 30px 20px;
+	}
+}
+
+//Billing Address 
+.billing-address-content{
+	.get-inform{
+		h3{
+			font-size: 27px;
+			margin-bottom: 0;
+			padding-bottom: 0;
+			line-height: 32px;
+		}
+		box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.07);
+		background: $white;
+		input,
+		textarea,
+		.nice-select{
+			border-color: $cmnbg !important;
+			color: $pra !important;
+			font-size: 14px;
+			&::placeholder{
+				color: $pra !important;
+			}
+			.current{
+				color: $pra !important;
+				font-size: 14px;
+				font-weight: 400;
+			}
+			&::after{
+				border-color: $pra !important;
+			}
+		}
+	}
+}
+//Billing Address 

@@ -1,0 +1,204 @@
+//>>>>> Component Button Here <<<<<//
+
+//Btn Theme
+.common-btn {
+	position: relative;
+	padding: 15px 29px;
+	line-height: 18px;
+	transition: all 0.5s;
+	i {
+		transition: all 0.5s;
+		z-index: 1;
+	}
+	&.arrow-white-adding {
+		img {
+			transition: all 0.4s;
+		}
+		&:hover {
+			border-color: $p1-clr;
+			img {
+				filter: brightness(0);
+			}
+		}
+	}
+	&:hover {
+		color: $n700-clr;
+	}
+	@include breakpoint(max-xxl) {
+		padding: 14px 24px;
+	}
+}
+
+//Custom ANis
+@keyframes storm {
+	0% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
+	25% {
+		transform: translate3d(4px, 0, 0) translateZ(0);
+	}
+	50% {
+		transform: translate3d(-3px, 0, 0) translateZ(0);
+	}
+	75% {
+		transform: translate3d(2px, 0, 0) translateZ(0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0) translateZ(0);
+	}
+}
+.box-style {
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+	text-align: center;
+	&::before {
+		content: "";
+		position: absolute;
+		top: var(--y);
+		left: var(--x);
+		transform: translate(-50%, -50%);
+		width: 0;
+		height: 0;
+		border-radius: 100%;
+		background-color: $p1-clr;
+		transition: all 0.7s ease;
+		z-index: -1;
+	}
+	&.p1-hover{
+		&::before{
+			background: $p2-clr;
+		}
+		&:hover{
+			color: $white !important;
+		}
+	}
+	&.btn1{
+		&::before{
+			background: $black;
+		}
+	}
+	&.btn2 {
+		&::before {
+			background: $p2-clr;
+		}
+	}
+	&.btn3 {
+		&::before {
+			background: $p3-clr;
+		}
+	}
+	&.btn4 {
+		&::before {
+			background: $p4-clr;
+		}
+	}
+	&.btn5 {
+		&::before {
+			background: $p5-clr;
+		}
+		&:hover {
+			color: $black !important;
+			i {
+				color: $black !important;
+			}
+		}
+	}
+	&.btn6 {
+		&::before {
+			background: $black;
+		}
+		&:hover {
+			color: $black !important;
+			i {
+				color: $black !important;
+			}
+		}
+	}
+	&:hover {
+		&::before {
+			width: 400%;
+			height: 400%;
+		}
+		color: $white !important;
+		i {
+			color: $white !important;
+		}
+	}
+}
+.box-style.first-box {
+	&::before {
+		background-color: $p2-clr;
+	}
+	&:hover {
+		img {
+			filter: brightness(25);
+		}
+		&::before {
+			border-color: $p2-clr !important;
+		}
+		border-color: $p2-clr !important;
+		i {
+			color: $n700-clr;
+		}
+		color: #fff;
+		span {
+			color: #fff;
+		}
+	}
+}
+
+//cmn tag
+.cmn-tag {
+	font-size: 14px;
+	color: $n700-clr;
+	font-weight: 700;
+	padding: 6px 15px;
+	border-radius: 100px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+.read-more {
+	font-size: 16px;
+	font-weight: 600;
+	color: $black;
+	gap: 14px;
+	border-bottom: 1px solid #ccc;
+	i {
+		transition: all 0.4s;
+	}
+	svg {
+		transition: all 0.4s;
+		path {
+			transition: all 0.4s;
+		}
+	}
+	&:hover {
+		color: $p2-clr;
+		i {
+			padding-left: 10px;
+		}
+		svg {
+			margin-left: 5px;
+			path {
+				fill: var(--p2-clr);
+			}
+		}
+	}
+}
+
+.read-more-btn{
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	transition: all 0.4s;
+	&:hover{
+		color: $p1-clr !important;
+		i{
+			color: $p1-clr;
+			padding-left: 8px;
+		}
+	}
+}
+//>>>>> Component Button End <<<<<//
