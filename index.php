@@ -1,3 +1,84 @@
+<?php
+/**
+ * ZADX SMS landing — server-side render.
+ * Plans are fetched here on the SERVER with the shared X-Landing-Key, so the
+ * secret never reaches the browser (see backend/docs/landing-plans-api.md).
+ *   Serve with:  php -S localhost:5500 -t "/Users/m/Desktop/zadx sms landing"
+ */
+$endpoint = getenv('ZADX_LANDING_ENDPOINT') ?: 'http://localhost:8000/api/landing/plans';
+$key = getenv('ZADX_LANDING_KEY') ?: '';
+if ($key === '') {
+    // Fall back to the backend .env so the key stays in sync in local dev.
+    $env = @file_get_contents('/Users/m/Desktop/zadx sms/backend/.env');
+    if ($env && preg_match('/^ZADX_LANDING_KEY=(.*)$/m', $env, $m)) {
+        $key = trim($m[1]);
+    }
+}
+
+$plans = [];
+if ($key !== '') {
+    $ch = curl_init($endpoint);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_HTTPHEADER     => ['X-Landing-Key: ' . $key, 'Accept: application/json'],
+    ]);
+    $body   = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    if ($status === 200) {
+        $plans = json_decode($body, true)['data'] ?? [];
+    }
+}
+
+// Bucket plans by validity window to match the pricing tabs.
+$buckets = ['month' => [], 'quarter' => [], 'halfyear' => []];
+foreach ($plans as $p) {
+    $d = (int) ($p['duration_days'] ?? 0);
+    if ($d <= 30)     { $buckets['month'][]    = $p; }
+    elseif ($d <= 90) { $buckets['quarter'][]  = $p; }
+    else              { $buckets['halfyear'][] = $p; }
+}
+
+$renderCard = function (array $p): string {
+    $name     = htmlspecialchars($p['name'] ?? '');
+    $price    = htmlspecialchars($p['price_formatted'] ?? '');
+    $quotaInt = (int) ($p['sms_quota'] ?? 0);
+    $quota    = number_format($quotaInt);
+    $days     = (int) ($p['duration_days'] ?? 0);
+    $cents    = (int) ($p['price_cents'] ?? 0);
+    $currency = htmlspecialchars($p['currency'] ?? 'EGP');
+    // Effective per-message rate, e.g. "0.70 EGP / SMS" (free plans excepted).
+    $rate = ($cents > 0 && $quotaInt > 0)
+        ? number_format(($cents / 100) / $quotaInt, 2) . ' ' . $currency . ' / SMS'
+        : 'Free to try';
+    ob_start(); ?>
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
+                                    <h3 class="black-clr mb-lg-3 mb-2 text-center"><?= $name ?></h3>
+                                    <h2 class="text-center mb-4"><?= $price ?> <span>/ <?= $days ?> days</span></h2>
+                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
+                                        <li class="d-flex align-items-center gap-2">
+                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $quota ?> SMS included
+                                        </li>
+                                        <li class="d-flex align-items-center gap-2">
+                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $days ?>-day validity
+                                        </li>
+                                        <li class="d-flex align-items-center gap-2">
+                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $rate ?>
+                                        </li>
+                                    </ul>
+                                    <a href="#0"
+                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
+                                        Get Started
+                                        <i class="fa-solid fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+<?php
+    return ob_get_clean();
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!--<< Header Area >>-->
@@ -387,7 +468,7 @@
                                         Partner</span>
                                 </div>
                                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay=".6s">
-                                    <span class="stext">ZADX SMS</span> sends OTP &amp; SMS under your own sender ID
+                                    <span class="stext">ZADX SMS</span> &mdash; OTP &amp; SMS delivery as a service
                                 </h1>
                                 <div class="text-center wow fadeInUp" data-wow-delay=".7s">
                                     <a href="about.html"
@@ -424,24 +505,21 @@
                     </div>
                    
                 </div>
-                <div class="team-wrapper swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                <div class="modes-grid">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
                             <div class="worke-items white-bg">
                                 <div class="step-area d-flex align-items-center mb-4 pb-1">
-                                    <span class="d-block fw-semibold fs-seven texts">
-                                        Mode
-                                    </span>
                                     <span class="serial">01</span>
                                 </div>
                                 <h3 class="mb-lg-4 mb-3">
                                     <a href="#0" class="black-clr">OTP</a>
                                 </h3>
                                 <p class="pra fs-eight mb-xl-4 pb-2 mb-3">
-                                    Send one-time passwords for login, signup, and verification. A drop-in
-                                    <code>/otp/send</code> endpoint with your own template and sender ID.
+                                    Send one-time passwords for login, signup, and verification &mdash; with your
+                                    own message template and sender ID.
                                 </p>
-                                <a href="project-details.html" class="rarrow d-center white-bg rounded-5 py-3">
+                                <a href="#0" class="rarrow d-center white-bg rounded-5 py-3">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -451,12 +529,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                        <div class="col-md-6 col-lg-4">
                             <div class="worke-items white-bg">
                                 <div class="step-area d-flex align-items-center mb-4 pb-1">
-                                    <span class="d-block fw-semibold fs-seven texts">
-                                        Step
-                                    </span>
                                     <span class="serial">02</span>
                                 </div>
                                 <h3 class="mb-lg-4 mb-3">
@@ -464,9 +539,9 @@
                                 </h3>
                                 <p class="pra fs-eight mb-xl-4 pb-2 mb-3">
                                     Plain transactional or marketing messages &mdash; order updates, alerts, and
-                                    promos &mdash; up to 160 characters via <code>/sms/send</code>.
+                                    promos &mdash; up to 160 characters per message.
                                 </p>
-                                <a href="project-details.html" class="rarrow d-center white-bg rounded-5 py-3">
+                                <a href="#0" class="rarrow d-center white-bg rounded-5 py-3">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -476,12 +551,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
+                        <div class="col-md-6 col-lg-4">
                             <div class="worke-items white-bg">
                                 <div class="step-area d-flex align-items-center mb-4 pb-1">
-                                    <span class="d-block fw-semibold fs-seven texts">
-                                        Step
-                                    </span>
                                     <span class="serial">03</span>
                                 </div>
                                 <h3 class="mb-lg-4 mb-3">
@@ -491,7 +563,7 @@
                                     Use one app for everything &mdash; OTP and SMS share the same keys, sender IDs,
                                     and quota. Mix and match as you grow.
                                 </p>
-                                <a href="project-details.html" class="rarrow d-center white-bg rounded-5 py-3">
+                                <a href="#0" class="rarrow d-center white-bg rounded-5 py-3">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -685,290 +757,49 @@
                     class="d-flex gap-3 flex-sm-nowrap flex-wrap align-items-end justify-content-sm-between justify-content-center mb-50">
                     <h2 class="wow fadeInUp text-center text-sm-start text-center black visible-slowly-right"
                         data-wow-delay=".3s">
-                        Our Oricing Plane
+                        Our Pricing Plans
                     </h2>
                     <ul class="nav pricing-tabbing nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                                type="button" role="tab" aria-controls="home" aria-selected="true">Daily</button>
+                            <button class="nav-link active" id="month-tab" data-bs-toggle="tab" data-bs-target="#month"
+                                type="button" role="tab" aria-controls="month" aria-selected="true">Month</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                                type="button" role="tab" aria-controls="profile" aria-selected="false">Monthy</button>
+                            <button class="nav-link" id="quarter-tab" data-bs-toggle="tab" data-bs-target="#quarter"
+                                type="button" role="tab" aria-controls="quarter" aria-selected="false">3 Months</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="halfyear-tab" data-bs-toggle="tab" data-bs-target="#halfyear"
+                                type="button" role="tab" aria-controls="halfyear" aria-selected="false">6 Months</button>
                         </li>
                     </ul>
                 </div>
+                <?php if (empty($plans)): ?>
+                <p class="text-center pra fs-eight">Plans are temporarily unavailable. Please check back shortly.</p>
+                <?php else: ?>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="month" role="tabpanel" aria-labelledby="month-tab">
                         <div class="row g-4">
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        EnterPrise Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $19 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Normal Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $39 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Basic Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $29 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Hard Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $52 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
+<?php foreach ($buckets['month'] as $p) { echo $renderCard($p); } ?>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="quarter" role="tabpanel" aria-labelledby="quarter-tab">
                         <div class="row g-4">
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 premium-items rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Basic Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $29 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Hard Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $52 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        EnterPrise Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $19 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center">
-                                        Normal Plan
-                                    </h3>
-                                    <h2 class="text-center mb-4">
-                                        $39 <span>/mo</span>
-                                    </h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Winning for Your Startup
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Mistakes To Avoid
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> Your Event, Your Memories
-                                        </li>
-                                    </ul>
-                                    <a href="#0"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Started Now
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
+<?php foreach ($buckets['quarter'] as $p) { echo $renderCard($p); } ?>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="halfyear" role="tabpanel" aria-labelledby="halfyear-tab">
+                        <div class="row g-4">
+<?php foreach ($buckets['halfyear'] as $p) { echo $renderCard($p); } ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </section>
 
         <!-- Sponsor Section Start -->
-        <section class="sponsor-section fix section-padding">
+        <section class="sponsor-section fix section-padding" style="padding-bottom: 40px;">
             <div class="swiper sponsor-wrapper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -1061,7 +892,7 @@
         </section> -->
 
         <!-- Faq Section Start -->
-        <section class="faq-section fix space-top">
+        <section class="faq-section fix" style="padding-top: 40px;">
             <div class="container">
                 <h2 class="wow fadeInUp text-center black visible-slowly-right mb-50" data-wow-delay=".3s">
                     Frequently Asked Questions
