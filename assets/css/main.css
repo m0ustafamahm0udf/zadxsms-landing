@@ -9339,3 +9339,40 @@ input.main-search-input::placeholder {
     margin-top: -60px;
   }
 }/*# sourceMappingURL=main.css.map */
+/* ===== Uniform spacing between sections (hero/banner excluded) ===== */
+.worke-section,
+.about-exchange,
+.tv-section,
+.process-section,
+.pricing-section,
+.sponsor-section,
+.faq-section,
+.blog-section {
+  padding-top: 120px !important;
+  padding-bottom: 0 !important;
+}
+@media (max-width: 1199px) {
+  .worke-section,
+  .about-exchange,
+  .tv-section,
+  .process-section,
+  .pricing-section,
+  .sponsor-section,
+  .faq-section,
+  .blog-section { padding-top: 100px !important; }
+}
+@media (max-width: 991px) {
+  .worke-section,
+  .about-exchange,
+  .tv-section,
+  .process-section,
+  .pricing-section,
+  .sponsor-section,
+  .faq-section,
+  .blog-section { padding-top: 80px !important; }
+}
+
+/* Last content section keeps a bottom gap before the footer */
+.blog-section { padding-bottom: 120px !important; }
+@media (max-width: 1199px) { .blog-section { padding-bottom: 100px !important; } }
+@media (max-width: 991px)  { .blog-section { padding-bottom: 80px !important; } }

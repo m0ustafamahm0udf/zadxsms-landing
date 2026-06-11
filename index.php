@@ -799,7 +799,7 @@ $renderCard = function (array $p): string {
         </section>
 
         <!-- Sponsor Section Start -->
-        <section class="sponsor-section fix section-padding" style="padding-bottom: 40px;">
+        <section class="sponsor-section fix section-padding">
             <div class="swiper sponsor-wrapper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -892,7 +892,7 @@ $renderCard = function (array $p): string {
         </section> -->
 
         <!-- Faq Section Start -->
-        <section class="faq-section fix" style="padding-top: 40px;">
+        <section class="faq-section fix">
             <div class="container">
                 <h2 class="wow fadeInUp text-center black visible-slowly-right mb-50" data-wow-delay=".3s">
                     Frequently Asked Questions
