@@ -256,7 +256,7 @@ $renderCard = function (array $p): string {
                     <div class="header-main">
                         <div class="header-left">
                             <div class="logo">
-                                <a href="index.html" class="header-logo">
+                                <a href="#hero" class="header-logo">
                                     <img src="assets/img/logo/logo-dark.png" alt="logo-img">
                                 </a>
                             </div>
@@ -266,154 +266,13 @@ $renderCard = function (array $p): string {
                                 <div class="main-menu">
                                     <nav id="mobile-menu">
                                         <ul>
-                                            <li class="has-dropdown active menu-thumb">
-                                                <a href="index.html">
-                                                    Home
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu has-homemenu">
-                                                    <li>
-                                                        <div class="homemenu-items">
-                                                            <div class="homemenu">
-                                                                <a href="index.html" class="homemenu-thumb">
-                                                                    <img src="assets/img/banner/home1.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 01</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <a href="index-2.html" class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/banner/home2.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 02</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <a href="index-3.html" class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/banner/home3.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 03</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <a href="index-4.html" class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/banner/home4.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 04</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <a href="index-5.html" class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/banner/home5.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 05</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <a href="index-6.html" class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/banner/home6.jpg" alt="img">
-                                                                    <span class="demo-button">
-                                                                        <span
-                                                                            class="theme-btn p1-bg box-style first-box">
-                                                                            <span class="black">Home 06</span>
-                                                                        </span>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="about.html">About Us</a>
-                                            </li>
-                                            <li>
-                                                <a href="service.html">
-                                                    Services
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="service.html">Services</a></li>
-                                                    <li><a href="service-details.html">Services Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="project.html">
-                                                    Projects
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="project.html">Project</a></li>
-                                                    <li><a href="project-details.html">Project Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="blog.html">
-                                                    Blog
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="has-dropdown">
-                                                <a href="#0">
-                                                    Pages
-                                                    <i class="fas fa-angle-down"></i>
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="about.html">About Us</a></li>
-                                                    <li class="has-dropdown">
-                                                        <a href="team.html">
-                                                            Team
-                                                            <i class="fas fa-angle-down"></i>
-                                                        </a>
-                                                        <ul class="submenu">
-                                                            <li><a href="team.html">Team</a></li>
-                                                            <li><a href="team-details.html">Team Details</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="has-dropdown">
-                                                        <a href="shop.html">
-                                                            Shop
-                                                            <i class="fas fa-angle-down"></i>
-                                                        </a>
-                                                        <ul class="submenu">
-                                                            <li><a href="shop.html">Shop</a></li>
-                                                            <li><a href="cart.html">Cart</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                            <li><a href="shop-details.html">Shop Details</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="faqs.html">Faqs</a></li>
-                                                    <li><a href="error.html">404</a></li>
-                                                    <li><a href="comming-soon.html">Coming Soon</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a href="contact.html">Contact</a>
-                                            </li>
+                                            <li><a href="#hero">Home</a></li>
+                                            <li><a href="#modes">Modes</a></li>
+                                            <li><a href="#why">Why ZADX</a></li>
+                                            <li><a href="#how">How It Works</a></li>
+                                            <li><a href="#pricing">Pricing</a></li>
+                                            <li><a href="#faq">FAQ</a></li>
+                                            <li><a href="#contact">Contact</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -440,7 +299,7 @@ $renderCard = function (array $p): string {
         </header>
 
         <!-- Banner Section Start -->
-        <section class="banner-section white-bg fix">
+        <section id="hero" class="banner-section white-bg fix">
             <div class="rounded-top-4 cmn-bg z-1 pt-80 position-relative" style="padding-top: 180px !important;">
                 <div class="container">
                     <div class="row justify-content-center pb-40" style="padding-bottom: 120px !important;">
@@ -489,7 +348,7 @@ $renderCard = function (array $p): string {
         </section>
 
         <!-- work Section Start -->
-        <section class="worke-section space-top">
+        <section id="modes" class="worke-section space-top">
             <div class="container">
                 <div
                     class="d-flex gap-3 flex-sm-nowrap flex-wrap align-items-end justify-content-sm-between justify-content-center mb-50">
@@ -579,7 +438,7 @@ $renderCard = function (array $p): string {
         </section>
 
         <!-- About Exchange -->
-        <section class="about-exchange space-top fix">
+        <section id="why" class="about-exchange space-top fix">
             <div class="container">
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6 col-md-6">
@@ -670,7 +529,7 @@ $renderCard = function (array $p): string {
 
 
         <!-- Process Section Start -->
-        <section class="process-section fix section-padding">
+        <section id="how" class="process-section fix section-padding">
             <div class="container">
                 <h2 class="wow fadeInUp text-center mb-50 black-clr visible-slowly-right" data-wow-delay=".3s">
                     Up and running in three simple steps
@@ -751,7 +610,7 @@ $renderCard = function (array $p): string {
         </section>
 
         <!-- Pricing Section Start -->
-        <section class="pricing-section">
+        <section id="pricing" class="pricing-section">
             <div class="container">
                 <div
                     class="d-flex gap-3 flex-sm-nowrap flex-wrap align-items-end justify-content-sm-between justify-content-center mb-50">
@@ -892,7 +751,7 @@ $renderCard = function (array $p): string {
         </section> -->
 
         <!-- Faq Section Start -->
-        <section class="faq-section fix">
+        <section id="faq" class="faq-section fix">
             <div class="container">
                 <h2 class="wow fadeInUp text-center black visible-slowly-right mb-50" data-wow-delay=".3s">
                     Frequently Asked Questions
@@ -1140,7 +999,7 @@ $renderCard = function (array $p): string {
         </section>
 
         <!--<< Footer Section Start >>-->
-        <footer class="footer-section style1 z-1 position-relative fix">
+        <footer id="contact" class="footer-section style1 z-1 position-relative fix">
             <div class="container">
                 <div class="common-wrapper z-1 position-relative white-bg rounded-4 mb-60 pt-80 px-xxl-5 px-4">
                     <div class="footer-widgets-wrapper pb-80 mb-1">

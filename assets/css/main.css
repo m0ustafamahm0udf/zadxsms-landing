@@ -9376,3 +9376,7 @@ input.main-search-input::placeholder {
 .blog-section { padding-bottom: 120px !important; }
 @media (max-width: 1199px) { .blog-section { padding-bottom: 100px !important; } }
 @media (max-width: 991px)  { .blog-section { padding-bottom: 80px !important; } }
+
+/* ===== Single-page nav: smooth scroll + sticky-header offset ===== */
+html { scroll-behavior: smooth; }
+#hero, #modes, #why, #how, #pricing, #faq, #contact { scroll-margin-top: 110px; }
