@@ -220,6 +220,7 @@ $renderCard = function (array $p): string {
                             <div class="social-icon d-flex align-items-center">
                                 <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                         <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
@@ -956,20 +957,15 @@ $renderCard = function (array $p): string {
                                             design Info Technology is a broad field the main
                                             man
                                         </p>
-                                        <form action="#"
-                                            class="form-cmn-style white-bg style1 cmn-border rounded-5 mb-30">
-                                            <input type="text" placeholder="Enter you E-mail">
-                                            <button type="button"
-                                                class="common-btn white-clr text-nowrap box-style first-box d-inline-flex justify-content-center align-items-center fs-seven gap-xxl-2 gap-2 fs-seven overflow-hidden p1-bg rounded-5">
-                                                Sign up
-                                            </button>
-                                        </form>
                                         <div class="social-wrapper d-flex flex-wrap align-items-center gap-xxl-3 gap-2">
                                             <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Facebook">
                                                 <i class="fab fa-facebook-f"></i>
                                             </a>
                                             <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Instagram">
                                                 <i class="fa-brands fa-instagram"></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="LinkedIn">
+                                                <i class="fab fa-linkedin-in"></i>
                                             </a>
                                         </div>
                                     </div>
