@@ -34,6 +34,49 @@ CSS TABLE OF CONTENTS
 			meanExpand: ['<i class="far fa-plus"></i>'],
 		});
 
+		// Smooth-scroll same-page header links without the browser's hash jump.
+		$(document).on(
+			"click",
+			"#header-sticky a[href^='#'], .mean-nav a[href^='#']",
+			function (e) {
+				const hash = this.hash;
+
+				if (!hash || hash === "#0" || hash === "#") {
+					return;
+				}
+
+				const target = document.querySelector(hash);
+
+				if (!target) {
+					return;
+				}
+
+				e.preventDefault();
+
+				const prefersReducedMotion = window.matchMedia(
+					"(prefers-reduced-motion: reduce)"
+				).matches;
+				const scrollMarginTop =
+					parseFloat(window.getComputedStyle(target).scrollMarginTop) ||
+					($("#header-sticky").outerHeight() || 0) + 16;
+				const scrollTop = Math.max(
+					target.getBoundingClientRect().top +
+						window.pageYOffset -
+						scrollMarginTop,
+					0
+				);
+
+				window.scrollTo({
+					top: scrollTop,
+					behavior: prefersReducedMotion ? "auto" : "smooth",
+				});
+
+				if (window.history && window.history.pushState) {
+					window.history.pushState(null, "", hash);
+				}
+			}
+		);
+
 		//>> Sidebar Toggle Js Start <<//
 		$(".offcanvas__close,.offcanvas__overlay").on("click", function () {
 			$(".offcanvas__info").removeClass("info-open");
