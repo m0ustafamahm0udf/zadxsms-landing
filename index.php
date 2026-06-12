@@ -222,7 +222,7 @@ $renderCard = function (array $p): string {
                                         <i class="fas fa-phone-alt"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="tel:+11002345909" class="d-block">0012 345 678 9101</a>
+                                        <a href="tel:+201092719790" class="d-block">01092719790</a>
                                     </div>
                                 </li>
                             </ul>
@@ -235,7 +235,7 @@ $renderCard = function (array $p): string {
                             </div>
                             <div class="social-icon d-flex align-items-center">
                                 <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://wa.me/201092719790" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                                 <a href="#"><i class="fab fa-youtube"></i></a>
                                 <a href="#"><i class="fab fa-linkedin-in"></i></a>
                             </div>
@@ -286,12 +286,12 @@ $renderCard = function (array $p): string {
                                 </div>
                             </div>
                         </div>
-                        <a href="#0"
+                        <a href="tel:+201092719790"
                             class="blackbg call-version1 d-sm-flex d-none align-items-center gap-2 rounded-5 py-2 ps-2 pe-xxl-4 pe-4">
                             <div class="icon d-center p1-bg rounded-circle">
                                 <i class="fas fa-phone-alt white-clr"></i>
                             </div>
-                            <span class="fs-seven fw-normal white-clr">(505) 555-0125</span>
+                            <span class="fs-seven fw-normal white-clr">01092719790</span>
                         </a>
                     </div>
                 </div>
@@ -1040,8 +1040,8 @@ $renderCard = function (array $p): string {
                                             <a href="#" class="rounded-circle cmn-bg">
                                                 <i class="fa-brands fa-linkedin-in"></i>
                                             </a>
-                                            <a href="#" class="rounded-circle cmn-bg">
-                                                <i class="fa-brands fa-pinterest-p"></i>
+                                            <a href="https://wa.me/201092719790" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="WhatsApp">
+                                                <i class="fa-brands fa-whatsapp"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -1068,11 +1068,11 @@ $renderCard = function (array $p): string {
                                             <div class="icon d-center cmn-bg w-40 rounded-circle">
                                                 <i class="fa-solid fa-phone black-clr"></i>
                                             </div>
-                                            <a href="#0" class="d-block fs-seven black-clr fw-500">
+                                            <a href="tel:+201092719790" class="d-block fs-seven black-clr fw-500">
                                                 <span class="fs-eight pra d-block">
                                                     Phone Number
                                                 </span>
-                                                012 345 678 9101
+                                                01092719790
                                             </a>
                                         </li>
                                         <li class="d-flex align-items-center gap-xl-3 gap-2">
