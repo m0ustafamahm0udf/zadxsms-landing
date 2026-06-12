@@ -88,10 +88,10 @@ $renderCard = function (array $p): string {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="authorName">
-    <meta name="description" content="Techify - Technology Tt Solutions HTML Template">
+    <meta name="author" content="ZADX Software Solutions">
+    <meta name="description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
     <!-- ======== Page title ============ -->
-    <title>Techify - Technology Tt Solutions HTML Template</title>
+    <title>ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions</title>
     <!--<< Favcion >>-->
     <link rel="shortcut icon" href="assets/img/logo/favs.png">
     <!--<< Bootstrap min.css >>-->
@@ -179,7 +179,7 @@ $renderCard = function (array $p): string {
                         <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
                                 <a href="index.html">
-                                    <img src="assets/img/logo/logo-dark.png" alt="logo-img">
+                                    <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                                 </a>
                             </div>
                             <div class="offcanvas__close">
@@ -193,20 +193,12 @@ $renderCard = function (array $p): string {
                             <h4>Contact Info</h4>
                             <ul class="d-grid gap-2">
                                 <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a target="_blank" href="#">66 Broklyant,New India</a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
                                     <div class="offcanvas__contact-icon mr-15">
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="mailto:info@example.com"><span
-                                                class="mailto:info@example.com">info@example.com</span></a>
+                                        <a href="mailto:hello@zadx.net"><span
+                                                class="mailto:hello@zadx.net">hello@zadx.net</span></a>
                                     </div>
                                 </li>
                                 <li class="d-flex align-items-center">
@@ -234,10 +226,8 @@ $renderCard = function (array $p): string {
                                 </a>
                             </div>
                             <div class="social-icon d-flex align-items-center">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://wa.me/201092719790" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                         <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
@@ -257,7 +247,7 @@ $renderCard = function (array $p): string {
                         <div class="header-left">
                             <div class="logo">
                                 <a href="#hero" class="header-logo">
-                                    <img src="assets/img/logo/logo-dark.png" alt="logo-img">
+                                    <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                                 </a>
                             </div>
                         </div>
@@ -309,28 +299,31 @@ $renderCard = function (array $p): string {
                                     data-wow-delay=".5s">
                                     <div class="partner-inner">
                                         <div class="partner-icon">
-                                            <img src="assets/img/banner/partner1.png" alt="img">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-01.jpg" alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon">
-                                            <img src="assets/img/banner/partner2.png" alt="img">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-02.jpg" alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon">
-                                            <img src="assets/img/banner/partner3.png" alt="img">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-03.jpg" alt="ZADX SMS customer">
+                                        </div>
+                                        <div class="partner-icon">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-04.jpg" alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon d-center white-bg">
                                             <span class="fs-eight black-clr fw-500">
-                                                12k+
+                                                +10
                                             </span>
                                         </div>
                                     </div>
-                                    <span class="fs-seven fw-500 black-clr wow fadeInUp" data-wow-delay=".6s">Tusted
-                                        Partner</span>
+                                    <span class="fs-seven fw-500 black-clr wow fadeInUp" data-wow-delay=".6s">Trusted
+                                        Customers</span>
                                 </div>
                                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay=".6s">
                                     <span class="stext">ZADX SMS</span> &mdash; OTP &amp; SMS delivery as a service
                                 </h1>
                                 <div class="text-center wow fadeInUp" data-wow-delay=".7s">
-                                    <a href="about.html"
+                                    <a href="#pricing"
                                         class="common-btn box-style btn2 blackbg d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-500 white-clr py-3 overflow-hidden rounded100">
                                         Get Started
                                         <i class="fa-solid fa-arrow-right-long"></i>
@@ -1008,7 +1001,7 @@ $renderCard = function (array $p): string {
                                 <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                     <div class="widget-head">
                                         <a href="index.html">
-                                            <img src="assets/img/logo/logo-dark.png" alt="logo-img">
+                                            <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                                         </a>
                                     </div>
                                     <div class="footer-content">
@@ -1026,22 +1019,11 @@ $renderCard = function (array $p): string {
                                             </button>
                                         </form>
                                         <div class="social-wrapper d-flex flex-wrap align-items-center gap-xxl-3 gap-2">
-                                            <a href="#" class="rounded-circle cmn-bg">
+                                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Facebook">
                                                 <i class="fab fa-facebook-f"></i>
                                             </a>
-                                            <a href="#" class="rounded-circle cmn-bg">
-                                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M10.3881 7.49266L16.3338 0.825195H14.9249L9.76215 6.61446L5.63871 0.825195H0.882812L7.11826 9.57959L0.882812 16.5715H2.29185L7.7438 10.4578L12.0985 16.5715H16.8544L10.3877 7.49266H10.3881ZM8.45818 9.65672L7.8264 8.78498L2.79954 1.84844H4.96374L9.02047 7.44645L9.65225 8.31819L14.9255 15.5947H12.7613L8.45818 9.65705V9.65672Z"
-                                                        fill="black" />
-                                                </svg>
-                                            </a>
-                                            <a href="#" class="rounded-circle cmn-bg">
-                                                <i class="fa-brands fa-linkedin-in"></i>
-                                            </a>
-                                            <a href="https://wa.me/201092719790" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="WhatsApp">
-                                                <i class="fa-brands fa-whatsapp"></i>
+                                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Instagram">
+                                                <i class="fa-brands fa-instagram"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -1053,17 +1035,6 @@ $renderCard = function (array $p): string {
                                         <h3 class="black-clr fw-500">Contact</h3>
                                     </div>
                                     <ul class="list-area d-grid gap-md-4 gap-3">
-                                        <li class="d-flex align-items-center gap-xl-3 gap-2">
-                                            <div class="icon d-center cmn-bg w-40 rounded-circle">
-                                                <i class="fa-solid fa-location-dot black-clr"></i>
-                                            </div>
-                                            <a href="#0" class="d-block fs-seven black-clr fw-500">
-                                                <span class="fs-eight pra d-block">
-                                                    Address
-                                                </span>
-                                                66 Broklyant,New India
-                                            </a>
-                                        </li>
                                         <li class="d-flex align-items-center gap-xl-3 gap-2">
                                             <div class="icon d-center cmn-bg w-40 rounded-circle">
                                                 <i class="fa-solid fa-phone black-clr"></i>
@@ -1079,11 +1050,11 @@ $renderCard = function (array $p): string {
                                             <div class="icon d-center cmn-bg w-40 rounded-circle">
                                                 <i class="fa-solid fa-envelope black-clr"></i>
                                             </div>
-                                            <a href="#0" class="d-block fs-seven black-clr fw-500">
+                                            <a href="mailto:hello@zadx.net" class="d-block fs-seven black-clr fw-500">
                                                 <span class="fs-eight pra d-block">
                                                     Email
                                                 </span>
-                                                abcd@gmail.com
+                                                hello@zadx.net
                                             </a>
                                         </li>
                                     </ul>
@@ -1097,61 +1068,54 @@ $renderCard = function (array $p): string {
                                     <div class="d-flex flex-row gap-xxl-5 gap-xl-4 gap-4">
                                         <ul class="list-linkes d-flex flex-column gap-3">
                                             <li>
-                                                <a href="about.html"
+                                                <a href="#hero"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    About us
+                                                    Home
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact.html"
+                                                <a href="#modes"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Testimonial
+                                                    Modes
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="service.html"
+                                                <a href="#why"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Services
+                                                    Why ZADX
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="blog.html"
+                                                <a href="#how"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Blog
+                                                    How It Works
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="contact.html"
+                                                <a href="#pricing"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Contact Us
+                                                    Pricing
                                                 </a>
                                             </li>
                                         </ul>
                                         <ul class="list-linkes d-flex flex-column gap-3">
                                             <li>
-                                                <a href="team.html"
+                                                <a href="#faq"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Team
+                                                    FAQ
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="service.html"
+                                                <a href="#contact"
                                                     class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Feature
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="faqs.html"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
-                                                    <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Faq
+                                                    Contact
                                                 </a>
                                             </li>
                                         </ul>
@@ -1163,7 +1127,7 @@ $renderCard = function (array $p): string {
                     <div
                         class="footer-bottom py-4 cmn-border-top d-flex flex-sm-nowrap flex-wrap align-items-center justify-content-sm-between justify-content-center gap-sm-0 gap-2">
                         <p class="body-font fs-eight pra text-center">
-                            &copy; <a href="index.html" class="p1-clr">Techify</a> 2024 | All Rights Reserved
+                            &copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
                         </p>
                         <ul
                             class="condition d-flex flex-sm-nowrap flex-wrap justify-content-sm-start justify-content-center align-items-center gap-xxl-4 gap-xl-3 gap-sm-2 gap-1">

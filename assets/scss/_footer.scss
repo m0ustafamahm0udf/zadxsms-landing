@@ -336,6 +336,13 @@
 	.single-footer-widget {
 		.widget-head {
 			margin-bottom: 26px;
+
+			img {
+				width: 180px;
+				max-width: 100%;
+				height: auto;
+				object-fit: contain;
+			}
 		}
 		.list-area {
 			li {

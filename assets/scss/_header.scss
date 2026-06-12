@@ -368,6 +368,7 @@
 				display: block;
 				img {
 					width: 100%;
+					height: auto;
 					object-fit: contain;
 				}
 			}
@@ -630,6 +631,16 @@
 		left: 0;
 		z-index: 999;
 		width: 100%;
+	}
+}
+
+.offcanvas__logo {
+	max-width: 180px;
+
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
 	}
 }
 

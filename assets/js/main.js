@@ -1093,6 +1093,14 @@ CSS TABLE OF CONTENTS
 		}
 	})();
 
+	// Current year
+	(function () {
+		var year = new Date().getFullYear();
+		document.querySelectorAll(".current-year").forEach(function (element) {
+			element.textContent = year;
+		});
+	})();
+
 	// progress-area
 	let progressBars = $(".progress-area");
 	let observer = new IntersectionObserver(function (progressBars) {
