@@ -114,7 +114,7 @@ $renderCard = function (array $p): string {
 
 <body class="body-bg ">
 
-    <div class="custom-container-space cmn-bg rounded-bottom-4 mb-xxl-5 mb-4">
+    <div class="custom-container-space cmn-bg rounded-bottom-4">
 
         <!-- Preloader Start -->
         <div id="preloader" class="preloader">
