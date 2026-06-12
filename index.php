@@ -1053,13 +1053,7 @@ $renderCard = function (array $p): string {
                                                     FAQ
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#contact"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
-                                                    <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Contact
-                                                </a>
-                                            </li>
+                                           
                                         </ul>
                                     </div>
                                 </div>
@@ -1074,20 +1068,16 @@ $renderCard = function (array $p): string {
                         <ul
                             class="condition d-flex flex-sm-nowrap flex-wrap justify-content-sm-start justify-content-center align-items-center gap-xxl-4 gap-xl-3 gap-sm-2 gap-1">
                             <li>
-                                <a href="contact.html" class="fs-eight pra p1-hover">
+                                <a href="terms.html" class="fs-eight pra p1-hover">
                                     Terms & Condition
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html" class="fs-eight pra p1-hover">
+                                <a href="privacy.html" class="fs-eight pra p1-hover">
                                     Privacy Policy
                                 </a>
                             </li>
-                            <li>
-                                <a href="contact.html" class="fs-eight pra p1-hover">
-                                    Contact Us
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                     <!-- Ele -->
