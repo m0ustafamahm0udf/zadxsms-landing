@@ -79,6 +79,54 @@
 		}
 	}
 }
+.tv-wrapper.tv-brand-wrapper {
+	justify-content: center;
+	gap: 60px;
+	.tv-brand-item {
+		width: 200px;
+		height: 200px;
+		max-width: none;
+		padding: 0;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		&--budgwiz {
+			background: #ef4b2f;
+			img {
+				width: 78%;
+				height: auto;
+			}
+		}
+		&--tamenny {
+			background: #62c9b6;
+			img {
+				width: 66%;
+				height: 66%;
+				border-radius: 28px;
+				box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+			}
+		}
+	}
+	@include breakpoint(max-md) {
+		gap: 24px;
+		.tv-brand-item {
+			width: 140px;
+			height: 140px;
+			&--tamenny {
+				img {
+					border-radius: 20px;
+				}
+			}
+		}
+	}
+}
 .tv-laptop {
 	max-width: 238px;
 	img {

@@ -37,7 +37,7 @@ CSS TABLE OF CONTENTS
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
 			"click",
-			"#header-sticky a[href^='#'], .mean-nav a[href^='#']",
+			"#header-sticky a[href^='#'], .mean-nav a[href^='#'], .modes-grid .rarrow[href^='#'], .about-exchange-content .common-btn[href^='#'], .process-section a[href^='#']",
 			function (e) {
 				const hash = this.hash;
 
@@ -76,6 +76,49 @@ CSS TABLE OF CONTENTS
 				}
 			}
 		);
+
+		$(document).on("click", "[data-copy-phone]", async function () {
+			const $button = $(this);
+			const phone = String($button.data("copy-phone") || "").trim();
+
+			if (!phone) {
+				return;
+			}
+
+			const originalHtml = $button.html();
+			const setCopied = function () {
+				$button
+					.addClass("copied")
+					.html('<i class="fa-solid fa-check"></i><span>Copied</span>');
+
+				setTimeout(function () {
+					$button.removeClass("copied").html(originalHtml);
+				}, 1800);
+			};
+
+			try {
+				if (navigator.clipboard && window.isSecureContext) {
+					await navigator.clipboard.writeText(phone);
+				} else {
+					const input = document.createElement("input");
+					input.value = phone;
+					input.setAttribute("readonly", "");
+					input.style.position = "absolute";
+					input.style.left = "-9999px";
+					document.body.appendChild(input);
+					input.select();
+					document.execCommand("copy");
+					document.body.removeChild(input);
+				}
+
+				setCopied();
+			} catch (error) {
+				$button.html('<i class="fa-solid fa-triangle-exclamation"></i><span>Copy failed</span>');
+				setTimeout(function () {
+					$button.html(originalHtml);
+				}, 1800);
+			}
+		});
 
 		//>> Sidebar Toggle Js Start <<//
 		$(".offcanvas__close,.offcanvas__overlay").on("click", function () {
