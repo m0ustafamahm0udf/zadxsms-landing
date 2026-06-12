@@ -628,38 +628,6 @@ $renderCard = function (array $p): string {
             </div>
         </section>
 
-        <!-- Sponsor Section Start -->
-        <section class="sponsor-section fix section-padding">
-            <div class="swiper sponsor-wrapper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="sponsor-items1 d-flex align-items-center gap-4">
-                            <img src="assets/img/testimonial/sponsor-text1.png" alt="img" class="sponsor-text">
-                            <img src="assets/img/testimonial/sponsor-icon1.png" alt="img" class="sponsor-icon">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="sponsor-items1 d-flex align-items-center gap-4">
-                            <img src="assets/img/testimonial/sponsor-text2.png" alt="img" class="sponsor-text">
-                            <img src="assets/img/testimonial/sponsor-icon2.png" alt="img" class="sponsor-icon">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="sponsor-items1 d-flex align-items-center gap-4">
-                            <img src="assets/img/testimonial/sponsor-text3.png" alt="img" class="sponsor-text">
-                            <img src="assets/img/testimonial/sponsor-icon3.png" alt="img" class="sponsor-icon">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="sponsor-items1 d-flex align-items-center gap-4">
-                            <img src="assets/img/testimonial/sponsor-text4.png" alt="img" class="sponsor-text">
-                            <img src="assets/img/testimonial/sponsor-icon3.png" alt="img" class="sponsor-icon">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- clients  -->
         <!-- <section class="testimonial-section">
             <div class="container">
