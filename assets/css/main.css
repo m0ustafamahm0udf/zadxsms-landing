@@ -6736,76 +6736,55 @@ footer {
   z-index: 9999999;
 }
 .preloader .animation-preloader {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
   z-index: 1000;
 }
-.preloader .animation-preloader .spinner {
-  animation: spinner 1s infinite linear;
+.preloader .animation-preloader .preloader-logo-wrap {
+  align-items: center;
+  animation: preloader-logo-pulse 1.6s ease-in-out infinite;
+  background: var(--white);
   border-radius: 50%;
-  border: 3px solid var(--p2-clr);
-  border-top-color: var(--p2-clr);
-  height: 9em;
-  margin: 0 auto 3.5em auto;
-  width: 9em;
-}
-@media (max-width: 767px) {
-  .preloader .animation-preloader .spinner {
-    width: 7.5em;
-    height: 7.5em;
-    margin: 0 auto 1.5em auto;
-  }
-}
-.preloader .animation-preloader .txt-loading {
-  font: bold 5em "Archivo", sans-serif, "Archivo", sans-serif;
-  text-align: center;
-  user-select: none;
-}
-@media (max-width: 767px) {
-  .preloader .animation-preloader .txt-loading {
-    font-size: 2.5em;
-  }
-}
-.preloader .animation-preloader .txt-loading .letters-loading {
-  color: var(--p2-clr);
+  box-shadow: 0 20px 60px rgba(9, 10, 11, 0.12);
+  display: flex;
+  height: 180px;
+  justify-content: center;
   position: relative;
+  width: 180px;
 }
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(2):before {
-  animation-delay: 0.2s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(3):before {
-  animation-delay: 0.4s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(4):before {
-  animation-delay: 0.6s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(5):before {
-  animation-delay: 0.8s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(6):before {
-  animation-delay: 1s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(7):before {
-  animation-delay: 1.2s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading:nth-child(8):before {
-  animation-delay: 1.4s;
-}
-.preloader .animation-preloader .txt-loading .letters-loading::before {
-  animation: letters-loading 4s infinite;
-  color: var(--header);
-  content: attr(data-text-preloader);
-  left: 0;
-  opacity: 0;
-  font-family: "Archivo", sans-serif;
+.preloader .animation-preloader .preloader-logo-wrap::before {
+  animation: spinner 1.2s linear infinite;
+  border: 3px solid rgba(255, 220, 38, 0.25);
+  border-radius: inherit;
+  border-top-color: var(--p2-clr);
+  content: "";
+  inset: -10px;
   position: absolute;
-  top: -3px;
-  transform: rotateY(-90deg);
+}
+.preloader .animation-preloader .preloader-logo {
+  display: block;
+  height: auto;
+  max-width: 130px;
+  position: relative;
+  width: 72%;
+}
+@media (max-width: 767px) {
+  .preloader .animation-preloader .preloader-logo-wrap {
+    height: 140px;
+    width: 140px;
+  }
+  .preloader .animation-preloader .preloader-logo {
+    max-width: 104px;
+  }
 }
 .preloader p {
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 8px;
-  color: var(--p2-clr);
+  letter-spacing: 4px;
+  color: var(--header);
+  margin-bottom: 0;
 }
 .preloader .loader {
   position: fixed;
@@ -6837,6 +6816,14 @@ footer {
 .preloader.loaded .loader-section .bg {
   width: 0;
   transition: 0.7s 0.3s allcubic-bezier(0.1, 0.1, 0.1, 1);
+}
+@keyframes preloader-logo-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
 }
 
 .search-wrap {
@@ -7003,14 +6990,24 @@ input.main-search-input::placeholder {
 
 .pricing-items {
   padding: 30px 30px;
+  container-type: inline-size;
 }
 .pricing-items h2 {
-  font-size: 50px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  font-size: clamp(24px, 11cqw, 50px);
+  line-height: 1;
   color: var(--black);
 }
 .pricing-items h2 span {
-  font-size: 16px;
+  flex: 0 0 auto;
+  font-size: clamp(11px, 4cqw, 16px);
   color: var(--black2);
+  word-spacing: 3px;
 }
 .pricing-items.premium-items {
   background: linear-gradient(180deg, #ffdc26 0%, rgba(255, 220, 38, 0) 100%);

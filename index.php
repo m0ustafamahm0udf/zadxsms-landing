@@ -5,17 +5,24 @@
  * secret never reaches the browser (see backend/docs/landing-plans-api.md).
  *   Serve with:  php -S localhost:5500 -t "/Users/m/Desktop/zadx sms landing"
  */
-$endpoint = getenv('ZADX_LANDING_ENDPOINT') ?: 'http://localhost:8000/api/landing/plans';
-$key = getenv('ZADX_LANDING_KEY') ?: '';
-if ($key === '') {
-    // Fall back to the backend .env so the key stays in sync in local dev.
-    $env = @file_get_contents('/Users/m/Desktop/zadx sms/backend/.env');
-    if ($env && preg_match('/^ZADX_LANDING_KEY=(.*)$/m', $env, $m)) {
-        $key = trim($m[1]);
+// Read config from the environment. SetEnv in .htaccess may surface values via
+// getenv() (mod_php) or $_SERVER (LiteSpeed/PHP-FPM, e.g. Hostinger), so check
+// both. See .htaccess.example for the expected keys.
+$readEnv = function (string $name, string $default = ''): string {
+    $val = getenv($name);
+    if ($val === false || $val === '') {
+        $val = $_SERVER[$name] ?? $_ENV[$name] ?? $default;
     }
-}
+    return (string) $val;
+};
 
-$plans = [];
+$endpoint = $readEnv('ZADX_LANDING_ENDPOINT', 'http://localhost:8000/api/landing/plans');
+$key = $readEnv('ZADX_LANDING_KEY');
+
+$plans   = [];
+$body     = '';
+$status   = 0;
+$curlErr  = '';
 if ($key !== '') {
     $ch = curl_init($endpoint);
     curl_setopt_array($ch, [
@@ -23,12 +30,27 @@ if ($key !== '') {
         CURLOPT_TIMEOUT        => 5,
         CURLOPT_HTTPHEADER     => ['X-Landing-Key: ' . $key, 'Accept: application/json'],
     ]);
-    $body   = curl_exec($ch);
-    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $body    = curl_exec($ch);
+    $status  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlErr = curl_error($ch);
     curl_close($ch);
     if ($status === 200) {
         $plans = json_decode($body, true)['data'] ?? [];
     }
+}
+
+// Temporary diagnostics: append ?debug=1 to the URL to see why plans are empty.
+// Never prints the secret itself — only whether it was found and its length.
+if (isset($_GET['debug'])) {
+    header('Content-Type: text/plain');
+    echo "endpoint     : {$endpoint}\n";
+    echo "key present  : " . ($key !== '' ? 'yes' : 'NO — SetEnv not reaching PHP') . "\n";
+    echo "key length   : " . strlen($key) . "\n";
+    echo "http status  : {$status}\n";
+    echo "curl error   : " . ($curlErr !== '' ? $curlErr : '(none)') . "\n";
+    echo "plans count  : " . count($plans) . "\n";
+    echo "raw body     :\n" . substr((string) $body, 0, 2000) . "\n";
+    exit;
 }
 
 // Bucket plans by validity window to match the pricing tabs.
@@ -119,30 +141,8 @@ $renderCard = function (array $p): string {
         <!-- Preloader Start -->
         <div id="preloader" class="preloader">
             <div class="animation-preloader">
-                <div class="spinner">
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="T" class="letters-loading">
-                        T
-                    </span>
-                    <span data-text-preloader="E" class="letters-loading">
-                        E
-                    </span>
-                    <span data-text-preloader="C" class="letters-loading">
-                        C
-                    </span>
-                    <span data-text-preloader="H" class="letters-loading">
-                        H
-                    </span>
-                    <span data-text-preloader="I" class="letters-loading">
-                        I
-                    </span>
-                    <span data-text-preloader="F" class="letters-loading">
-                        F
-                    </span>
-                    <span data-text-preloader="Y" class="letters-loading">
-                        Y
-                    </span>
+                <div class="preloader-logo-wrap">
+                    <img class="preloader-logo" src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                 </div>
                 <p class="text-center">Loading</p>
             </div>
@@ -803,141 +803,6 @@ $renderCard = function (array $p): string {
             </div>
         </section>
 
-        <!-- Blog Section Start -->
-        <section class="blog-section section-padding fix position-relative">
-            <div class="container">
-                <div class="section-title d-flex flex-md-nowrap flex-wrap gap-md-4 gap-2 align-items-center mb-50">
-                    <div class="section-title">
-                        <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
-                            Transforming Ideas into Reality Tomorrow
-                        </h2>
-                    </div>
-                    <p class="fs-five wow fadeInLeft">
-                        IT Technology is a dynamic field encompassing the stu implementation an support, and management
-                    </p>
-                </div>
-                <div class="row g-xl-4 g-sm-3 g-4">
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="blog-items white-bg d-grid rounded-4 wow fadeInUp" data-wow-delay="0.4s">
-                            <div class="thumb rounded-4 position-relative w-100">
-                                <img src="assets/img/blog/blog-grid1.jpg" alt="img" class="w-100">
-                            </div>
-                            <div class="content py-4 px-4">
-                                <div class="admin-area d-flex align-items-center gap-xxl-4 gap-3 mb-20">
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-calendar-days black-clr"></i>
-                                        By admin
-                                    </div>
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-user black-clr"></i>
-                                        October 19, 2022
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">
-                                    <a href="blog-details.html" class="black">
-                                        Navigating the Digital Frontier
-                                        Transforming Ideas
-                                    </a>
-                                </h3>
-                                <a href="blog-details.html"
-                                    class="blog-arrow1 pb-2 d-flex justify-content-between cmn-border-bottom align-items-center gap-2">
-                                    <span class="fs-seven black-clr">
-                                        Learn More
-                                    </span>
-                                    <span class="arrows w-40 d-center rounded-circle cmn-bg">
-                                        <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M0.737759 10.9501C0.831527 11.0439 0.958703 11.0966 1.09131 11.0966C1.22392 11.0966 1.3511 11.0439 1.44487 10.9501L9.78378 2.61121L9.78307 7.06103C9.78307 7.12678 9.79602 7.19188 9.82118 7.25262C9.84634 7.31336 9.88321 7.36855 9.9297 7.41503C9.97619 7.46152 10.0314 7.4984 10.0921 7.52356C10.1529 7.54872 10.218 7.56167 10.2837 7.56167C10.3494 7.56167 10.4145 7.54872 10.4753 7.52356C10.536 7.4984 10.5912 7.46152 10.6377 7.41503C10.6842 7.36855 10.7211 7.31336 10.7462 7.25262C10.7714 7.19188 10.7843 7.12678 10.7843 7.06103L10.7843 1.40418C10.7844 1.33841 10.7715 1.27328 10.7464 1.2125C10.7213 1.15172 10.6844 1.0965 10.6379 1.05C10.5914 1.00349 10.5362 0.966618 10.4754 0.941488C10.4146 0.916358 10.3495 0.903466 10.2837 0.903549L4.62685 0.903548C4.5611 0.903548 4.496 0.916497 4.43526 0.941657C4.37452 0.966816 4.31934 1.00369 4.27285 1.05018C4.22636 1.09667 4.18948 1.15186 4.16432 1.2126C4.13916 1.27334 4.12622 1.33844 4.12622 1.40418C4.12622 1.46992 4.13916 1.53502 4.16432 1.59576C4.18948 1.6565 4.22636 1.71169 4.27285 1.75818C4.31934 1.80467 4.37452 1.84154 4.43526 1.8667C4.496 1.89186 4.5611 1.90481 4.62685 1.90481L9.07667 1.9041L0.737759 10.243C0.643991 10.3368 0.591312 10.464 0.591312 10.5966C0.591312 10.7292 0.643991 10.8564 0.737759 10.9501Z"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="blog-items white-bg d-grid rounded-4 wow fadeInUp" data-wow-delay="0.6s">
-                            <div class="thumb rounded-4 position-relative w-100">
-                                <img src="assets/img/blog/blog-grid2.jpg" alt="img" class="w-100">
-                            </div>
-                            <div class="content py-4 px-4">
-                                <div class="admin-area d-flex align-items-center gap-xxl-4 gap-3 mb-20">
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-calendar-days black-clr"></i>
-                                        By admin
-                                    </div>
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-user black-clr"></i>
-                                        October 19, 2022
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">
-                                    <a href="blog-details.html" class="black">
-                                        Crafting Tomorrow's Solutions
-                                        Innovate Integrate
-                                    </a>
-                                </h3>
-                                <a href="blog-details.html"
-                                    class="blog-arrow1 pb-2 d-flex justify-content-between cmn-border-bottom align-items-center gap-2">
-                                    <span class="fs-seven black-clr">
-                                        Learn More
-                                    </span>
-                                    <span class="arrows w-40 d-center rounded-circle cmn-bg">
-                                        <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M0.737759 10.9501C0.831527 11.0439 0.958703 11.0966 1.09131 11.0966C1.22392 11.0966 1.3511 11.0439 1.44487 10.9501L9.78378 2.61121L9.78307 7.06103C9.78307 7.12678 9.79602 7.19188 9.82118 7.25262C9.84634 7.31336 9.88321 7.36855 9.9297 7.41503C9.97619 7.46152 10.0314 7.4984 10.0921 7.52356C10.1529 7.54872 10.218 7.56167 10.2837 7.56167C10.3494 7.56167 10.4145 7.54872 10.4753 7.52356C10.536 7.4984 10.5912 7.46152 10.6377 7.41503C10.6842 7.36855 10.7211 7.31336 10.7462 7.25262C10.7714 7.19188 10.7843 7.12678 10.7843 7.06103L10.7843 1.40418C10.7844 1.33841 10.7715 1.27328 10.7464 1.2125C10.7213 1.15172 10.6844 1.0965 10.6379 1.05C10.5914 1.00349 10.5362 0.966618 10.4754 0.941488C10.4146 0.916358 10.3495 0.903466 10.2837 0.903549L4.62685 0.903548C4.5611 0.903548 4.496 0.916497 4.43526 0.941657C4.37452 0.966816 4.31934 1.00369 4.27285 1.05018C4.22636 1.09667 4.18948 1.15186 4.16432 1.2126C4.13916 1.27334 4.12622 1.33844 4.12622 1.40418C4.12622 1.46992 4.13916 1.53502 4.16432 1.59576C4.18948 1.6565 4.22636 1.71169 4.27285 1.75818C4.31934 1.80467 4.37452 1.84154 4.43526 1.8667C4.496 1.89186 4.5611 1.90481 4.62685 1.90481L9.07667 1.9041L0.737759 10.243C0.643991 10.3368 0.591312 10.464 0.591312 10.5966C0.591312 10.7292 0.643991 10.8564 0.737759 10.9501Z"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-4">
-                        <div class="blog-items white-bg d-grid rounded-4 wow fadeInUp" data-wow-delay="0.8s">
-                            <div class="thumb rounded-4 position-relative w-100">
-                                <img src="assets/img/blog/blog-grid3.jpg" alt="img" class="w-100">
-                            </div>
-                            <div class="content py-4 px-4">
-                                <div class="admin-area d-flex align-items-center gap-xxl-4 gap-3 mb-20">
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-calendar-days black-clr"></i>
-                                        By admin
-                                    </div>
-                                    <div class="d-flex align-items-center gap-xxl-2 gap-2 fs-eight pra">
-                                        <i class="fa-solid fa-user black-clr"></i>
-                                        October 19, 2022
-                                    </div>
-                                </div>
-                                <h3 class="mb-3">
-                                    <a href="blog-details.html" class="black">
-                                        Tech Excellence in Every Byte
-                                        Unleashing Possibilities
-                                    </a>
-                                </h3>
-                                <a href="blog-details.html"
-                                    class="blog-arrow1 pb-2 d-flex justify-content-between cmn-border-bottom align-items-center gap-2">
-                                    <span class="fs-seven black-clr">
-                                        Learn More
-                                    </span>
-                                    <span class="arrows w-40 d-center rounded-circle cmn-bg">
-                                        <svg width="11" height="12" viewBox="0 0 11 12" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M0.737759 10.9501C0.831527 11.0439 0.958703 11.0966 1.09131 11.0966C1.22392 11.0966 1.3511 11.0439 1.44487 10.9501L9.78378 2.61121L9.78307 7.06103C9.78307 7.12678 9.79602 7.19188 9.82118 7.25262C9.84634 7.31336 9.88321 7.36855 9.9297 7.41503C9.97619 7.46152 10.0314 7.4984 10.0921 7.52356C10.1529 7.54872 10.218 7.56167 10.2837 7.56167C10.3494 7.56167 10.4145 7.54872 10.4753 7.52356C10.536 7.4984 10.5912 7.46152 10.6377 7.41503C10.6842 7.36855 10.7211 7.31336 10.7462 7.25262C10.7714 7.19188 10.7843 7.12678 10.7843 7.06103L10.7843 1.40418C10.7844 1.33841 10.7715 1.27328 10.7464 1.2125C10.7213 1.15172 10.6844 1.0965 10.6379 1.05C10.5914 1.00349 10.5362 0.966618 10.4754 0.941488C10.4146 0.916358 10.3495 0.903466 10.2837 0.903549L4.62685 0.903548C4.5611 0.903548 4.496 0.916497 4.43526 0.941657C4.37452 0.966816 4.31934 1.00369 4.27285 1.05018C4.22636 1.09667 4.18948 1.15186 4.16432 1.2126C4.13916 1.27334 4.12622 1.33844 4.12622 1.40418C4.12622 1.46992 4.13916 1.53502 4.16432 1.59576C4.18948 1.6565 4.22636 1.71169 4.27285 1.75818C4.31934 1.80467 4.37452 1.84154 4.43526 1.8667C4.496 1.89186 4.5611 1.90481 4.62685 1.90481L9.07667 1.9041L0.737759 10.243C0.643991 10.3368 0.591312 10.464 0.591312 10.5966C0.591312 10.7292 0.643991 10.8564 0.737759 10.9501Z"
-                                                fill="black" />
-                                        </svg>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!--<< Footer Section Start >>-->
         <footer id="contact" class="footer-section style1 z-1 position-relative fix">
             <div class="container">
@@ -1063,7 +928,7 @@ $renderCard = function (array $p): string {
                     <div
                         class="footer-bottom py-4 cmn-border-top d-flex flex-sm-nowrap flex-wrap align-items-center justify-content-sm-between justify-content-center gap-sm-0 gap-2">
                         <p class="body-font fs-eight pra text-center">
-                            &copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
+                            &copy; <a href="https://zadx.net" target="_blank" rel="noopener" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
                         </p>
                         <ul
                             class="condition d-flex flex-sm-nowrap flex-wrap justify-content-sm-start justify-content-center align-items-center gap-xxl-4 gap-xl-3 gap-sm-2 gap-1">
