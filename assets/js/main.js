@@ -1523,9 +1523,9 @@ CSS TABLE OF CONTENTS
 					if (entry.isIntersecting) {
 						let visibleFromRight = entry.target;
 						let split_item = new SplitText(visibleFromRight, {
-							type: "chars, words",
+							type: document.documentElement.dir === "rtl" ? "words" : "chars, words",
 						});
-						gsap.from(split_item.chars, {
+						gsap.from(document.documentElement.dir === "rtl" ? split_item.words : split_item.chars, {
 							duration: 0.4,
 							x: 45,
 							autoAlpha: 0,
@@ -1549,7 +1549,7 @@ CSS TABLE OF CONTENTS
 			let char_come = gsap.utils.toArray(visibleSlowlyRight);
 			char_come.forEach((char_come) => {
 				let split_char = new SplitText(char_come, {
-					type: "chars, words",
+					type: document.documentElement.dir === "rtl" ? "words" : "chars, words",
 					lineThreshold: 0.5,
 				});
 				const tl2 = gsap.timeline({
@@ -1562,7 +1562,7 @@ CSS TABLE OF CONTENTS
 						toggleActions: "play play play play",
 					},
 				});
-				tl2.from(split_char.chars, {
+				tl2.from(document.documentElement.dir === "rtl" ? split_char.words : split_char.chars, {
 					duration: 0.8,
 					x: 70,
 					autoAlpha: 0,
@@ -1610,10 +1610,10 @@ CSS TABLE OF CONTENTS
 					splitArea.split.revert();
 				}
 				splitArea.split = new SplitText(splitArea, {
-					type: "lines,words,chars",
+					type: document.documentElement.dir === "rtl" ? "lines,words" : "lines,words,chars",
 					linesClass: "split-line",
 				});
-				splitArea.anim = gsap.from(splitArea.split.chars, {
+				splitArea.anim = gsap.from(document.documentElement.dir === "rtl" ? splitArea.split.words : splitArea.split.chars, {
 					scrollTrigger: {
 						trigger: splitArea,
 						toggleActions: "restart pause resume reverse",

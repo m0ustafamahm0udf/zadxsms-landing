@@ -9787,3 +9787,69 @@ html[dir="rtl"] .tv-laptop {
     padding: 9px 12px;
   }
 }
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] .fs-two,
+html[dir="rtl"] .fs-50,
+html[dir="rtl"] p,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] li,
+html[dir="rtl"] div {
+    letter-spacing: normal !important;
+}
+
+html[dir="rtl"] body, 
+html[dir="rtl"] h1, 
+html[dir="rtl"] h2, 
+html[dir="rtl"] h3, 
+html[dir="rtl"] h4, 
+html[dir="rtl"] h5, 
+html[dir="rtl"] h6, 
+html[dir="rtl"] p, 
+html[dir="rtl"] span, 
+html[dir="rtl"] a, 
+html[dir="rtl"] button, 
+html[dir="rtl"] input, 
+html[dir="rtl"] .heading-font, 
+html[dir="rtl"] .body-font, 
+html[dir="rtl"] .sub-font {
+    font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+
+html[dir="rtl"] .rarrow svg {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button::before,
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed)::before {
+    right: auto;
+    left: 7px;
+}
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button {
+    padding-right: 0 !important;
+    padding-left: 50px !important;
+}
+
+.custom-accordion {
+    gap: 15px !important;
+}
+
+.faq-section {
+    padding-bottom: 80px !important;
+}
+
+html[dir="rtl"] .faq-thumb1 img {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .footer-section.style1 .footer-ele1 {
+    left: auto;
+    right: 0;
+    transform: scaleX(-1);
+}
