@@ -27,11 +27,781 @@ CSS TABLE OF CONTENTS
 	("use strict");
 
 	$(document).ready(function () {
+		const translations = {
+			en: {
+				metaTitle:
+					"ZADX SMS | OTP & SMS Delivery by ZADX Software Solutions",
+				metaDescription:
+					"ZADX SMS provides OTP and SMS delivery with ready APIs, quick setup, and a simple dashboard from ZADX Software Solutions.",
+				loading: "Loading",
+				offcanvasContact: "Contact Info",
+				ctaGetStarted: "Get Started",
+				navHome: "Home",
+				navModes: "Modes",
+				navWhy: "Why ZADX",
+				navHow: "How It Works",
+				navPricing: "Pricing",
+				navFaq: "FAQ",
+				navContact: "Contact",
+				heroTrusted: "Trusted Customers",
+				heroTitleHtml:
+					'<span class="stext">ZADX SMS</span> &mdash; OTP &amp; SMS delivery as a service',
+				modesEyebrow: "Our SMS Modes",
+				modesTitleHtml:
+					"Three sending modes <br> for developers &amp; brands",
+				modeOtpDescription:
+					"Send one-time passwords for login, signup, and verification with your own message template and sender ID.",
+				modeSmsDescription:
+					"Plain transactional or marketing messages such as order updates, alerts, and promos up to 160 characters per message.",
+				modeHybridDescription:
+					"Use one app for everything. OTP and SMS share the same keys, sender IDs, and quota, so you can scale without friction.",
+				whyTitleHtml:
+					"Start sending in minutes &mdash; no paperwork",
+				whyDescriptionHtml:
+					"No commercial registration and no tax card. Send right away using a sender ID registered under our name. You also get a full dashboard and a ready Postman collection, so you go live in minutes.",
+				whyList1: "No commercial registration or tax card required",
+				whyList2: "Send under our registered sender ID",
+				whyList3: "Full dashboard to manage apps, keys, and usage",
+				whyList4: "Ready-made Postman collection so you can test in minutes",
+				whyLearnMore: "Learn More",
+				whyTryFree: "Try for free",
+				brandsTitleHtml:
+					"Built for brands &mdash; send discounts, promos, and updates to your customers in seconds",
+				howTitle: "Up and running in three simple steps",
+				step1Label: "Step-01",
+				step1Title: "Talk to us &amp; pick a plan",
+				step1Description:
+					"Tell us your use case and choose the package that fits your monthly volume.",
+				step2Label: "Step-02",
+				step2Title: "We set up your app",
+				step2Description:
+					"We register your app, generate your API keys, and prepare your sender ID.",
+				step3Label: "Step-03",
+				step3Title: "Activate &amp; start sending",
+				step3Description:
+					"We activate your subscription and you start sending instantly from your app.",
+				pricingTitle: "Our Pricing Plans",
+				pricingTabMonth: "Month",
+				pricingTabQuarter: "3 Months",
+				pricingTabHalfyear: "6 Months",
+				pricingUnavailable:
+					"Plans are temporarily unavailable. Please check back shortly.",
+				pricingDaySuffix: "/ {{days}} days",
+				pricingQuota: "{{count}} SMS included",
+				pricingValidity: "{{days}}-day validity",
+				pricingRate: "{{rate}} / SMS",
+				pricingFree: "Free to try",
+				faqTitle: "Frequently Asked Questions",
+				faq1Question:
+					"Do I need a commercial registration or tax card?",
+				faq1AnswerHtml:
+					"No. You can start sending right away using a sender ID registered under our name &mdash; no paperwork required.",
+				faq2Question:
+					"What's the difference between OTP and SMS modes?",
+				faq2AnswerHtml:
+					"OTP mode is built for verification codes with a template and the <code>/otp/send</code> endpoint. SMS mode sends plain transactional or marketing messages up to 160 characters via <code>/sms/send</code>. You can use both from the same app.",
+				faq3Question: "How do I integrate ZADX into my app?",
+				faq3AnswerHtml:
+					"Create an app in your dashboard to get your API key and secret, pick a sender ID, then call our REST API. We provide a ready Postman collection so you can test in minutes.",
+				faq4Question: "What happens if a message fails to send?",
+				faq4AnswerHtml:
+					"If the upstream provider rejects a message, we automatically refund the credit &mdash; so you only pay for messages that actually go out.",
+				faq5Question: "Can I use my own sender ID?",
+				faq5AnswerHtml:
+					"Yes. Request a sender ID from your dashboard; once we approve and register it upstream, your messages are delivered under your own name.",
+				footerSummary:
+					"ZADX SMS helps apps and brands launch OTP and SMS delivery quickly with ready APIs, instant sender ID access, and a dashboard that keeps setup simple.",
+				footerContactHeading: "Contact",
+				footerPhoneLabel: "Phone Number",
+				footerEmailLabel: "Email",
+				footerQuickLinks: "Quick links",
+				copyrightHtml:
+					'&copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved',
+				terms: "Terms & Conditions",
+				privacy: "Privacy Policy",
+				searchPlaceholder: "Search the page...",
+				modalEyebrow: "Talk to ZADX SMS",
+				modalTitle: "Choose how to contact us",
+				modalPhoneTitle: "Call us on mobile",
+				modalFacebookTitle: "Message us on Facebook",
+				copyLabel: "Copy",
+				copiedLabel: "Copied",
+				copyFailedLabel: "Copy failed",
+				copyPhoneAria: "Copy mobile number",
+				closeLabel: "Close",
+				viewOtpPlans: "View OTP plans",
+				viewSmsPlans: "View SMS plans",
+				viewHybridPlans: "View OTP and SMS plans",
+				viewPricingPlans: "View pricing plans",
+				contactPreviewAlt: "Contact ZADX SMS",
+				aboutAlt:
+					"ZADX SMS dashboard sending messages without paperwork",
+				brandAlt: "ZADX SMS messaging across screens",
+				faqAlt: "FAQ support illustration",
+				customerAlt: "ZADX SMS customer",
+				facebookLabel: "Facebook",
+				instagramLabel: "Instagram",
+				linkedinLabel: "LinkedIn",
+			},
+			ar: {
+				metaTitle:
+					"ZADX SMS | إرسال OTP وSMS من ZADX Software Solutions",
+				metaDescription:
+					"توفر ZADX SMS خدمة إرسال رموز التحقق OTP ورسائل SMS بسرعة عبر واجهات API جاهزة ولوحة تحكم بسيطة من ZADX Software Solutions.",
+				loading: "جارٍ التحميل",
+				offcanvasContact: "معلومات التواصل",
+				ctaGetStarted: "ابدأ الآن",
+				navHome: "الرئيسية",
+				navModes: "أنماط الإرسال",
+				navWhy: "لماذا ZADX",
+				navHow: "كيف تعمل",
+				navPricing: "الأسعار",
+				navFaq: "الأسئلة الشائعة",
+				navContact: "تواصل معنا",
+				heroTrusted: "عملاء يثقون بنا",
+				heroTitleHtml:
+					'<span class="stext">ZADX SMS</span> &mdash; خدمة إرسال OTP ورسائل SMS',
+				modesEyebrow: "أنماط الإرسال",
+				modesTitleHtml:
+					"ثلاثة أنماط إرسال <br> للمطورين والعلامات التجارية",
+				modeOtpDescription:
+					"أرسل رموز التحقق لتسجيل الدخول وإنشاء الحساب والتحقق من الهوية باستخدام قالب رسالة ومعرّف مرسل خاص بك.",
+				modeSmsDescription:
+					"رسائل معاملات أو تسويق عادية مثل تحديثات الطلبات والتنبيهات والعروض حتى 160 حرفًا للرسالة الواحدة.",
+				modeHybridDescription:
+					"شغّل OTP وSMS من تطبيق واحد بالمفاتيح نفسها ومعرّفات الإرسال نفسها والرصيد نفسه، ووسّع استخدامك بسهولة.",
+				whyTitleHtml:
+					"ابدأ الإرسال خلال دقائق &mdash; من دون أوراق",
+				whyDescriptionHtml:
+					"لا تحتاج إلى سجل تجاري ولا بطاقة ضريبية. ابدأ مباشرة باستخدام Sender ID مسجل باسمنا، مع لوحة تحكم كاملة وملف Postman جاهز لتكون جاهزًا للإطلاق خلال دقائق.",
+				whyList1: "لا حاجة إلى سجل تجاري أو بطاقة ضريبية",
+				whyList2: "أرسل باستخدام Sender ID مسجل باسمنا",
+				whyList3: "لوحة تحكم كاملة لإدارة التطبيقات والمفاتيح والاستخدام",
+				whyList4: "ملف Postman جاهز لتجربتك خلال دقائق",
+				whyLearnMore: "اعرف أكثر",
+				whyTryFree: "جرّب مجانًا",
+				brandsTitleHtml:
+					"مصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
+				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة",
+				step1Label: "الخطوة 01",
+				step1Title: "تواصل معنا واختر الباقة",
+				step1Description:
+					"اخبرنا بحالة الاستخدام لديك واختر الباقة المناسبة لحجم الإرسال الشهري.",
+				step2Label: "الخطوة 02",
+				step2Title: "نجهز تطبيقك",
+				step2Description:
+					"ننشئ تطبيقك ونولد مفاتيح الـ API ونجهز Sender ID الخاص بك.",
+				step3Label: "الخطوة 03",
+				step3Title: "فعّل وابدأ الإرسال",
+				step3Description:
+					"نفعّل اشتراكك وتبدأ الإرسال مباشرة من تطبيقك.",
+				pricingTitle: "خطط الأسعار",
+				pricingTabMonth: "شهر",
+				pricingTabQuarter: "3 أشهر",
+				pricingTabHalfyear: "6 أشهر",
+				pricingUnavailable:
+					"الخطط غير متاحة مؤقتًا. يرجى المحاولة مرة أخرى قريبًا.",
+				pricingDaySuffix: "/ {{days}} يومًا",
+				pricingQuota: "يشمل {{count}} رسالة",
+				pricingValidity: "صلاحية {{days}} يومًا",
+				pricingRate: "{{rate}} / رسالة",
+				pricingFree: "تجربة مجانية",
+				faqTitle: "الأسئلة الشائعة",
+				faq1Question:
+					"هل أحتاج إلى سجل تجاري أو بطاقة ضريبية؟",
+				faq1AnswerHtml:
+					"لا. يمكنك البدء في الإرسال فورًا باستخدام Sender ID مسجل باسمنا &mdash; من دون أي أوراق.",
+				faq2Question:
+					"ما الفرق بين نمط OTP ونمط SMS؟",
+				faq2AnswerHtml:
+					"نمط OTP مخصص لرسائل التحقق باستخدام قالب ورسالة عبر نقطة النهاية <code>/otp/send</code>. أما نمط SMS فيرسل رسائل معاملات أو تسويق عادية حتى 160 حرفًا عبر <code>/sms/send</code>. ويمكنك استخدام النمطين من التطبيق نفسه.",
+				faq3Question:
+					"كيف أربط ZADX بتطبيقي؟",
+				faq3AnswerHtml:
+					"أنشئ تطبيقًا من لوحة التحكم للحصول على مفتاح الـ API والسر الخاص بك، ثم اختر Sender ID وابدأ باستخدام REST API الخاص بنا. كما نوفر ملف Postman جاهزًا للتجربة خلال دقائق.",
+				faq4Question:
+					"ماذا يحدث إذا فشل إرسال رسالة؟",
+				faq4AnswerHtml:
+					"إذا رفض المزوّد الخارجي الرسالة، نعيد الرصيد تلقائيًا حتى تدفع فقط مقابل الرسائل التي تم إرسالها فعليًا.",
+				faq5Question:
+					"هل يمكنني استخدام Sender ID خاص بي؟",
+				faq5AnswerHtml:
+					"نعم. اطلب Sender ID من لوحة التحكم، وبعد الموافقة عليه وتسجيله لدى المزوّد سيتم تسليم رسائلك باسمك الخاص.",
+				footerSummary:
+					"تساعد ZADX SMS التطبيقات والعلامات التجارية على إطلاق إرسال OTP وSMS بسرعة من خلال واجهات API جاهزة وSender ID فوري ولوحة تحكم تجعل الإعداد بسيطًا.",
+				footerContactHeading: "تواصل معنا",
+				footerPhoneLabel: "رقم الهاتف",
+				footerEmailLabel: "البريد الإلكتروني",
+				footerQuickLinks: "روابط سريعة",
+				copyrightHtml:
+					'&copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | جميع الحقوق محفوظة',
+				terms: "الشروط والأحكام",
+				privacy: "سياسة الخصوصية",
+				searchPlaceholder: "ابحث في الصفحة...",
+				modalEyebrow: "تواصل مع ZADX SMS",
+				modalTitle: "اختر طريقة التواصل",
+				modalPhoneTitle: "اتصل بنا على الموبايل",
+				modalFacebookTitle: "راسلنا على فيسبوك",
+				copyLabel: "نسخ",
+				copiedLabel: "تم النسخ",
+				copyFailedLabel: "تعذر النسخ",
+				copyPhoneAria: "نسخ رقم الموبايل",
+				closeLabel: "إغلاق",
+				viewOtpPlans: "عرض باقات OTP",
+				viewSmsPlans: "عرض باقات SMS",
+				viewHybridPlans: "عرض باقات OTP وSMS",
+				viewPricingPlans: "عرض باقات الأسعار",
+				contactPreviewAlt: "التواصل مع ZADX SMS",
+				aboutAlt:
+					"لوحة تحكم ZADX SMS لإرسال الرسائل من دون أوراق",
+				brandAlt: "رسائل ZADX SMS عبر مختلف الشاشات",
+				faqAlt: "رسم توضيحي لدعم الأسئلة الشائعة",
+				customerAlt: "عميل من عملاء ZADX SMS",
+				facebookLabel: "فيسبوك",
+				instagramLabel: "إنستغرام",
+				linkedinLabel: "لينكدإن",
+			},
+		};
+
+		const pricingCardCache = new WeakMap();
+		let currentLocale = "en";
+
+		const normalizeLocale = function (value) {
+			return value === "ar" ? "ar" : "en";
+		};
+
+		const t = function (key) {
+			return (
+				translations[currentLocale][key] ??
+				translations.en[key] ??
+				""
+			);
+		};
+
+		const formatInteger = function (value) {
+			const numeric = Number(String(value).replace(/,/g, ""));
+
+			if (!Number.isFinite(numeric)) {
+				return String(value);
+			}
+
+			return new Intl.NumberFormat(
+				currentLocale === "ar" ? "ar-EG" : "en-US",
+				{ maximumFractionDigits: 0 }
+			).format(numeric);
+		};
+
+		const formatDecimalString = function (value) {
+			const normalized = String(value).replace(/,/g, "").trim();
+			const numeric = Number(normalized);
+			const decimalPart = normalized.split(".")[1] || "";
+
+			if (!Number.isFinite(numeric)) {
+				return String(value);
+			}
+
+			return new Intl.NumberFormat(
+				currentLocale === "ar" ? "ar-EG" : "en-US",
+				{
+					minimumFractionDigits: decimalPart.length,
+					maximumFractionDigits: decimalPart.length,
+				}
+			).format(numeric);
+		};
+
+		const localizeMoneyText = function (value) {
+			const match = String(value).trim().match(/^([\d.,]+)\s+(.+)$/);
+
+			if (!match) {
+				return value;
+			}
+
+			return `${formatDecimalString(match[1])} ${match[2]}`;
+		};
+
+		const localizeRateBase = function (value) {
+			const match = String(value).trim().match(/^([\d.,]+)\s+(.+)$/);
+
+			if (!match) {
+				return value;
+			}
+
+			return `${formatDecimalString(match[1])} ${match[2]}`;
+		};
+
+		const fillTemplate = function (template, values) {
+			return String(template).replace(/\{\{(\w+)\}\}/g, function (_, key) {
+				return values[key] ?? "";
+			});
+		};
+
+		const setText = function (selector, value) {
+			document.querySelectorAll(selector).forEach(function (element) {
+				element.textContent = value;
+			});
+		};
+
+		const setHtml = function (selector, value) {
+			document.querySelectorAll(selector).forEach(function (element) {
+				element.innerHTML = value;
+			});
+		};
+
+		const setAttr = function (selector, attribute, value) {
+			document.querySelectorAll(selector).forEach(function (element) {
+				element.setAttribute(attribute, value);
+			});
+		};
+
+		const setTrailingIconLabel = function (selector, label) {
+			document.querySelectorAll(selector).forEach(function (element) {
+				const icon = element.querySelector("i");
+				const iconHtml = icon ? icon.outerHTML : "";
+				element.innerHTML = iconHtml ? `${label} ${iconHtml}` : label;
+			});
+		};
+
+		const setLeadingIconLabel = function (selector, label) {
+			document.querySelectorAll(selector).forEach(function (element) {
+				const icon = element.querySelector("i");
+				const iconHtml = icon ? icon.outerHTML : "";
+				element.innerHTML = iconHtml ? `${iconHtml} ${label}` : label;
+			});
+		};
+
+		const getInitialLocale = function () {
+			const params = new URLSearchParams(window.location.search);
+			const queryLocale = normalizeLocale(params.get("lang"));
+
+			if (params.get("lang") === "ar" || params.get("lang") === "en") {
+				return queryLocale;
+			}
+
+			try {
+				const storedLocale = normalizeLocale(
+					window.localStorage.getItem("zadxLandingLocale")
+				);
+
+				if (
+					window.localStorage.getItem("zadxLandingLocale") === "ar" ||
+					window.localStorage.getItem("zadxLandingLocale") === "en"
+				) {
+					return storedLocale;
+				}
+			} catch (error) {
+				// Ignore storage access errors and fall back to browser language.
+			}
+
+			return /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+		};
+
+		const persistLocale = function (locale) {
+			try {
+				window.localStorage.setItem("zadxLandingLocale", locale);
+			} catch (error) {
+				// Ignore storage access errors.
+			}
+
+			if (window.history && window.history.replaceState) {
+				const url = new URL(window.location.href);
+
+				if (locale === "ar") {
+					url.searchParams.set("lang", locale);
+				} else {
+					url.searchParams.delete("lang");
+				}
+
+				window.history.replaceState(
+					null,
+					"",
+					`${url.pathname}${url.search}${url.hash}`
+				);
+			}
+		};
+
+		const updateLocaleButtons = function () {
+			document
+				.querySelectorAll("[data-lang-switch]")
+				.forEach(function (button) {
+					const isActive =
+						button.getAttribute("data-lang-switch") === currentLocale;
+					button.classList.toggle("is-active", isActive);
+					button.setAttribute("aria-pressed", isActive ? "true" : "false");
+				});
+		};
+
+		const setCopyButtonsIdle = function () {
+			document
+				.querySelectorAll("[data-copy-phone]")
+				.forEach(function (button) {
+					button.classList.remove("copied");
+					button.setAttribute("aria-label", t("copyPhoneAria"));
+					button.innerHTML = `<i class="fa-regular fa-copy"></i><span>${t(
+						"copyLabel"
+					)}</span>`;
+				});
+		};
+
+		const getPricingCardBase = function (card) {
+			if (pricingCardCache.has(card)) {
+				return pricingCardCache.get(card);
+			}
+
+			const titleElement = card.querySelector("h3");
+			const priceElement = card.querySelector("h2");
+			const priceSpan = priceElement ? priceElement.querySelector("span") : null;
+			const listItems = card.querySelectorAll(".price-list li");
+			const titleText = titleElement ? titleElement.textContent.trim() : "";
+			const priceText = priceElement
+				? priceElement.textContent
+						.replace(priceSpan ? priceSpan.textContent : "", "")
+						.replace(/\s+/g, " ")
+						.trim()
+				: "";
+			const quotaMatch = listItems[0]
+				? listItems[0].textContent.match(/[\d,]+/)
+				: null;
+			const daysMatch =
+				(priceSpan && priceSpan.textContent.match(/[\d,]+/)) ||
+				(listItems[1] ? listItems[1].textContent.match(/[\d,]+/) : null);
+			const rateText = listItems[2]
+				? listItems[2].textContent.replace(/\s+/g, " ").trim()
+				: "";
+			const base = {
+				titleText,
+				priceText,
+				quota: quotaMatch ? Number(quotaMatch[0].replace(/,/g, "")) : 0,
+				days: daysMatch ? Number(daysMatch[0].replace(/,/g, "")) : 0,
+				isFree: /free/i.test(rateText),
+				rateBase: rateText.replace(/\/\s*SMS$/i, "").trim(),
+			};
+
+			pricingCardCache.set(card, base);
+			return base;
+		};
+
+		const syncPricingCards = function () {
+			document.querySelectorAll(".pricing-items").forEach(function (card) {
+				const base = getPricingCardBase(card);
+				const titleElement = card.querySelector("h3");
+				const priceElement = card.querySelector("h2");
+				const listItems = card.querySelectorAll(".price-list li");
+				const titleMatch = base.titleText.match(/^([\d,]+)\s+SMS$/i);
+
+				if (titleElement && titleMatch) {
+					titleElement.textContent =
+						currentLocale === "ar"
+							? `${formatInteger(titleMatch[1])} رسالة`
+							: `${formatInteger(titleMatch[1])} SMS`;
+				} else if (titleElement) {
+					titleElement.textContent = base.titleText;
+				}
+
+				if (priceElement) {
+					priceElement.innerHTML = `${localizeMoneyText(
+						base.priceText
+					)} <span>${fillTemplate(t("pricingDaySuffix"), {
+						days: formatInteger(base.days),
+					})}</span>`;
+				}
+
+				if (listItems[0]) {
+					const icon = listItems[0].querySelector("i");
+					listItems[0].innerHTML = `${icon ? icon.outerHTML : ""} ${fillTemplate(
+						t("pricingQuota"),
+						{
+							count: formatInteger(base.quota),
+						}
+					)}`;
+				}
+
+				if (listItems[1]) {
+					const icon = listItems[1].querySelector("i");
+					listItems[1].innerHTML = `${icon ? icon.outerHTML : ""} ${fillTemplate(
+						t("pricingValidity"),
+						{
+							days: formatInteger(base.days),
+						}
+					)}`;
+				}
+
+				if (listItems[2]) {
+					const icon = listItems[2].querySelector("i");
+					const rateLabel = base.isFree
+						? t("pricingFree")
+						: fillTemplate(t("pricingRate"), {
+								rate: localizeRateBase(base.rateBase),
+						  });
+					listItems[2].innerHTML = `${icon ? icon.outerHTML : ""} ${rateLabel}`;
+				}
+			});
+		};
+
+		const applyLocale = function (locale, options) {
+			const settings = Object.assign({ persist: true }, options);
+			const modeCards = document.querySelectorAll("#modes .worke-items");
+			const whyItems = document.querySelectorAll(
+				"#why .listing-exchange li"
+			);
+			const processItems = document.querySelectorAll("#how .process-item");
+			const faqItems = document.querySelectorAll("#faq .accordion-item");
+			const processContent = [
+				["step1Label", "step1Title", "step1Description"],
+				["step2Label", "step2Title", "step2Description"],
+				["step3Label", "step3Title", "step3Description"],
+			];
+			const faqContent = [
+				["faq1Question", "faq1AnswerHtml"],
+				["faq2Question", "faq2AnswerHtml"],
+				["faq3Question", "faq3AnswerHtml"],
+				["faq4Question", "faq4AnswerHtml"],
+				["faq5Question", "faq5AnswerHtml"],
+			];
+
+			currentLocale = normalizeLocale(locale);
+			document.documentElement.lang = currentLocale;
+			document.documentElement.dir = currentLocale === "ar" ? "rtl" : "ltr";
+			document.title = t("metaTitle");
+			setAttr(
+				'meta[name="description"]',
+				"content",
+				t("metaDescription")
+			);
+			setText("#preloader p.text-center", t("loading"));
+			setText(".offcanvas__contact h4", t("offcanvasContact"));
+			setTrailingIconLabel(
+				".offcanvas__contact .header-button a",
+				t("ctaGetStarted")
+			);
+			setText(
+				"#mobile-menu a[href='#hero'], .mean-nav a[href='#hero']",
+				t("navHome")
+			);
+			setText(
+				"#mobile-menu a[href='#modes'], .mean-nav a[href='#modes']",
+				t("navModes")
+			);
+			setText(
+				"#mobile-menu a[href='#why'], .mean-nav a[href='#why']",
+				t("navWhy")
+			);
+			setText(
+				"#mobile-menu a[href='#how'], .mean-nav a[href='#how']",
+				t("navHow")
+			);
+			setText(
+				"#mobile-menu a[href='#pricing'], .mean-nav a[href='#pricing']",
+				t("navPricing")
+			);
+			setText(
+				"#mobile-menu a[href='#faq'], .mean-nav a[href='#faq']",
+				t("navFaq")
+			);
+			setText(
+				"#mobile-menu a[href='#contact'], .mean-nav a[href='#contact']",
+				t("navContact")
+			);
+			setText(".trusted-partner-wrap > span", t("heroTrusted"));
+			setHtml(".hero-content-version1 h1", t("heroTitleHtml"));
+			setTrailingIconLabel("#hero .common-btn", t("ctaGetStarted"));
+			setText("#modes .cont > span", t("modesEyebrow"));
+			setHtml("#modes .cont h2", t("modesTitleHtml"));
+
+			if (modeCards[0]) {
+				const title = modeCards[0].querySelector("h3 a");
+				const description = modeCards[0].querySelector("p");
+				const arrow = modeCards[0].querySelector(".rarrow");
+
+				if (title) {
+					title.textContent = "OTP";
+				}
+				if (description) {
+					description.textContent = t("modeOtpDescription");
+				}
+				if (arrow) {
+					arrow.setAttribute("aria-label", t("viewOtpPlans"));
+				}
+			}
+			if (modeCards[1]) {
+				const title = modeCards[1].querySelector("h3 a");
+				const description = modeCards[1].querySelector("p");
+				const arrow = modeCards[1].querySelector(".rarrow");
+
+				if (title) {
+					title.textContent = "SMS";
+				}
+				if (description) {
+					description.textContent = t("modeSmsDescription");
+				}
+				if (arrow) {
+					arrow.setAttribute("aria-label", t("viewSmsPlans"));
+				}
+			}
+			if (modeCards[2]) {
+				const title = modeCards[2].querySelector("h3 a");
+				const description = modeCards[2].querySelector("p");
+				const arrow = modeCards[2].querySelector(".rarrow");
+
+				if (title) {
+					title.textContent = "OTP + SMS";
+				}
+				if (description) {
+					description.textContent = t("modeHybridDescription");
+				}
+				if (arrow) {
+					arrow.setAttribute("aria-label", t("viewHybridPlans"));
+				}
+			}
+
+			setHtml("#why h2", t("whyTitleHtml"));
+			setText("#why .about-exchange-content > p", t("whyDescriptionHtml"));
+
+			if (whyItems[0]) {
+				setLeadingIconLabel("#why .listing-exchange li:nth-child(1)", t("whyList1"));
+			}
+			if (whyItems[1]) {
+				setLeadingIconLabel("#why .listing-exchange li:nth-child(2)", t("whyList2"));
+			}
+			if (whyItems[2]) {
+				setLeadingIconLabel("#why .listing-exchange li:nth-child(3)", t("whyList3"));
+			}
+			if (whyItems[3]) {
+				setLeadingIconLabel("#why .listing-exchange li:nth-child(4)", t("whyList4"));
+			}
+
+			setTrailingIconLabel("#why .contact-learn-link", t("whyLearnMore"));
+			setTrailingIconLabel("#why .about-primary-cta", t("whyTryFree"));
+			setHtml(".tv-section h2", t("brandsTitleHtml"));
+			setText("#how > .container > h2", t("howTitle"));
+
+			processItems.forEach(function (item, index) {
+				const content = processContent[index];
+
+				if (!content) {
+					return;
+				}
+
+				const label = item.querySelector(".precess-title");
+				const title = item.querySelector("h3 a");
+				const description = item.querySelector("p");
+				const arrow = item.querySelector(".arrow");
+
+				if (label) {
+					label.textContent = t(content[0]);
+				}
+				if (title) {
+					title.innerHTML = t(content[1]);
+				}
+				if (description) {
+					description.textContent = t(content[2]);
+				}
+				if (arrow) {
+					arrow.setAttribute("aria-label", t("viewPricingPlans"));
+				}
+			});
+
+			setText("#pricing > .container > .d-flex h2", t("pricingTitle"));
+			setText("#month-tab", t("pricingTabMonth"));
+			setText("#quarter-tab", t("pricingTabQuarter"));
+			setText("#halfyear-tab", t("pricingTabHalfyear"));
+			setText("#pricing > .container > p.text-center", t("pricingUnavailable"));
+			setTrailingIconLabel(".pricing-items .common-btn", t("ctaGetStarted"));
+			syncPricingCards();
+			setText("#faq > .container > h2", t("faqTitle"));
+
+			faqItems.forEach(function (item, index) {
+				const content = faqContent[index];
+
+				if (!content) {
+					return;
+				}
+
+				const button = item.querySelector(".accordion-button");
+				const body = item.querySelector(".accordion-body p");
+
+				if (button) {
+					button.textContent = t(content[0]);
+				}
+				if (body) {
+					body.innerHTML = t(content[1]);
+				}
+			});
+
+			setText("footer .col-lg-3 .widget-head h3", t("footerContactHeading"));
+			setText("footer .col-lg-4 .widget-head h3", t("footerQuickLinks"));
+			setText("footer .list-area li:first-child span", t("footerPhoneLabel"));
+			setText("footer .list-area li:last-child span", t("footerEmailLabel"));
+			setText("footer .footer-content p", t("footerSummary"));
+			setLeadingIconLabel("footer .list-linkes a[href='#hero']", t("navHome"));
+			setLeadingIconLabel("footer .list-linkes a[href='#modes']", t("navModes"));
+			setLeadingIconLabel("footer .list-linkes a[href='#why']", t("navWhy"));
+			setLeadingIconLabel("footer .list-linkes a[href='#how']", t("navHow"));
+			setLeadingIconLabel(
+				"footer .list-linkes a[href='#pricing']",
+				t("navPricing")
+			);
+			setLeadingIconLabel("footer .list-linkes a[href='#faq']", t("navFaq"));
+			setHtml("footer .footer-bottom p.body-font", t("copyrightHtml"));
+			setText("footer a[href='terms.html']", t("terms"));
+			setText("footer a[href='privacy.html']", t("privacy"));
+			setAttr(".main-search-input", "placeholder", t("searchPlaceholder"));
+			setText(
+				"#contactOptionsModal .modal-header > div > span",
+				t("modalEyebrow")
+			);
+			setText("#contactOptionsModal .modal-title", t("modalTitle"));
+			setText(
+				"#contactOptionsModal .contact-option-main .fs-seven.black-clr.fw-600",
+				t("modalPhoneTitle")
+			);
+			setText(
+				"#contactOptionsModal a.contact-option .fs-seven.black-clr.fw-600",
+				t("modalFacebookTitle")
+			);
+			setAttr(
+				"#contactOptionsModal .btn-close",
+				"aria-label",
+				t("closeLabel")
+			);
+			setAttr(".contact-view-thumb img", "alt", t("contactPreviewAlt"));
+			setAttr(".about-exchange-thumb img", "alt", t("aboutAlt"));
+			setAttr(".tv-laptop img", "alt", t("brandAlt"));
+			setAttr(".faq-thumb1 img", "alt", t("faqAlt"));
+			setAttr("#hero .partner-icon img", "alt", t("customerAlt"));
+			setAttr(
+				"a[href*='facebook.com/zadxapps']",
+				"aria-label",
+				t("facebookLabel")
+			);
+			setAttr(
+				"a[href*='instagram.com/zadxapps']",
+				"aria-label",
+				t("instagramLabel")
+			);
+			setAttr(
+				"a[href*='linkedin.com/company/zadxapps']",
+				"aria-label",
+				t("linkedinLabel")
+			);
+			setCopyButtonsIdle();
+			updateLocaleButtons();
+
+			if (settings.persist) {
+				persistLocale(currentLocale);
+			}
+		};
+
 		//>> Mobile Menu Js Start <<//
 		$("#mobile-menu").meanmenu({
 			meanMenuContainer: ".mobile-menu",
 			meanScreenWidth: "1199",
 			meanExpand: ['<i class="far fa-plus"></i>'],
+		});
+
+		applyLocale(getInitialLocale(), { persist: false });
+
+		$(document).on("click", "[data-lang-switch]", function () {
+			applyLocale(this.getAttribute("data-lang-switch"));
 		});
 
 		// Smooth-scroll same-page header links without the browser's hash jump.
@@ -85,14 +855,17 @@ CSS TABLE OF CONTENTS
 				return;
 			}
 
-			const originalHtml = $button.html();
 			const setCopied = function () {
 				$button
 					.addClass("copied")
-					.html('<i class="fa-solid fa-check"></i><span>Copied</span>');
+					.html(
+						`<i class="fa-solid fa-check"></i><span>${t(
+							"copiedLabel"
+						)}</span>`
+					);
 
 				setTimeout(function () {
-					$button.removeClass("copied").html(originalHtml);
+					setCopyButtonsIdle();
 				}, 1800);
 			};
 
@@ -113,9 +886,13 @@ CSS TABLE OF CONTENTS
 
 				setCopied();
 			} catch (error) {
-				$button.html('<i class="fa-solid fa-triangle-exclamation"></i><span>Copy failed</span>');
+				$button.html(
+					`<i class="fa-solid fa-triangle-exclamation"></i><span>${t(
+						"copyFailedLabel"
+					)}</span>`
+				);
 				setTimeout(function () {
-					$button.html(originalHtml);
+					setCopyButtonsIdle();
 				}, 1800);
 			}
 		});
