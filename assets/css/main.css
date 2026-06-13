@@ -9853,3 +9853,12 @@ html[dir="rtl"] .footer-section.style1 .footer-ele1 {
     right: 0;
     transform: scaleX(-1);
 }
+
+html[dir="ltr"] .lang-ar { display: none !important; }
+html[dir="rtl"] .lang-en { display: none !important; }
+html[dir="rtl"] .lang-ar { display: block !important; }
+
+span.lang-ar, a.lang-ar, i.lang-ar { display: none !important; }
+html[dir="rtl"] span.lang-en, html[dir="rtl"] a.lang-en, html[dir="rtl"] i.lang-en { display: none !important; }
+html[dir="rtl"] span.lang-ar, html[dir="rtl"] a.lang-ar, html[dir="rtl"] i.lang-ar { display: inline !important; }
+
