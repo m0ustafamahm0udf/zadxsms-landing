@@ -1066,7 +1066,7 @@ $renderCard = function (array $p): string {
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260613-localization"></script>
+    <script src="assets/js/main.js?v=20260614-footer-zadx-target"></script>
 </body>
 
 </html>

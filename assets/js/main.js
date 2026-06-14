@@ -116,7 +116,7 @@ CSS TABLE OF CONTENTS
 				footerEmailLabel: "Email",
 				footerQuickLinks: "Quick links",
 				copyrightHtml:
-					'&copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved',
+					'&copy; <a href="https://zadx.net" class="p1-clr" target="_blank" rel="noopener">ZADX</a> <span class="current-year"></span> | All Rights Reserved',
 				terms: "Terms & Conditions",
 				privacy: "Privacy Policy",
 				searchPlaceholder: "Search the page...",
@@ -234,7 +234,7 @@ CSS TABLE OF CONTENTS
 				footerEmailLabel: "البريد الإلكتروني",
 				footerQuickLinks: "روابط سريعة",
 				copyrightHtml:
-					'&copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | جميع الحقوق محفوظة',
+					'&copy; <a href="https://zadx.net" class="p1-clr" target="_blank" rel="noopener">ZADX</a> <span class="current-year"></span> | جميع الحقوق محفوظة',
 				terms: "الشروط والأحكام",
 				privacy: "سياسة الخصوصية",
 				searchPlaceholder: "ابحث في الصفحة...",

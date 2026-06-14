@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <!--<< Header Area >>-->
 
 <head>
@@ -34,13 +34,37 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260614-legal-language-toggle">
 
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* Terms & Conditions Page Styles */
+        html:not([dir="rtl"]) .lang-ar,
+        html[dir="rtl"] .lang-en {
+            display: none !important;
+        }
+
+        html[dir="rtl"] .lang-ar {
+            display: block !important;
+        }
+
+        html:not([dir="rtl"]) span.lang-ar,
+        html:not([dir="rtl"]) a.lang-ar,
+        html:not([dir="rtl"]) i.lang-ar,
+        html[dir="rtl"] span.lang-en,
+        html[dir="rtl"] a.lang-en,
+        html[dir="rtl"] i.lang-en {
+            display: none !important;
+        }
+
+        html[dir="rtl"] span.lang-ar,
+        html[dir="rtl"] a.lang-ar,
+        html[dir="rtl"] i.lang-ar {
+            display: inline !important;
+        }
+
         .terms-section {
             padding: 80px 0 100px;
         }
@@ -655,7 +679,7 @@
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v=20260614-legal-language-toggle"></script>
 
 </body>
 
