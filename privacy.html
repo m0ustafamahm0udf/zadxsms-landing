@@ -141,7 +141,7 @@
             color: var(--p1);
         }
 
-        .lang-ar {
+        .lang-ar:not(i) {
             font-family: 'IBM Plex Sans Arabic', sans-serif;
         }
 
@@ -366,8 +366,8 @@
                         </a>
                     </li>
                     <li>
-                        <i class="fa-solid fa-chevron-right p1-clr lang-en"></i>
-                        <i class="fa-solid fa-chevron-left p1-clr lang-ar"></i>
+                        <span class="lang-en"><i class="fa-solid fa-chevron-right p1-clr"></i></span>
+                        <span class="lang-ar"><i class="fa-solid fa-chevron-left p1-clr"></i></span>
                     </li>
                     <li class="fs-six black-clr fw-500">
                         <span class="lang-en">Privacy Policy</span>
