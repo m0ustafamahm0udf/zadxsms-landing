@@ -92,8 +92,11 @@ $renderCard = function (array $p): string {
     <meta name="description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
     <!-- ======== Page title ============ -->
     <title>ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions</title>
-    <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="assets/img/logo/favs.png">
+    <!--<< Favicon >>-->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon/android-icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon/android-icon-512.png">
+    <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
