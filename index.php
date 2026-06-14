@@ -40,11 +40,11 @@ if ($key !== '') {
 }
 
 // Temporary diagnostics: append ?debug=1 to the URL to see why plans are empty.
-// Never prints the secret itself — only whether it was found and its length.
+// Never prints the secret itself - only whether it was found and its length.
 if (isset($_GET['debug'])) {
     header('Content-Type: text/plain');
     echo "endpoint     : {$endpoint}\n";
-    echo "key present  : " . ($key !== '' ? 'yes' : 'NO — SetEnv not reaching PHP') . "\n";
+    echo "key present  : " . ($key !== '' ? 'yes' : 'NO - SetEnv not reaching PHP') . "\n";
     echo "key length   : " . strlen($key) . "\n";
     echo "http status  : {$status}\n";
     echo "curl error   : " . ($curlErr !== '' ? $curlErr : '(none)') . "\n";
@@ -114,8 +114,11 @@ $renderCard = function (array $p): string {
     <meta name="description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
     <!-- ======== Page title ============ -->
     <title>ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions</title>
-    <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="assets/img/logo/favs.png">
+    <!--<< Favicon >>-->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon/android-icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon/android-icon-512.png">
+    <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -131,7 +134,9 @@ $renderCard = function (array $p): string {
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260614-header-call-fit">
+    <!--<< IBM Plex Sans Arabic >>-->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="body-bg ">
@@ -178,7 +183,7 @@ $renderCard = function (array $p): string {
                     <div class="offcanvas__content pb-2">
                         <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                             <div class="offcanvas__logo">
-                                <a href="index.html">
+                                <a href="#hero">
                                     <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                                 </a>
                             </div>
@@ -213,9 +218,15 @@ $renderCard = function (array $p): string {
                             <div class="header-button mt-4">
                                 <a href="#pricing"
                                     class="common-btn text-white box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-normal black overflow-hidden rounded-1 p1-bg py-2">
-                                    Get Start
+                                    Get Started
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
+                            </div>
+                            <div class="offcanvas-locale-switcher">
+                                <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                                </div>
                             </div>
                             <div class="social-icon d-flex align-items-center">
                                 <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -258,6 +269,12 @@ $renderCard = function (array $p): string {
                                             <li><a href="#contact">Contact</a></li>
                                         </ul>
                                     </nav>
+                                </div>
+                            </div>
+                            <div class="header-locale-switcher d-flex align-items-center">
+                                <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
                                 </div>
                             </div>
                             <div class="header__hamburger d-xl-none my-auto">
@@ -803,6 +820,8 @@ $renderCard = function (array $p): string {
             </div>
         </section>
 
+
+
         <!--<< Footer Section Start >>-->
         <footer id="contact" class="footer-section style1 z-1 position-relative fix">
             <div class="container">
@@ -812,15 +831,15 @@ $renderCard = function (array $p): string {
                             <div class="col-lg-5 col-md-6 col-sm-7">
                                 <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                     <div class="widget-head">
-                                        <a href="index.html">
+                                        <a href="#hero">
                                             <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                                         </a>
                                     </div>
                                     <div class="footer-content">
                                         <p class="pra fs-eight mb-30 d-block">
-                                            Information Technology is a broad field the main man encompassing the
-                                            design Info Technology is a broad field the main
-                                            man
+                                            ZADX SMS helps apps and brands launch OTP and SMS delivery quickly with
+                                            ready APIs, instant sender ID access, and a dashboard that keeps setup
+                                            simple.
                                         </p>
                                         <div class="social-wrapper d-flex flex-wrap align-items-center gap-xxl-3 gap-2">
                                             <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Facebook">
@@ -928,13 +947,13 @@ $renderCard = function (array $p): string {
                     <div
                         class="footer-bottom py-4 cmn-border-top d-flex flex-sm-nowrap flex-wrap align-items-center justify-content-sm-between justify-content-center gap-sm-0 gap-2">
                         <p class="body-font fs-eight pra text-center">
-                            &copy; <a href="https://zadx.net" target="_blank" rel="noopener" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
+                            &copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
                         </p>
                         <ul
                             class="condition d-flex flex-sm-nowrap flex-wrap justify-content-sm-start justify-content-center align-items-center gap-xxl-4 gap-xl-3 gap-sm-2 gap-1">
                             <li>
                                 <a href="terms.html" class="fs-eight pra p1-hover">
-                                    Terms & Condition
+                                    Terms & Conditions
                                 </a>
                             </li>
                             <li>
@@ -958,7 +977,7 @@ $renderCard = function (array $p): string {
                 <div class="search-cell">
                     <form method="get">
                         <div class="search-field-holder">
-                            <input type="search" class="main-search-input" placeholder="Search...">
+                            <input type="search" class="main-search-input" placeholder="Search the page...">
                         </div>
                     </form>
                 </div>
@@ -1047,7 +1066,7 @@ $renderCard = function (array $p): string {
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260612-copy-phone"></script>
+    <script src="assets/js/main.js?v=20260613-localization"></script>
 </body>
 
 </html>

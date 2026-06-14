@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ZADX Software Solutions">
     <meta name="description" content="Privacy Policy for ZADX SMS. Learn how we collect, use, and protect your information.">
+
     <!-- ======== Page title ============ -->
-    <title>Privacy Policy | ZADX SMS</title>
+    <title>Privacy Policy / سياسة الخصوصية | ZADX SMS</title>
+
     <!--<< Favicon >>-->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon/android-icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon/android-icon-512.png">
     <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
+
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -32,6 +35,9 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
+
+    <!--<< IBM Plex Sans Arabic >>-->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* Privacy Policy Page Styles */
@@ -66,7 +72,7 @@
             font-weight: 600;
             color: #1a1a2e;
             margin-bottom: 16px;
-            padding-left: 0;
+            padding-left: 16px;
             border-left: 3px solid var(--p1);
             line-height: 1.4;
         }
@@ -135,6 +141,27 @@
             color: var(--p1);
         }
 
+        .lang-ar {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .lang-ar .privacy-block-heading {
+            border-left: none;
+            border-right: 3px solid var(--p1);
+            padding-left: 0;
+            padding-right: 16px;
+        }
+
+        .lang-ar .privacy-list li {
+            padding-left: 0;
+            padding-right: 28px;
+        }
+
+        .lang-ar .privacy-list li::before {
+            left: auto;
+            right: 0;
+        }
+
         @media (max-width: 767px) {
             .privacy-section {
                 padding: 50px 0 70px;
@@ -180,6 +207,7 @@
             </div>
         </div>
     </div>
+    <!-- Preloader End -->
 
     <!-- Start Cursor Pointer -->
     <div class="mouse-follower">
@@ -195,7 +223,7 @@
                 <div class="offcanvas__content pb-2">
                     <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
                         <div class="offcanvas__logo">
-                            <a href="index.html">
+                            <a href="index.php#hero">
                                 <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                             </a>
                         </div>
@@ -205,7 +233,9 @@
                             </button>
                         </div>
                     </div>
+
                     <div class="mobile-menu fix mb-3"></div>
+
                     <div class="offcanvas__contact">
                         <h4>Contact Info</h4>
                         <ul class="d-grid gap-2">
@@ -214,16 +244,9 @@
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div class="offcanvas__contact-text">
-                                    <a href="mailto:hello@zadx.net"><span
-                                            class="mailto:hello@zadx.net">hello@zadx.net</span></a>
-                                </div>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <div class="offcanvas__contact-icon mr-15">
-                                    <i class="far fa-clock"></i>
-                                </div>
-                                <div class="offcanvas__contact-text">
-                                    <a target="_blank" href="#">Sat-friday, 02am -09pm</a>
+                                    <a href="mailto:hello@zadx.net">
+                                        <span>hello@zadx.net</span>
+                                    </a>
                                 </div>
                             </li>
                             <li class="d-flex align-items-center">
@@ -235,19 +258,35 @@
                                 </div>
                             </li>
                         </ul>
+
                         <div class="header-button mt-4">
-                            <a href="contact.html"
+                            <a href="index.php#pricing"
                                 class="common-btn text-white box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-normal black overflow-hidden rounded-1 p1-bg py-2">
-                                Get Start
+                                Get Started
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
+
+                        <div class="offcanvas-locale-switcher">
+                            <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                            </div>
+                        </div>
+
                         <div class="social-icon d-flex align-items-center">
-                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
                         </div>
                     </div>
+
                     <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
                         <img src="assets/img/banner/contact-view.jpg" alt="img" class="w-100 rounded-4">
                     </a>
@@ -256,6 +295,7 @@
         </div>
     </div>
     <div class="offcanvas__overlay"></div>
+    <!-- Offcanvas Area End -->
 
     <!-- Header Section Start -->
     <header id="header-sticky" class="header-1 header-version1 inner-fixed">
@@ -264,59 +304,79 @@
                 <div class="header-main">
                     <div class="header-left">
                         <div class="logo">
-                            <a href="index.html" class="header-logo">
+                            <a href="index.php#hero" class="header-logo">
                                 <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                             </a>
                         </div>
                     </div>
+
                     <div class="header-right d-flex justify-content-end align-items-center">
                         <div class="mean__menu-wrapper">
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li>
-                                            <a href="index.html">Home</a>
+                                            <a href="index.php#hero">Home</a>
                                         </li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
-                        <a href="#0" class="search-trigger search-icon d-xl-none d-block">
-                            <i class="fas fa-search"></i>
+
+                        <div class="header-locale-switcher d-flex align-items-center">
+                            <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                            </div>
+                        </div>
+
+                        <a href="tel:+201092719790"
+                            class="blackbg call-version1 d-sm-flex d-none align-items-center gap-2 rounded-5 py-2 ps-2 pe-xxl-4 pe-4">
+                            <div class="icon d-center p1-bg rounded-circle">
+                                <i class="fas fa-phone-alt white-clr"></i>
+                            </div>
+                            <span class="fs-seven fw-normal white-clr">01092719790</span>
                         </a>
+
                         <div class="header__hamburger d-xl-none my-auto">
                             <div class="sidebar__toggle">
                                 <img src="assets/img/icon/menu.png" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <a href="tel:+201092719790"
-                        class="blackbg call-version1 d-sm-flex d-none align-items-center gap-2 rounded-5 py-2 ps-2 pe-xxl-4 pe-4">
-                        <div class="icon d-center p1-bg rounded-circle">
-                            <i class="fas fa-phone-alt white-clr"></i>
-                        </div>
-                        <span class="fs-seven fw-normal white-clr">01092719790</span>
-                    </a>
                 </div>
             </div>
         </div>
     </header>
+    <!-- Header Section End -->
 
     <!-- Banner Section Start -->
     <section class="breadcrumb-section cmn-bg position-relative fix">
         <div class="container">
-            <div
-                class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
-                <h2 class="black wow fadeInUp">Privacy Policy</h2>
+            <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
+                <h2 class="black wow fadeInUp">
+                    <span class="lang-en">Privacy Policy</span>
+                    <span class="lang-ar">سياسة الخصوصية</span>
+                </h2>
                 <ul class="d-flex align-items-center gap-3">
                     <li>
-                        <a href="index.html" class="fs-six black-clr fw-500">Home</a>
+                        <a href="index.php" class="fs-six black-clr fw-500">
+                            <span class="lang-en">Home</span>
+                            <span class="lang-ar">الرئيسية</span>
+                        </a>
                     </li>
-                    <li><i class="fa-solid fa-chevron-right p1-clr"></i></li>
-                    <li class="fs-six black-clr fw-500">Privacy Policy</li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right p1-clr lang-en"></i>
+                        <i class="fa-solid fa-chevron-left p1-clr lang-ar"></i>
+                    </li>
+                    <li class="fs-six black-clr fw-500">
+                        <span class="lang-en">Privacy Policy</span>
+                        <span class="lang-ar">سياسة الخصوصية</span>
+                    </li>
                 </ul>
             </div>
         </div>
+
         <!-- Bread Ele -->
         <img src="assets/img/element/bread-shape.png" alt="img" class="bread-ele">
     </section>
@@ -326,118 +386,211 @@
     <section class="privacy-section fix">
         <div class="container">
             <div class="privacy-content">
-                <span class="privacy-last-updated">Last updated: June 13, 2025</span>
 
-                <p class="privacy-intro">
-                    This Privacy Policy explains how ZADX SMS collects, uses, and protects information when you use our messaging platform and API. It also explains how we handle the recipient data you process through the Service. By using the Service, you agree to the practices described here.
-                </p>
+                <!-- English Content -->
+                <div class="lang-en">
+                    <span class="privacy-last-updated">Last updated: June 13, 2025</span>
 
-                <!-- Information we collect -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Information we collect</h3>
-                    <p class="privacy-block-body">
-                        We collect information you provide and information generated when you use the Service:
+                    <p class="privacy-intro">
+                        This Privacy Policy explains how ZADX SMS collects, uses, and protects information when you use our messaging platform and API. It also explains how we handle the recipient data you process through the Service. By using the Service, you agree to the practices described here.
                     </p>
-                    <ul class="privacy-list">
-                        <li><strong>Account data:</strong> your name, email address, phone number, and login credentials.</li>
-                        <li><strong>Billing data:</strong> plan, transactions, and payment-related records.</li>
-                        <li><strong>Message data:</strong> recipient phone numbers, message and OTP content, sender IDs, timestamps, status, and delivery results that you submit through the API or dashboard.</li>
-                    </ul>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Information we collect</h3>
+                        <p class="privacy-block-body">
+                            We collect information you provide and information generated when you use the Service:
+                        </p>
+                        <ul class="privacy-list">
+                            <li><strong>Account data:</strong> your name, email address, phone number, and login credentials.</li>
+                            <li><strong>Billing data:</strong> plan, transactions, and payment-related records.</li>
+                            <li><strong>Message data:</strong> recipient phone numbers, message and OTP content, sender IDs, timestamps, status, and delivery results that you submit through the API or dashboard.</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">How we use information</h3>
+                        <ul class="privacy-list">
+                            <li>To provide, operate, and deliver your messages.</li>
+                            <li>To authenticate requests, enforce rate limits, and secure the platform.</li>
+                            <li>To process payments, manage credits and subscriptions, and prevent fraud.</li>
+                            <li>To provide support, send service notices, and improve the Service.</li>
+                            <li>To comply with legal obligations and respond to lawful requests.</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Recipient data and our role as processor</h3>
+                        <p class="privacy-block-body">
+                            When you send messages, the recipient phone numbers and message content you provide are processed on your behalf. You are the controller of that data and are responsible for having a lawful basis and recipient consent. ZADX SMS acts as a processor and uses that data only to deliver your messages and operate the Service.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Sharing of information</h3>
+                        <p class="privacy-block-body">
+                            We do not sell your personal data. We use the information you provide solely to operate the Service and deliver your messages.
+                        </p>
+                        <ul class="privacy-list">
+                            <li>We may disclose information when required by law, regulation, or valid legal process.</li>
+                            <li>We may disclose information to protect the rights, safety, and integrity of the Service and its users.</li>
+                        </ul>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Data retention</h3>
+                        <p class="privacy-block-body">
+                            We retain account and billing records for as long as your account is active and as required for legal, accounting, and security purposes. Message logs and delivery metadata are retained for a limited period to support troubleshooting, reporting, and compliance, after which they are deleted or anonymized.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Security</h3>
+                        <p class="privacy-block-body">
+                            We use technical and organizational measures to protect data, including encryption in transit, access controls, and secret-based API authentication. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Your rights</h3>
+                        <p class="privacy-block-body">
+                            Subject to applicable law, you may request access to, correction of, or deletion of your personal data. To exercise these rights, contact us using the details below. Recipients should direct their requests to the business that sent the message.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Cookies and local storage</h3>
+                        <p class="privacy-block-body">
+                            The dashboard uses cookies and browser local storage to keep you signed in and to remember preferences such as language and theme. You can control cookies through your browser settings, though some features may not work without them.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Children's privacy</h3>
+                        <p class="privacy-block-body">
+                            The Service is intended for businesses and is not directed to children. We do not knowingly collect personal data from children.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Changes to this policy</h3>
+                        <p class="privacy-block-body">
+                            We may update this Privacy Policy from time to time. We will revise the "last updated" date above and, where appropriate, notify you of material changes.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">Contact us</h3>
+                        <p class="privacy-block-body">
+                            For privacy questions or requests, contact us at
+                            <a href="mailto:hello@zadx.net" class="privacy-contact-link">hello@zadx.net</a>.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- How we use information -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">How we use information</h3>
-                    <ul class="privacy-list">
-                        <li>To provide, operate, and deliver your messages.</li>
-                        <li>To authenticate requests, enforce rate limits, and secure the platform.</li>
-                        <li>To process payments, manage credits and subscriptions, and prevent fraud.</li>
-                        <li>To provide support, send service notices, and improve the Service.</li>
-                        <li>To comply with legal obligations and respond to lawful requests.</li>
-                    </ul>
-                </div>
+                <!-- Arabic Content -->
+                <div class="lang-ar" dir="rtl" style="text-align: right;">
+                    <span class="privacy-last-updated">آخر تحديث: 13 يونيو 2025</span>
 
-                <!-- Recipient data and our role as processor -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Recipient data and our role as processor</h3>
-                    <p class="privacy-block-body">
-                        When you send messages, the recipient phone numbers and message content you provide are processed on your behalf. You are the controller of that data and are responsible for having a lawful basis and recipient consent. ZADX SMS acts as a processor and uses that data only to deliver your messages and operate the Service.
+                    <p class="privacy-intro">
+                        تشرح سياسة الخصوصية هذه كيف تقوم ZADX SMS بجمع واستخدام وحماية المعلومات عند استخدامك لمنصة الرسائل وواجهة API الخاصة بنا. كما توضح كيفية تعاملنا مع بيانات المستلمين التي تتم معالجتها من خلال الخدمة. باستخدامك للخدمة، فإنك توافق على الممارسات الموضحة هنا.
                     </p>
-                </div>
 
-                <!-- Sharing of information -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Sharing of information</h3>
-                    <p class="privacy-block-body">
-                        We do not sell your personal data. We use the information you provide solely to operate the Service and deliver your messages.
-                    </p>
-                    <ul class="privacy-list">
-                        <li>We may disclose information when required by law, regulation, or valid legal process.</li>
-                        <li>We may disclose information to protect the rights, safety, and integrity of the Service and its users.</li>
-                    </ul>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">المعلومات التي نجمعها</h3>
+                        <p class="privacy-block-body">
+                            نجمع المعلومات التي تقدمها والمعلومات التي يتم إنشاؤها عند استخدامك للخدمة:
+                        </p>
+                        <ul class="privacy-list">
+                            <li><strong>بيانات الحساب:</strong> اسمك، عنوان بريدك الإلكتروني، رقم هاتفك، وبيانات تسجيل الدخول.</li>
+                            <li><strong>بيانات الفوترة:</strong> الخطة، المعاملات، والسجلات المتعلقة بالدفع.</li>
+                            <li><strong>بيانات الرسائل:</strong> أرقام هواتف المستلمين، محتوى الرسائل و OTP، معرفات المرسل، الطوابع الزمنية، الحالة، ونتائج التسليم التي ترسلها من خلال API أو لوحة التحكم.</li>
+                        </ul>
+                    </div>
 
-                <!-- Data retention -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Data retention</h3>
-                    <p class="privacy-block-body">
-                        We retain account and billing records for as long as your account is active and as required for legal, accounting, and security purposes. Message logs and delivery metadata are retained for a limited period to support troubleshooting, reporting, and compliance, after which they are deleted or anonymized.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">كيف نستخدم المعلومات</h3>
+                        <ul class="privacy-list">
+                            <li>لتوفير الخدمة وتشغيلها وتسليم رسائلك.</li>
+                            <li>لمصادقة الطلبات، وتطبيق حدود الاستخدام، وتأمين المنصة.</li>
+                            <li>لمعالجة المدفوعات، وإدارة الأرصدة والاشتراكات، ومنع الاحتيال.</li>
+                            <li>لتقديم الدعم، وإرسال إشعارات الخدمة، وتحسين الخدمة.</li>
+                            <li>للامتثال للالتزامات القانونية والرد على الطلبات القانونية الصحيحة.</li>
+                        </ul>
+                    </div>
 
-                <!-- Security -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Security</h3>
-                    <p class="privacy-block-body">
-                        We use technical and organizational measures to protect data, including encryption in transit, access controls, and secret-based API authentication. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">بيانات المستلمين ودورنا كمعالج</h3>
+                        <p class="privacy-block-body">
+                            عند إرسال الرسائل، تتم معالجة أرقام هواتف المستلمين ومحتوى الرسائل الذي تقدمه نيابةً عنك. أنت المتحكم في هذه البيانات وتتحمل مسؤولية وجود أساس قانوني وموافقة من المستلمين. تعمل ZADX SMS كمعالج وتستخدم هذه البيانات فقط لتسليم رسائلك وتشغيل الخدمة.
+                        </p>
+                    </div>
 
-                <!-- Your rights -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Your rights</h3>
-                    <p class="privacy-block-body">
-                        Subject to applicable law, you may request access to, correction of, or deletion of your personal data. To exercise these rights, contact us using the details below. Recipients should direct their requests to the business that sent the message.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">مشاركة المعلومات</h3>
+                        <p class="privacy-block-body">
+                            نحن لا نبيع بياناتك الشخصية. نستخدم المعلومات التي تقدمها فقط لتشغيل الخدمة وتسليم رسائلك.
+                        </p>
+                        <ul class="privacy-list">
+                            <li>قد نفصح عن المعلومات عندما يتطلب ذلك القانون أو اللوائح أو الإجراءات القانونية الصحيحة.</li>
+                            <li>قد نفصح عن المعلومات لحماية حقوق وسلامة ونزاهة الخدمة ومستخدميها.</li>
+                        </ul>
+                    </div>
 
-                <!-- Cookies and local storage -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Cookies and local storage</h3>
-                    <p class="privacy-block-body">
-                        The dashboard uses cookies and browser local storage to keep you signed in and to remember preferences such as language and theme. You can control cookies through your browser settings, though some features may not work without them.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">الاحتفاظ بالبيانات</h3>
+                        <p class="privacy-block-body">
+                            نحتفظ بسجلات الحساب والفوترة طالما كان حسابك نشطًا، وحسب ما يلزم للأغراض القانونية والمحاسبية والأمنية. يتم الاحتفاظ بسجلات الرسائل وبيانات التسليم لفترة محدودة لدعم استكشاف الأخطاء وإعداد التقارير والامتثال، وبعد ذلك يتم حذفها أو إخفاء هويتها.
+                        </p>
+                    </div>
 
-                <!-- Children's privacy -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Children's privacy</h3>
-                    <p class="privacy-block-body">
-                        The Service is intended for businesses and is not directed to children. We do not knowingly collect personal data from children.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">الأمان</h3>
+                        <p class="privacy-block-body">
+                            نستخدم تدابير فنية وتنظيمية لحماية البيانات، بما في ذلك التشفير أثناء النقل، وضوابط الوصول، والمصادقة المعتمدة على مفاتيح API السرية. لا توجد طريقة نقل أو تخزين آمنة بنسبة 100%، لذلك لا يمكننا ضمان الأمان المطلق.
+                        </p>
+                    </div>
 
-                <!-- Changes to this policy -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Changes to this policy</h3>
-                    <p class="privacy-block-body">
-                        We may update this Privacy Policy from time to time. We will revise the "last updated" date above and, where appropriate, notify you of material changes.
-                    </p>
-                </div>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">حقوقك</h3>
+                        <p class="privacy-block-body">
+                            مع مراعاة القانون المعمول به، يمكنك طلب الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها. لممارسة هذه الحقوق، تواصل معنا من خلال بيانات الاتصال أدناه. يجب على المستلمين توجيه طلباتهم إلى الجهة التجارية التي أرسلت الرسالة.
+                        </p>
+                    </div>
 
-                <!-- Contact us -->
-                <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="privacy-block-heading">Contact us</h3>
-                    <p class="privacy-block-body">
-                        For privacy questions or requests, contact us at <a href="mailto:hello@zadx.net" class="privacy-contact-link">hello@zadx.net</a>.
-                    </p>
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">ملفات تعريف الارتباط والتخزين المحلي</h3>
+                        <p class="privacy-block-body">
+                            تستخدم لوحة التحكم ملفات تعريف الارتباط والتخزين المحلي للمتصفح لإبقائك مسجل الدخول وتذكر تفضيلاتك مثل اللغة والمظهر. يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات المتصفح، لكن بعض المميزات قد لا تعمل بدونها.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">خصوصية الأطفال</h3>
+                        <p class="privacy-block-body">
+                            الخدمة مخصصة للأنشطة التجارية وليست موجهة للأطفال. نحن لا نجمع بيانات شخصية من الأطفال عن قصد.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">التغييرات على هذه السياسة</h3>
+                        <p class="privacy-block-body">
+                            قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بتعديل تاريخ "آخر تحديث" أعلاه، وعند الحاجة سنخطرك بأي تغييرات جوهرية.
+                        </p>
+                    </div>
+
+                    <div class="privacy-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="privacy-block-heading">اتصل بنا</h3>
+                        <p class="privacy-block-body">
+                            لطرح أسئلة أو طلبات تتعلق بالخصوصية، تواصل معنا على
+                            <a href="mailto:hello@zadx.net" class="privacy-contact-link">hello@zadx.net</a>.
+                        </p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
     <!-- Privacy Policy Section End -->
-
 
     <!-- Search Area Start -->
     <div class="search-wrap">
@@ -452,6 +605,7 @@
             </div>
         </div>
     </div>
+    <!-- Search Area End -->
 
     <!--<< All JS Plugins >>-->
     <script src="assets/js/jquery-3.7.1.min.js"></script>

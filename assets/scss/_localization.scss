@@ -1,0 +1,215 @@
+/* ===== Localization: language switcher + RTL support ===== */
+.header-locale-switcher {
+	margin-inline-start: 18px;
+}
+
+.offcanvas-locale-switcher {
+	margin-top: 20px;
+
+	.locale-toggle {
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+.locale-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 4px;
+	border: 1px solid $border-color;
+	border-radius: 100px;
+	background: rgba(255, 255, 255, 0.78);
+	backdrop-filter: blur(10px);
+}
+
+.locale-toggle__button {
+	min-width: 54px;
+	padding: 10px 14px;
+	border: 0;
+	border-radius: 100px;
+	background: transparent;
+	color: $black;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1;
+	transition: all 0.3s ease-in-out;
+
+	&:hover,
+	&:focus-visible {
+		background: $p1-clr;
+		color: $white;
+		outline: none;
+	}
+
+	&.is-active {
+		background: $black;
+		color: $white;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+	}
+}
+
+html[dir="rtl"] {
+	body {
+		text-align: right;
+	}
+
+	.header-main,
+	.header-right,
+	.trusted-partner-wrap,
+	.about-cta-row,
+	.contact-option,
+	.contact-option-main,
+	.social-wrapper,
+	.social-icon,
+	.price-list li,
+	.listing-exchange li,
+	.list-area li,
+	.list-linkes a,
+	.footer-bottom,
+	.condition,
+	.process-item,
+	.process-item .content,
+	.process-pra,
+	.offcanvas__contact ul li,
+	.call-version1,
+	.contact-copy-btn,
+	.common-btn,
+	.contact-learn-link {
+		direction: rtl;
+	}
+
+	.offcanvas__contact ul li .offcanvas__contact-icon {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+
+	.header-1 .call-version1 {
+		padding-left: 16px !important;
+		padding-right: 8px !important;
+	}
+
+	.accordion-button,
+	.accordion-body,
+	.pricing-items,
+	.worke-items,
+	.single-footer-widget,
+	.offcanvas__wrapper {
+		text-align: right;
+	}
+
+	.accordion-button::after {
+		margin-left: 0;
+		margin-right: auto;
+	}
+
+	.contact-learn-link i,
+	.common-btn i.fa-arrow-right,
+	.common-btn i.fa-arrow-right-long {
+		transform: scaleX(-1);
+	}
+
+	.contact-learn-link:hover i,
+	.contact-learn-link:focus-visible i {
+		transform: translateX(-3px) scaleX(-1);
+	}
+
+	.about-exchange-thumb,
+	.faq-thumb1,
+	.tv-laptop {
+		direction: ltr;
+	}
+}
+
+@media (min-width: 576px) {
+	html[dir="rtl"] .text-sm-start {
+		text-align: right !important;
+	}
+}
+
+@media (min-width: 768px) {
+	html[dir="rtl"] .text-md-start {
+		text-align: right !important;
+	}
+}
+
+@media (min-width: 992px) {
+	html[dir="rtl"] .text-lg-start {
+		text-align: right !important;
+	}
+}
+
+@media (max-width: 1199px) {
+	.header-locale-switcher {
+		margin-inline-start: 12px;
+	}
+}
+
+@media (max-width: 575px) {
+	.header-locale-switcher {
+		margin-inline-start: 10px;
+	}
+
+	.locale-toggle__button {
+		min-width: 48px;
+		padding: 9px 12px;
+	}
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] .fs-two,
+html[dir="rtl"] .fs-50,
+html[dir="rtl"] p,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] li,
+html[dir="rtl"] div {
+    letter-spacing: normal !important;
+}
+
+html[dir="rtl"] body, 
+html[dir="rtl"] h1, 
+html[dir="rtl"] h2, 
+html[dir="rtl"] h3, 
+html[dir="rtl"] h4, 
+html[dir="rtl"] h5, 
+html[dir="rtl"] h6, 
+html[dir="rtl"] p, 
+html[dir="rtl"] span, 
+html[dir="rtl"] a, 
+html[dir="rtl"] button, 
+html[dir="rtl"] input, 
+html[dir="rtl"] .heading-font, 
+html[dir="rtl"] .body-font, 
+html[dir="rtl"] .sub-font {
+    font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+
+html[dir="rtl"] .rarrow svg {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button::before,
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed)::before {
+    right: auto;
+    left: 7px;
+}
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button {
+    padding-right: 0 !important;
+    padding-left: 50px !important;
+}
+
+html[dir="rtl"] .faq-thumb1 img {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .footer-section.style1 .footer-ele1 {
+    left: auto;
+    right: 0;
+    transform: scaleX(-1);
+}

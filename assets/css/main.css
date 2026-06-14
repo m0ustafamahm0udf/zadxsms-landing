@@ -4232,9 +4232,17 @@ footer {
   }
 }
 .header-1 .call-version1 {
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  padding-left: 8px !important;
+  padding-right: 16px !important;
+  text-align: center;
+  white-space: nowrap;
   transition: all 0.4s;
 }
 .header-1 .call-version1 .icon {
+  flex: 0 0 37px;
   width: 37px;
   height: 37px;
   transition: all 0.4s;
@@ -9633,3 +9641,233 @@ button.common-btn {
     flex-basis: 46px;
   }
 }
+
+/* ===== Localization: language switcher + RTL support ===== */
+.header-locale-switcher {
+  margin-inline-start: 18px;
+}
+
+.offcanvas-locale-switcher {
+  margin-top: 20px;
+}
+
+.offcanvas-locale-switcher .locale-toggle {
+  justify-content: center;
+  width: 100%;
+}
+
+.locale-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--cmn-border);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+}
+
+.locale-toggle__button {
+  min-width: 54px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.locale-toggle__button:hover,
+.locale-toggle__button:focus-visible {
+  background: var(--p1-clr);
+  color: var(--white);
+  outline: none;
+}
+
+.locale-toggle__button.is-active {
+  background: var(--black);
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+html[dir="rtl"] .header-main,
+html[dir="rtl"] .header-right,
+html[dir="rtl"] .trusted-partner-wrap,
+html[dir="rtl"] .about-cta-row,
+html[dir="rtl"] .contact-option,
+html[dir="rtl"] .contact-option-main,
+html[dir="rtl"] .social-wrapper,
+html[dir="rtl"] .social-icon,
+html[dir="rtl"] .price-list li,
+html[dir="rtl"] .listing-exchange li,
+html[dir="rtl"] .list-area li,
+html[dir="rtl"] .list-linkes a,
+html[dir="rtl"] .footer-bottom,
+html[dir="rtl"] .condition,
+html[dir="rtl"] .process-item,
+html[dir="rtl"] .process-item .content,
+html[dir="rtl"] .process-pra,
+html[dir="rtl"] .offcanvas__contact ul li,
+html[dir="rtl"] .call-version1,
+html[dir="rtl"] .contact-copy-btn,
+html[dir="rtl"] .common-btn,
+html[dir="rtl"] .contact-learn-link {
+  direction: rtl;
+}
+
+html[dir="rtl"] .offcanvas__contact ul li .offcanvas__contact-icon {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+html[dir="rtl"] .header-1 .call-version1 {
+  padding-left: 16px !important;
+  padding-right: 8px !important;
+}
+
+html[dir="rtl"] .accordion-button,
+html[dir="rtl"] .accordion-body,
+html[dir="rtl"] .pricing-items,
+html[dir="rtl"] .worke-items,
+html[dir="rtl"] .single-footer-widget,
+html[dir="rtl"] .offcanvas__wrapper {
+  text-align: right;
+}
+
+html[dir="rtl"] .accordion-button::after {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .contact-learn-link i,
+html[dir="rtl"] .common-btn i.fa-arrow-right,
+html[dir="rtl"] .common-btn i.fa-arrow-right-long {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .contact-learn-link:hover i,
+html[dir="rtl"] .contact-learn-link:focus-visible i {
+  transform: translateX(-3px) scaleX(-1);
+}
+
+html[dir="rtl"] .about-exchange-thumb,
+html[dir="rtl"] .faq-thumb1,
+html[dir="rtl"] .tv-laptop {
+  direction: ltr;
+}
+
+@media (min-width: 576px) {
+  html[dir="rtl"] .text-sm-start {
+    text-align: right !important;
+  }
+}
+
+@media (min-width: 768px) {
+  html[dir="rtl"] .text-md-start {
+    text-align: right !important;
+  }
+}
+
+@media (min-width: 992px) {
+  html[dir="rtl"] .text-lg-start {
+    text-align: right !important;
+  }
+}
+
+@media (max-width: 1199px) {
+  .header-locale-switcher {
+    margin-inline-start: 12px;
+  }
+}
+
+@media (max-width: 575px) {
+  .header-locale-switcher {
+    margin-inline-start: 10px;
+  }
+
+  .locale-toggle__button {
+    min-width: 48px;
+    padding: 9px 12px;
+  }
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] .fs-two,
+html[dir="rtl"] .fs-50,
+html[dir="rtl"] p,
+html[dir="rtl"] span,
+html[dir="rtl"] a,
+html[dir="rtl"] li,
+html[dir="rtl"] div {
+    letter-spacing: normal !important;
+}
+
+html[dir="rtl"] body, 
+html[dir="rtl"] h1, 
+html[dir="rtl"] h2, 
+html[dir="rtl"] h3, 
+html[dir="rtl"] h4, 
+html[dir="rtl"] h5, 
+html[dir="rtl"] h6, 
+html[dir="rtl"] p, 
+html[dir="rtl"] span, 
+html[dir="rtl"] a, 
+html[dir="rtl"] button, 
+html[dir="rtl"] input, 
+html[dir="rtl"] .heading-font, 
+html[dir="rtl"] .body-font, 
+html[dir="rtl"] .sub-font {
+    font-family: "IBM Plex Sans Arabic", sans-serif !important;
+}
+
+html[dir="rtl"] .rarrow svg {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button::before,
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button:not(.collapsed)::before {
+    right: auto;
+    left: 7px;
+}
+html[dir="rtl"] .custom-accordion .accordion-item .accordion-header .accordion-button {
+    padding-right: 0 !important;
+    padding-left: 50px !important;
+}
+
+.custom-accordion {
+    gap: 15px !important;
+}
+
+.faq-section {
+    padding-bottom: 80px !important;
+}
+
+html[dir="rtl"] .faq-thumb1 img {
+    transform: scaleX(-1);
+}
+
+html[dir="rtl"] .footer-section.style1 .footer-ele1 {
+    left: auto;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+html[dir="ltr"] .lang-ar { display: none !important; }
+html[dir="rtl"] .lang-en { display: none !important; }
+html[dir="rtl"] .lang-ar { display: block !important; }
+
+span.lang-ar, a.lang-ar, i.lang-ar { display: none !important; }
+html[dir="rtl"] span.lang-en, html[dir="rtl"] a.lang-en, html[dir="rtl"] i.lang-en { display: none !important; }
+html[dir="rtl"] span.lang-ar, html[dir="rtl"] a.lang-ar, html[dir="rtl"] i.lang-ar { display: inline !important; }
