@@ -32,12 +32,22 @@
 }
 .pricing-items {
 	padding: 30px 30px;
+	container-type: inline-size;
 	h2 {
-		font-size: 50px;
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		gap: 6px;
+		flex-wrap: nowrap;
+		white-space: nowrap;
+		font-size: clamp(24px, 11cqw, 50px);
+		line-height: 1;
 		color: $black;
 		span {
-			font-size: 16px;
+			flex: 0 0 auto;
+			font-size: clamp(11px, 4cqw, 16px);
 			color: $black2;
+			word-spacing: 3px;
 		}
 	}
 	&.premium-items {

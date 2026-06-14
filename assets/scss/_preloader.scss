@@ -11,86 +11,62 @@
 	z-index: 9999999;
 
 	.animation-preloader {
+		display: grid;
+		justify-items: center;
+		gap: 22px;
 		z-index: 1000;
 
-		.spinner {
-			animation: spinner 1s infinite linear;
+		.preloader-logo-wrap {
+			align-items: center;
+			animation: preloader-logo-pulse 1.6s ease-in-out infinite;
+			background: $white;
 			border-radius: 50%;
-			border: 3px solid $p2-clr;
-			border-top-color: $p2-clr;
-			height: 9em;
-			margin: 0 auto 3.5em auto;
-			width: 9em;
+			box-shadow: 0 20px 60px rgba(9, 10, 11, 0.12);
+			display: flex;
+			height: 180px;
+			justify-content: center;
+			position: relative;
+			width: 180px;
 
-			@media (max-width: 767px) {
-				width: 7.5em;
-				height: 7.5em;
-				margin: 0 auto 1.5em auto;
+			&::before {
+				animation: spinner 1.2s linear infinite;
+				border: 3px solid rgba(255, 220, 38, 0.25);
+				border-radius: inherit;
+				border-top-color: $p2-clr;
+				content: "";
+				inset: -10px;
+				position: absolute;
 			}
 		}
 
-		.txt-loading {
-			font: bold 5em $heading-font, $body-font;
-			text-align: center;
-			user-select: none;
+		.preloader-logo {
+			display: block;
+			height: auto;
+			max-width: 130px;
+			position: relative;
+			width: 72%;
+		}
 
-			@media (max-width: 767px) {
-				font-size: 2.5em;
+		@media (max-width: 767px) {
+			.preloader-logo-wrap {
+				height: 140px;
+				width: 140px;
 			}
 
-			.letters-loading {
-				color: $p2-clr;
-				position: relative;
-
-				&:nth-child(2):before {
-					animation-delay: 0.2s;
-				}
-
-				&:nth-child(3):before {
-					animation-delay: 0.4s;
-				}
-
-				&:nth-child(4):before {
-					animation-delay: 0.6s;
-				}
-
-				&:nth-child(5):before {
-					animation-delay: 0.8s;
-				}
-
-				&:nth-child(6):before {
-					animation-delay: 1s;
-				}
-
-				&:nth-child(7):before {
-					animation-delay: 1.2s;
-				}
-
-				&:nth-child(8):before {
-					animation-delay: 1.4s;
-				}
-
-				&::before {
-					animation: letters-loading 4s infinite;
-					color: $header-color;
-					content: attr(data-text-preloader);
-					left: 0;
-					opacity: 0;
-					font-family: $heading-font;
-					position: absolute;
-					top: -3px;
-					transform: rotateY(-90deg);
-				}
+			.preloader-logo {
+				max-width: 104px;
 			}
 		}
+
 	}
 
 	p {
 		font-size: 15px;
 		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 8px;
-		color: $p2-clr;
+		letter-spacing: 4px;
+		color: $header-color;
+		margin-bottom: 0;
 	}
 
 	.loader {
@@ -132,6 +108,16 @@
 				transition: 0.7s 0.3s allcubic-bezier(0.1, 0.1, 0.1, 1);
 			}
 		}
+	}
+}
+
+@keyframes preloader-logo-pulse {
+	0%, 100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.04);
 	}
 }
 

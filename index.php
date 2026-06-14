@@ -5,17 +5,24 @@
  * secret never reaches the browser (see backend/docs/landing-plans-api.md).
  *   Serve with:  php -S localhost:5500 -t "/Users/m/Desktop/zadx sms landing"
  */
-$endpoint = getenv('ZADX_LANDING_ENDPOINT') ?: 'http://localhost:8000/api/landing/plans';
-$key = getenv('ZADX_LANDING_KEY') ?: '';
-if ($key === '') {
-    // Fall back to the backend .env so the key stays in sync in local dev.
-    $env = @file_get_contents('/Users/m/Desktop/zadx sms/backend/.env');
-    if ($env && preg_match('/^ZADX_LANDING_KEY=(.*)$/m', $env, $m)) {
-        $key = trim($m[1]);
+// Read config from the environment. SetEnv in .htaccess may surface values via
+// getenv() (mod_php) or $_SERVER (LiteSpeed/PHP-FPM, e.g. Hostinger), so check
+// both. See .htaccess.example for the expected keys.
+$readEnv = function (string $name, string $default = ''): string {
+    $val = getenv($name);
+    if ($val === false || $val === '') {
+        $val = $_SERVER[$name] ?? $_ENV[$name] ?? $default;
     }
-}
+    return (string) $val;
+};
 
-$plans = [];
+$endpoint = $readEnv('ZADX_LANDING_ENDPOINT', 'http://localhost:8000/api/landing/plans');
+$key = $readEnv('ZADX_LANDING_KEY');
+
+$plans   = [];
+$body     = '';
+$status   = 0;
+$curlErr  = '';
 if ($key !== '') {
     $ch = curl_init($endpoint);
     curl_setopt_array($ch, [
@@ -23,12 +30,27 @@ if ($key !== '') {
         CURLOPT_TIMEOUT        => 5,
         CURLOPT_HTTPHEADER     => ['X-Landing-Key: ' . $key, 'Accept: application/json'],
     ]);
-    $body   = curl_exec($ch);
-    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $body    = curl_exec($ch);
+    $status  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlErr = curl_error($ch);
     curl_close($ch);
     if ($status === 200) {
         $plans = json_decode($body, true)['data'] ?? [];
     }
+}
+
+// Temporary diagnostics: append ?debug=1 to the URL to see why plans are empty.
+// Never prints the secret itself - only whether it was found and its length.
+if (isset($_GET['debug'])) {
+    header('Content-Type: text/plain');
+    echo "endpoint     : {$endpoint}\n";
+    echo "key present  : " . ($key !== '' ? 'yes' : 'NO - SetEnv not reaching PHP') . "\n";
+    echo "key length   : " . strlen($key) . "\n";
+    echo "http status  : {$status}\n";
+    echo "curl error   : " . ($curlErr !== '' ? $curlErr : '(none)') . "\n";
+    echo "plans count  : " . count($plans) . "\n";
+    echo "raw body     :\n" . substr((string) $body, 0, 2000) . "\n";
+    exit;
 }
 
 // Bucket plans by validity window to match the pricing tabs.
@@ -124,30 +146,8 @@ $renderCard = function (array $p): string {
         <!-- Preloader Start -->
         <div id="preloader" class="preloader">
             <div class="animation-preloader">
-                <div class="spinner">
-                </div>
-                <div class="txt-loading">
-                    <span data-text-preloader="Z" class="letters-loading">
-                        Z
-                    </span>
-                    <span data-text-preloader="A" class="letters-loading">
-                        A
-                    </span>
-                    <span data-text-preloader="D" class="letters-loading">
-                        D
-                    </span>
-                    <span data-text-preloader="X" class="letters-loading">
-                        X
-                    </span>
-                    <span data-text-preloader="S" class="letters-loading">
-                        S
-                    </span>
-                    <span data-text-preloader="M" class="letters-loading">
-                        M
-                    </span>
-                    <span data-text-preloader="S" class="letters-loading">
-                        S
-                    </span>
+                <div class="preloader-logo-wrap">
+                    <img class="preloader-logo" src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
                 </div>
                 <p class="text-center">Loading</p>
             </div>

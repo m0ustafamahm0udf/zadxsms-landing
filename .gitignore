@@ -1,0 +1,5 @@
+# Holds the live ZADX_LANDING_KEY secret — never commit it.
+# Use .htaccess.example as the committed template.
+
+.DS_Store
+node_modules/

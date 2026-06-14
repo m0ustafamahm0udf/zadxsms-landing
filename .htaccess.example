@@ -1,0 +1,10 @@
+# Copy this to `.htaccess` on the server and fill in the real key.
+# `.htaccess` itself is gitignored so the secret stays out of version control.
+<IfModule mod_dir.c>
+    DirectoryIndex index.php index.html
+</IfModule>
+
+<IfModule mod_env.c>
+    SetEnv ZADX_LANDING_ENDPOINT "https://smsapi.zadx.net/api/landing/plans"
+    SetEnv ZADX_LANDING_KEY "REPLACE_WITH_ZADX_LANDING_KEY_FROM_BACKEND_ENV"
+</IfModule>

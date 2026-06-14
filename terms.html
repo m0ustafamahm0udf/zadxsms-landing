@@ -9,13 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ZADX Software Solutions">
     <meta name="description" content="Terms and Conditions for ZADX SMS. Read about the rules governing your use of our messaging platform and API.">
+
     <!-- ======== Page title ============ -->
     <title>Terms &amp; Conditions | ZADX SMS</title>
+
     <!--<< Favicon >>-->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon/android-icon-192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/icon/android-icon-512.png">
     <link rel="apple-touch-icon" href="assets/img/icon/apple-touch-icon.png">
+
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!--<< All Min Css >>-->
@@ -32,6 +35,7 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
     <link rel="stylesheet" href="assets/css/main.css">
+
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -137,6 +141,27 @@
             color: var(--p1);
         }
 
+        .lang-ar {
+            font-family: 'IBM Plex Sans Arabic', sans-serif;
+        }
+
+        .lang-ar .terms-block-heading {
+            border-left: none;
+            border-right: 3px solid var(--p1);
+            padding-left: 0;
+            padding-right: 16px;
+        }
+
+        .lang-ar .terms-list li {
+            padding-left: 0;
+            padding-right: 28px;
+        }
+
+        .lang-ar .terms-list li::before {
+            left: auto;
+            right: 0;
+        }
+
         @media (max-width: 767px) {
             .terms-section {
                 padding: 50px 0 70px;
@@ -160,30 +185,8 @@
     <!-- Preloader Start -->
     <div id="preloader" class="preloader">
         <div class="animation-preloader">
-            <div class="spinner">
-            </div>
-            <div class="txt-loading">
-                <span data-text-preloader="T" class="letters-loading">
-                    T
-                </span>
-                <span data-text-preloader="E" class="letters-loading">
-                    E
-                </span>
-                <span data-text-preloader="C" class="letters-loading">
-                    C
-                </span>
-                <span data-text-preloader="H" class="letters-loading">
-                    H
-                </span>
-                <span data-text-preloader="I" class="letters-loading">
-                    I
-                </span>
-                <span data-text-preloader="F" class="letters-loading">
-                    F
-                </span>
-                <span data-text-preloader="Y" class="letters-loading">
-                    Y
-                </span>
+            <div class="preloader-logo-wrap">
+                <img class="preloader-logo" src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
             </div>
             <p class="text-center">Loading</p>
         </div>
@@ -204,6 +207,7 @@
             </div>
         </div>
     </div>
+    <!-- Preloader End -->
 
     <!-- Start Cursor Pointer -->
     <div class="mouse-follower">
@@ -213,112 +217,122 @@
     <!-- End Cursor Pointer -->
 
     <!-- Offcanvas Area Start -->
-        <div class="fix-area">
-            <div class="offcanvas__info">
-                <div class="offcanvas__wrapper">
-                    <div class="offcanvas__content pb-2">
-                        <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
-                            <div class="offcanvas__logo">
-                                <a href="index.php#hero">
-                                    <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
-                                </a>
-                            </div>
-                            <div class="offcanvas__close">
-                                <button>
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content pb-2">
+                    <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.php#hero">
+                                <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
+                            </a>
                         </div>
-                        <div class="mobile-menu fix mb-3"></div>
-                        <div class="offcanvas__contact">
-                            <h4>Contact Info</h4>
-                            <ul class="d-grid gap-2">
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="mailto:hello@zadx.net"><span
-                                                class="mailto:hello@zadx.net">hello@zadx.net</span></a>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fas fa-phone-alt"></i>
-                                    </div>
-                                    <div class="offcanvas__contact-text">
-                                        <a href="tel:+201092719790" class="d-block">01092719790</a>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="header-button mt-4">
-                                <a href="index.php#pricing"
-                                    class="common-btn text-white box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-normal black overflow-hidden rounded-1 p1-bg py-2">
-                                    Get Started
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                            <div class="offcanvas-locale-switcher">
-                                <div class="locale-toggle" role="group" aria-label="Language switcher">
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
-                                </div>
-                            </div>
-                            <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="offcanvas__close">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
                         </div>
-                        <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
-                            <img src="assets/img/banner/contact-view.jpg" alt="img" class="w-100 rounded-4">
-                        </a>
                     </div>
+
+                    <div class="mobile-menu fix mb-3"></div>
+
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+
+                        <ul class="d-grid gap-2">
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="mailto:hello@zadx.net">
+                                        <span>hello@zadx.net</span>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="tel:+201092719790" class="d-block">01092719790</a>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="header-button mt-4">
+                            <a href="index.php#pricing"
+                                class="common-btn text-white box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-normal black overflow-hidden rounded-1 p1-bg py-2">
+                                Get Started
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="offcanvas-locale-switcher">
+                            <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                            </div>
+                        </div>
+
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
+                        <img src="assets/img/banner/contact-view.jpg" alt="img" class="w-100 rounded-4">
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="offcanvas__overlay"></div>
+    </div>
 
-        <!-- Header Section Start -->
-        <header id="header-sticky" class="header-1 white-bg header-version1">
-            <div class="container">
-                <div class="header-common-wrapper">
-                    <div class="header-main">
-                        <div class="header-left">
-                            <div class="logo">
-                                <a href="index.php#hero" class="header-logo">
-                                    <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
-                                </a>
+    <div class="offcanvas__overlay"></div>
+    <!-- Offcanvas Area End -->
+
+    <!-- Header Section Start -->
+    <header id="header-sticky" class="header-1 header-version1 inner-fixed">
+        <div class="container">
+            <div class="header-common-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="index.php#hero" class="header-logo">
+                                <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li>
+                                            <a href="index.php#hero">Home</a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
-                        <div class="header-right d-flex justify-content-end align-items-center">
-                            <div class="mean__menu-wrapper">
-                                <div class="main-menu">
-                                    <nav id="mobile-menu">
-                                        <ul>
-                                            <li><a href="index.php#hero">Home</a></li>
-                                            <li><a href="index.php#modes">Modes</a></li>
-                                            <li><a href="index.php#why">Why ZADX</a></li>
-                                            <li><a href="index.php#how">How It Works</a></li>
-                                            <li><a href="index.php#pricing">Pricing</a></li>
-                                            <li><a href="index.php#faq">FAQ</a></li>
-                                            <li><a href="index.php#contact">Contact</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <div class="header-locale-switcher d-flex align-items-center">
-                                <div class="locale-toggle" role="group" aria-label="Language switcher">
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
-                                </div>
-                            </div>
-                            <div class="header__hamburger d-xl-none my-auto">
-                                <div class="sidebar__toggle">
-                                    <img src="assets/img/icon/menu.png" alt="icon">
-                                </div>
+
+                        <div class="header-locale-switcher d-flex align-items-center">
+                            <div class="locale-toggle" role="group" aria-label="Language switcher">
+                                <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
+                                <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
                             </div>
                         </div>
+
                         <a href="tel:+201092719790"
                             class="blackbg call-version1 d-sm-flex d-none align-items-center gap-2 rounded-5 py-2 ps-2 pe-xxl-4 pe-4">
                             <div class="icon d-center p1-bg rounded-circle">
@@ -326,26 +340,47 @@
                             </div>
                             <span class="fs-seven fw-normal white-clr">01092719790</span>
                         </a>
+
+                        <div class="header__hamburger d-xl-none my-auto">
+                            <div class="sidebar__toggle">
+                                <img src="assets/img/icon/menu.png" alt="icon">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
+    <!-- Header Section End -->
 
-        <!-- Banner Section Start -->
+    <!-- Banner Section Start -->
     <section class="breadcrumb-section cmn-bg position-relative fix">
         <div class="container">
-            <div
-                class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
-                <h2 class="black wow fadeInUp"><span class="lang-en">Terms &amp; Conditions</span><span class="lang-ar">الشروط والأحكام</span></h2>
+            <div class="bread-content px-3 d-flex flex-wrap gap-3 align-items-center justify-content-md-between justify-content-center">
+                <h2 class="black wow fadeInUp">
+                    <span class="lang-en">Terms &amp; Conditions</span>
+                    <span class="lang-ar">الشروط والأحكام</span>
+                </h2>
+
                 <ul class="d-flex align-items-center gap-3">
                     <li>
-                        <a href="index.php" class="fs-six black-clr fw-500"><span class="lang-en">Home</span><span class="lang-ar">الرئيسية</span></a>
+                        <a href="index.php" class="fs-six black-clr fw-500">
+                            <span class="lang-en">Home</span>
+                            <span class="lang-ar">الرئيسية</span>
+                        </a>
                     </li>
-                    <li><i class="fa-solid fa-chevron-right p1-clr lang-en"></i><i class="fa-solid fa-chevron-left p1-clr lang-ar"></i></li>
-                    <li class="fs-six black-clr fw-500"><span class="lang-en">Terms &amp; Conditions</span><span class="lang-ar">الشروط والأحكام</span></li>
+                    <li>
+                        <i class="fa-solid fa-chevron-right p1-clr lang-en"></i>
+                        <i class="fa-solid fa-chevron-left p1-clr lang-ar"></i>
+                    </li>
+                    <li class="fs-six black-clr fw-500">
+                        <span class="lang-en">Terms &amp; Conditions</span>
+                        <span class="lang-ar">الشروط والأحكام</span>
+                    </li>
                 </ul>
             </div>
         </div>
+
         <!-- Bread Ele -->
         <img src="assets/img/element/bread-shape.png" alt="img" class="bread-ele">
     </section>
@@ -354,181 +389,226 @@
     <!-- Terms & Conditions Section Start -->
     <section class="terms-section fix">
         <div class="container">
-            <div class="terms-content"><div class="lang-en">
+            <div class="terms-content">
 
-                <span class="terms-last-updated">Last updated: June 13, 2025</span>
+                <!-- English Content -->
+                <div class="lang-en">
+                    <span class="terms-last-updated">Last updated: June 13, 2025</span>
 
-                <p class="terms-intro">
-                    These Terms &amp; Conditions govern your access to and use of the ZADX SMS messaging platform, including the dashboard, the SMS and OTP delivery API, sender ID management, and any related services (collectively, the "Service"). By creating an account or using the Service, you agree to these terms on behalf of yourself and the organization you represent.
-                </p>
-
-                <!-- The service we provide -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">The service we provide</h3>
-                    <p class="terms-block-body">
-                        ZADX SMS is a communications platform that lets you send transactional SMS messages and one-time passwords (OTPs) to mobile numbers through our API and dashboard. The Service includes application API keys, registered sender IDs, prepaid credits and subscription plans, message logs, and supporting tools.
+                    <p class="terms-intro">
+                        These Terms &amp; Conditions govern your access to and use of the ZADX SMS messaging platform, including the dashboard, the SMS and OTP delivery API, sender ID management, and any related services (collectively, the "Service"). By creating an account or using the Service, you agree to these terms on behalf of yourself and the organization you represent.
                     </p>
-                    <p class="terms-block-body">
-                        We route and deliver your messages through our platform. Final delivery to a recipient can be affected by factors outside our control, and ZADX SMS does not guarantee delivery.
-                    </p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">The service we provide</h3>
+                        <p class="terms-block-body">
+                            ZADX SMS is a communications platform that lets you send transactional SMS messages and one-time passwords (OTPs) to mobile numbers through our API and dashboard. The Service includes application API keys, registered sender IDs, prepaid credits and subscription plans, message logs, and supporting tools.
+                        </p>
+                        <p class="terms-block-body">
+                            We route and deliver your messages through our platform. Final delivery to a recipient can be affected by factors outside our control, and ZADX SMS does not guarantee delivery.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Eligibility and account registration</h3>
+                        <p class="terms-block-body">
+                            You must be at least 18 years old to use the Service.
+                        </p>
+                        <ul class="terms-list">
+                            <li>You are responsible for all activity that occurs under your account.</li>
+                            <li>You must keep your login credentials, API keys, and API secrets confidential.</li>
+                            <li>You must notify us promptly of any unauthorized use of your account or credentials.</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Acceptable use and recipient consent</h3>
+                        <p class="terms-block-body">
+                            You may only send messages to recipients who have given you the legal right to contact them. You are solely responsible for obtaining and maintaining valid consent.
+                        </p>
+                        <ul class="terms-list">
+                            <li>No spam, bulk unsolicited messaging, or messages to recipients who have not consented.</li>
+                            <li>No phishing, fraud, scams, or impersonation of any person, brand, or authority.</li>
+                            <li>No illegal, hateful, violent, sexually exploitative, or otherwise prohibited content.</li>
+                            <li>No content that infringes the intellectual property or privacy rights of others.</li>
+                            <li>You must comply with all applicable laws and regulations in the destination country.</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Sender IDs</h3>
+                        <p class="terms-block-body">
+                            Sender IDs you register must accurately represent your business and must not impersonate a third party. We may require documentation to approve a sender ID and may reject or revoke any sender ID that violates these terms or applicable requirements. Sender IDs may be altered or overridden by factors outside our control.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Credits, plans, and billing</h3>
+                        <p class="terms-block-body">
+                            The Service is offered on a prepaid credit and/or subscription basis. Sending messages consumes credits according to message length, encoding, and the number of segments, as described in our documentation.
+                        </p>
+                        <ul class="terms-list">
+                            <li>Successfully accepted messages consume credits even if delivery to the recipient later fails.</li>
+                            <li>Purchased credits and subscription fees are non-refundable.</li>
+                            <li>We may change pricing or plan features.</li>
+                        </ul>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">API keys and security</h3>
+                        <p class="terms-block-body">
+                            API keys and secrets authenticate requests to the Service and must be protected like passwords. You are responsible for all usage performed with your keys. We may rate-limit requests to protect the platform, and we may rotate or revoke keys if we detect abuse or a security risk.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Service availability</h3>
+                        <p class="terms-block-body">
+                            We work to keep the Service available and reliable, but it is provided on an "as is" and "as available" basis. We may perform maintenance, impose limits, or modify features, and message delivery times and success rates may vary and are not guaranteed.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Suspension and termination</h3>
+                        <p class="terms-block-body">
+                            We may suspend or terminate your access if you breach these terms, fail to pay, create risk to the platform or its users, or engage in unlawful or abusive activity. You may stop using the Service at any time. Upon termination, your right to use the Service ends, and unused credits may be forfeited where permitted by law.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Disclaimers and limitation of liability</h3>
+                        <p class="terms-block-body">
+                            To the maximum extent permitted by law, ZADX SMS disclaims all warranties not expressly stated in these terms and is not liable for indirect, incidental, special, or consequential damages, or for lost profits, data, or messages.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Changes to these terms</h3>
+                        <p class="terms-block-body">
+                            We may update these terms from time to time. When we make material changes, we will update the "last updated" date and, where appropriate, notify you. Your continued use of the Service after changes take effect constitutes acceptance of the revised terms.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">Contact us</h3>
+                        <p class="terms-block-body">
+                            If you have questions about these terms, contact us at
+                            <a href="mailto:hello@zadx.net" class="terms-contact-link">hello@zadx.net</a>.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Eligibility and account registration -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Eligibility and account registration</h3>
-                    <p class="terms-block-body">
-                        You must be at least 18 years old to use the Service.
-                    </p>
-                    <ul class="terms-list">
-                        <li>You are responsible for all activity that occurs under your account.</li>
-                        <li>You must keep your login credentials, API keys, and API secrets confidential.</li>
-                        <li>You must notify us promptly of any unauthorized use of your account or credentials.</li>
-                    </ul>
-                </div>
-
-                <!-- Acceptable use and recipient consent -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Acceptable use and recipient consent</h3>
-                    <p class="terms-block-body">
-                        You may only send messages to recipients who have given you the legal right to contact them. You are solely responsible for obtaining and maintaining valid consent.
-                    </p>
-                    <ul class="terms-list">
-                        <li>No spam, bulk unsolicited messaging, or messages to recipients who have not consented.</li>
-                        <li>No phishing, fraud, scams, or impersonation of any person, brand, or authority.</li>
-                        <li>No illegal, hateful, violent, sexually exploitative, or otherwise prohibited content.</li>
-                        <li>No content that infringes the intellectual property or privacy rights of others.</li>
-                        <li>You must comply with all applicable laws and regulations in the destination country.</li>
-                    </ul>
-                </div>
-
-                <!-- Sender IDs -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Sender IDs</h3>
-                    <p class="terms-block-body">
-                        Sender IDs you register must accurately represent your business and must not impersonate a third party. We may require documentation to approve a sender ID and may reject or revoke any sender ID that violates these terms or applicable requirements. Sender IDs may be altered or overridden by factors outside our control.
-                    </p>
-                </div>
-
-                <!-- Credits, plans, and billing -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Credits, plans, and billing</h3>
-                    <p class="terms-block-body">
-                        The Service is offered on a prepaid credit and/or subscription basis. Sending messages consumes credits according to message length, encoding, and the number of segments, as described in our documentation.
-                    </p>
-                    <ul class="terms-list">
-                        <li>Successfully accepted messages consume credits even if delivery to the recipient later fails.</li>
-                        <li>Purchased credits and subscription fees are non-refundable.</li>
-                        <li>We may change pricing or plan features.</li>
-                    </ul>
-                </div>
-
-                <!-- API keys and security -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">API keys and security</h3>
-                    <p class="terms-block-body">
-                        API keys and secrets authenticate requests to the Service and must be protected like passwords. You are responsible for all usage performed with your keys. We may rate-limit requests to protect the platform, and we may rotate or revoke keys if we detect abuse or a security risk.
-                    </p>
-                </div>
-
-                <!-- Service availability -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Service availability</h3>
-                    <p class="terms-block-body">
-                        We work to keep the Service available and reliable, but it is provided on an "as is" and "as available" basis. We may perform maintenance, impose limits, or modify features, and message delivery times and success rates may vary and are not guaranteed.
-                    </p>
-                </div>
-
-                <!-- Suspension and termination -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Suspension and termination</h3>
-                    <p class="terms-block-body">
-                        We may suspend or terminate your access if you breach these terms, fail to pay, create risk to the platform or its users, or engage in unlawful or abusive activity. You may stop using the Service at any time. Upon termination, your right to use the Service ends, and unused credits may be forfeited where permitted by law.
-                    </p>
-                </div>
-
-                <!-- Disclaimers and limitation of liability -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Disclaimers and limitation of liability</h3>
-                    <p class="terms-block-body">
-                        To the maximum extent permitted by law, ZADX SMS disclaims all warranties not expressly stated in these terms and is not liable for indirect, incidental, special, or consequential damages, or for lost profits, data, or messages.
-                    </p>
-                </div>
-
-                <!-- Changes to these terms -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Changes to these terms</h3>
-                    <p class="terms-block-body">
-                        We may update these terms from time to time. When we make material changes, we will update the "last updated" date and, where appropriate, notify you. Your continued use of the Service after changes take effect constitutes acceptance of the revised terms.
-                    </p>
-                </div>
-
-                <!-- Contact us -->
-                <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
-                    <h3 class="terms-block-heading">Contact us</h3>
-                    <p class="terms-block-body">
-                        If you have questions about these terms, contact us at <a href="mailto:hello@zadx.net" class="terms-contact-link">hello@zadx.net</a>.
-                    </p>
-                </div>
-
-            
-</div>
-<div class="lang-ar" dir="rtl" style="text-align: right;">
-
+                <!-- Arabic Content -->
+                <div class="lang-ar" dir="rtl" style="text-align: right;">
                     <span class="terms-last-updated">آخر تحديث: 13 يونيو 2025</span>
-                    <p class="terms-intro" style="font-size: 17px; line-height: 1.8; color: #666; margin-bottom: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(0, 0, 0, 0.08);">تحكم هذه الشروط والأحكام وصولك واستخدامك لمنصة المراسلة ZADX SMS، بما في ذلك لوحة التحكم و API. بإنشاء حساب، فإنك توافق على هذه الشروط.</p>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">الخدمة التي نقدمها</h3>
-                        <p class="terms-block-body">ZADX SMS هي منصة اتصالات تتيح لك إرسال رسائل نصية وكلمات مرور لمرة واحدة (OTP) إلى أرقام الهواتف المحمولة.</p>
-                        <p class="terms-block-body">نقوم بتوجيه وتسليم رسائلك من خلال منصتنا. يمكن أن يتأثر التسليم النهائي بعوامل خارجة عن سيطرتنا، ولا نضمن التسليم.</p>
+
+                    <p class="terms-intro">
+                        تحكم هذه الشروط والأحكام وصولك إلى منصة المراسلة ZADX SMS واستخدامك لها، بما في ذلك لوحة التحكم، وواجهة API الخاصة بإرسال الرسائل النصية و OTP، وإدارة معرفات المرسل، وأي خدمات ذات صلة. بإنشاء حساب أو استخدام الخدمة، فإنك توافق على هذه الشروط نيابةً عن نفسك وعن الجهة التي تمثلها.
+                    </p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">الخدمة التي نقدمها</h3>
+                        <p class="terms-block-body">
+                            ZADX SMS هي منصة اتصالات تتيح لك إرسال الرسائل النصية الخاصة بالمعاملات وكلمات المرور لمرة واحدة OTP إلى أرقام الهواتف المحمولة من خلال API ولوحة التحكم. تشمل الخدمة مفاتيح API، ومعرفات المرسل المسجلة، والأرصدة المدفوعة مسبقًا، وخطط الاشتراك، وسجلات الرسائل، وأدوات الدعم.
+                        </p>
+                        <p class="terms-block-body">
+                            نقوم بتوجيه وتسليم رسائلك من خلال منصتنا. قد يتأثر التسليم النهائي للمستلم بعوامل خارجة عن سيطرتنا، ولذلك لا تضمن ZADX SMS التسليم النهائي.
+                        </p>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">الأهلية وتسجيل الحساب</h3>
-                        <p class="terms-block-body">يجب أن يكون عمرك 18 عامًا على الأقل لاستخدام الخدمة.</p>
-                        <ul class="terms-list" style="padding-right: 28px; padding-left: 0;">
-                            <li>أنت مسؤول عن جميع الأنشطة التي تحدث تحت حسابك.</li>
-                            <li>يجب عليك الحفاظ على سرية بيانات تسجيل الدخول ومفاتيح API الخاصة بك.</li>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">الأهلية وتسجيل الحساب</h3>
+                        <p class="terms-block-body">
+                            يجب أن يكون عمرك 18 عامًا على الأقل لاستخدام الخدمة.
+                        </p>
+                        <ul class="terms-list">
+                            <li>أنت مسؤول عن جميع الأنشطة التي تتم من خلال حسابك.</li>
+                            <li>يجب عليك الحفاظ على سرية بيانات تسجيل الدخول ومفاتيح API والأسرار الخاصة بها.</li>
+                            <li>يجب عليك إخطارنا فورًا عند حدوث أي استخدام غير مصرح به لحسابك أو بياناتك.</li>
                         </ul>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">الاستخدام المقبول وموافقة المستلم</h3>
-                        <p class="terms-block-body">لا يجوز لك إرسال رسائل إلا للمستلمين الذين منحوك الحق القانوني في الاتصال بهم.</p>
-                        <ul class="terms-list" style="padding-right: 28px; padding-left: 0;">
-                            <li>لا يُسمح بالرسائل العشوائية أو الترويجية للمستلمين غير الموافقين.</li>
-                            <li>لا يُسمح بالاحتيال أو انتحال الشخصية.</li>
-                            <li>لا يُسمح بأي محتوى غير قانوني أو يحض على الكراهية.</li>
-                            <li>يجب عليك الامتثال لجميع القوانين المعمول بها.</li>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">الاستخدام المقبول وموافقة المستلم</h3>
+                        <p class="terms-block-body">
+                            لا يجوز لك إرسال رسائل إلا إلى المستلمين الذين منحوا لك الحق القانوني في التواصل معهم. أنت المسؤول وحدك عن الحصول على موافقة صحيحة والاحتفاظ بما يثبتها.
+                        </p>
+                        <ul class="terms-list">
+                            <li>يُمنع إرسال رسائل عشوائية أو جماعية غير مرغوب فيها أو رسائل إلى مستلمين لم يوافقوا على التواصل.</li>
+                            <li>يُمنع التصيد الاحتيالي أو الاحتيال أو انتحال شخصية أي شخص أو علامة تجارية أو جهة رسمية.</li>
+                            <li>يُمنع المحتوى غير القانوني أو الذي يحض على الكراهية أو العنف أو الاستغلال أو أي محتوى محظور.</li>
+                            <li>يُمنع أي محتوى ينتهك حقوق الملكية الفكرية أو الخصوصية الخاصة بالآخرين.</li>
+                            <li>يجب عليك الامتثال لجميع القوانين واللوائح المعمول بها في بلد الوجهة.</li>
                         </ul>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">الأرصدة والخطط والفوترة</h3>
-                        <p class="terms-block-body">تُقدم الخدمة على أساس رصيد مدفوع مسبقًا و/أو اشتراك.</p>
-                        <ul class="terms-list" style="padding-right: 28px; padding-left: 0;">
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">معرفات المرسل</h3>
+                        <p class="terms-block-body">
+                            يجب أن تعبر معرفات المرسل التي تسجلها عن نشاطك التجاري بشكل صحيح، ولا يجوز استخدامها لانتحال طرف ثالث. قد نطلب مستندات للموافقة على معرف المرسل، وقد نرفض أو نلغي أي معرف مرسل يخالف هذه الشروط أو المتطلبات المعمول بها. قد يتم تعديل أو استبدال معرفات المرسل بسبب عوامل خارجة عن سيطرتنا.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">الأرصدة والخطط والفوترة</h3>
+                        <p class="terms-block-body">
+                            تُقدم الخدمة على أساس أرصدة مدفوعة مسبقًا و/أو اشتراكات. يستهلك إرسال الرسائل أرصدة وفقًا لطول الرسالة، ونوع الترميز، وعدد الأجزاء، كما هو موضح في وثائق الخدمة.
+                        </p>
+                        <ul class="terms-list">
                             <li>تستهلك الرسائل المقبولة بنجاح أرصدة حتى إذا فشل التسليم للمستلم لاحقًا.</li>
                             <li>الأرصدة المشتراة ورسوم الاشتراك غير قابلة للاسترداد.</li>
+                            <li>يجوز لنا تغيير الأسعار أو مميزات الخطط.</li>
                         </ul>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">التعليق والإنهاء</h3>
-                        <p class="terms-block-body">قد نقوم بتعليق أو إنهاء وصولك إذا انتهكت هذه الشروط، أو انخرطت في نشاط مسيء. عند الإنهاء، ينتهي حقك في استخدام الخدمة.</p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">مفاتيح API والأمان</h3>
+                        <p class="terms-block-body">
+                            تُستخدم مفاتيح API والأسرار الخاصة بها لمصادقة الطلبات إلى الخدمة، ويجب حمايتها مثل كلمات المرور. أنت مسؤول عن كل استخدام يتم من خلال مفاتيحك. يجوز لنا تطبيق حدود على الطلبات لحماية المنصة، كما يجوز لنا تدوير أو إلغاء المفاتيح إذا اكتشفنا إساءة استخدام أو خطرًا أمنيًا.
+                        </p>
                     </div>
-</div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">إخلاء المسؤولية وتحديد المسؤولية</h3>
-                        <p class="terms-block-body">إلى أقصى حد يسمح به القانون، تُخلي ZADX SMS مسؤوليتها عن جميع الضمانات غير المنصوص عليها صراحةً في هذه الشروط وليست مسؤولة عن الأضرار غير المباشرة.</p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">توفر الخدمة</h3>
+                        <p class="terms-block-body">
+                            نعمل على إبقاء الخدمة متاحة وموثوقة، لكنها تُقدم كما هي وحسب توفرها. قد نقوم بإجراء صيانة أو فرض حدود أو تعديل بعض المميزات، وقد تختلف أوقات ونسب نجاح تسليم الرسائل ولا تكون مضمونة.
+                        </p>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">التغييرات على هذه الشروط</h3>
-                        <p class="terms-block-body">قد نقوم بتحديث هذه الشروط من وقت لآخر. استمرارك في استخدام الخدمة بعد سريان التغييرات يشكل قبولاً للشروط المنقحة.</p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">التعليق والإنهاء</h3>
+                        <p class="terms-block-body">
+                            يجوز لنا تعليق أو إنهاء وصولك إلى الخدمة إذا خالفت هذه الشروط، أو فشلت في الدفع، أو تسببت في خطر على المنصة أو مستخدميها، أو شاركت في نشاط غير قانوني أو مسيء. يمكنك التوقف عن استخدام الخدمة في أي وقت. عند الإنهاء، ينتهي حقك في استخدام الخدمة، وقد يتم فقدان الأرصدة غير المستخدمة حيثما يسمح القانون.
+                        </p>
                     </div>
-                    <div class="terms-block">
-                        <h3 class="terms-block-heading" style="border-left: none; border-right: 3px solid var(--p1); padding-left: 0; padding-right: 16px;">اتصل بنا</h3>
-                        <p class="terms-block-body">إذا كانت لديك أسئلة حول هذه الشروط، اتصل بنا على <a href="mailto:hello@zadx.net" class="terms-contact-link">hello@zadx.net</a>.</p>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">إخلاء المسؤولية وتحديد المسؤولية</h3>
+                        <p class="terms-block-body">
+                            إلى أقصى حد يسمح به القانون، تُخلي ZADX SMS مسؤوليتها عن جميع الضمانات غير المنصوص عليها صراحةً في هذه الشروط، ولا تكون مسؤولة عن الأضرار غير المباشرة أو العرضية أو الخاصة أو التبعية، أو عن خسارة الأرباح أو البيانات أو الرسائل.
+                        </p>
                     </div>
-</div></div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">التغييرات على هذه الشروط</h3>
+                        <p class="terms-block-body">
+                            قد نقوم بتحديث هذه الشروط من وقت لآخر. عند إجراء تغييرات جوهرية، سنقوم بتحديث تاريخ "آخر تحديث" أعلاه، وعند الحاجة سنخطرك بذلك. استمرارك في استخدام الخدمة بعد سريان التغييرات يعني قبولك للشروط المعدلة.
+                        </p>
+                    </div>
+
+                    <div class="terms-block wow fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="terms-block-heading">اتصل بنا</h3>
+                        <p class="terms-block-body">
+                            إذا كانت لديك أسئلة حول هذه الشروط، تواصل معنا على
+                            <a href="mailto:hello@zadx.net" class="terms-contact-link">hello@zadx.net</a>.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
     <!-- Terms & Conditions Section End -->
-
 
     <!-- Search Area Start -->
     <div class="search-wrap">
@@ -543,6 +623,7 @@
             </div>
         </div>
     </div>
+    <!-- Search Area End -->
 
     <!--<< All JS Plugins >>-->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
