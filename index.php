@@ -472,14 +472,10 @@ $renderCard = function (array $p): string {
                             </ul>
                             <div class="about-cta-row d-flex align-items-center gap-xl-4 gap-lg-3 gap-2 fadeInUp"
                                 data-wow-delay=".5s">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#contactOptionsModal"
-                                    class="contact-learn-link d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-600">
-                                    Learn More
-                                    <i class="fa-solid fa-arrow-right-long"></i>
-                                </button>
+                               
                                 <a href="#pricing"
                                     class="common-btn about-primary-cta box-style btn2 d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-600 white-clr py-3 overflow-hidden rounded100">
-                                    Try for free
+                                    Learn More
                                     <i class="fa-solid fa-arrow-right-long"></i>
                                 </a>
                             </div>

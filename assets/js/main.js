@@ -64,7 +64,7 @@ CSS TABLE OF CONTENTS
 				whyList3: "Full dashboard to manage apps, keys, and usage",
 				whyList4: "Ready-made Postman collection so you can test in minutes",
 				whyLearnMore: "Learn More",
-				whyTryFree: "Try for free",
+				whyTryFree: "Learn More",
 				brandsTitleHtml:
 					"Built for brands &mdash; send discounts, promos, and updates to your customers in seconds",
 				howTitle: "Up and running in three simple steps",
@@ -173,13 +173,13 @@ CSS TABLE OF CONTENTS
 				whyTitleHtml:
 					"ابدأ الإرسال خلال دقائق &mdash; من دون أوراق",
 				whyDescriptionHtml:
-					"لا تحتاج إلى سجل تجاري ولا بطاقة ضريبية. ابدأ مباشرة باستخدام Sender ID مسجل باسمنا، مع لوحة تحكم كاملة وملف Postman جاهز لتكون جاهزًا للإطلاق خلال دقائق.",
+					"لا تحتاج إلى سجل تجاري ولا بطاقة ضريبية. ابدأ مباشرة باستخدام Sender ID مسجل بإسمنا، مع لوحة تحكم كاملة وملف Postman جاهز لتكون جاهزًا للإطلاق خلال دقائق.",
 				whyList1: "لا حاجة إلى سجل تجاري أو بطاقة ضريبية",
-				whyList2: "أرسل باستخدام Sender ID مسجل باسمنا",
+				whyList2: "أرسل باستخدام Sender ID مسجل بإسمنا",
 				whyList3: "لوحة تحكم كاملة لإدارة التطبيقات والمفاتيح والاستخدام",
 				whyList4: "ملف Postman جاهز لتجربتك خلال دقائق",
 				whyLearnMore: "اعرف أكثر",
-				whyTryFree: "جرّب مجانًا",
+				whyTryFree: "اعرف المزيد",
 				brandsTitleHtml:
 					"مصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
 				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة",
@@ -210,7 +210,7 @@ CSS TABLE OF CONTENTS
 				faq1Question:
 					"هل أحتاج إلى سجل تجاري أو بطاقة ضريبية؟",
 				faq1AnswerHtml:
-					"لا. يمكنك البدء في الإرسال فورًا باستخدام Sender ID مسجل باسمنا &mdash; من دون أي أوراق.",
+					"لا. يمكنك البدء في الإرسال فورًا باستخدام Sender ID مسجل بإسمنا &mdash; من دون أي أوراق.",
 				faq2Question:
 					"ما الفرق بين نمط OTP ونمط SMS؟",
 				faq2AnswerHtml:
