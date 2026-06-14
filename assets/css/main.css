@@ -4232,9 +4232,17 @@ footer {
   }
 }
 .header-1 .call-version1 {
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  padding-left: 8px !important;
+  padding-right: 16px !important;
+  text-align: center;
+  white-space: nowrap;
   transition: all 0.4s;
 }
 .header-1 .call-version1 .icon {
+  flex: 0 0 37px;
   width: 37px;
   height: 37px;
   transition: all 0.4s;
@@ -9722,6 +9730,11 @@ html[dir="rtl"] .offcanvas__contact ul li .offcanvas__contact-icon {
   margin-left: 10px;
 }
 
+html[dir="rtl"] .header-1 .call-version1 {
+  padding-left: 16px !important;
+  padding-right: 8px !important;
+}
+
 html[dir="rtl"] .accordion-button,
 html[dir="rtl"] .accordion-body,
 html[dir="rtl"] .pricing-items,
@@ -9861,4 +9874,3 @@ html[dir="rtl"] .lang-ar { display: block !important; }
 span.lang-ar, a.lang-ar, i.lang-ar { display: none !important; }
 html[dir="rtl"] span.lang-en, html[dir="rtl"] a.lang-en, html[dir="rtl"] i.lang-en { display: none !important; }
 html[dir="rtl"] span.lang-ar, html[dir="rtl"] a.lang-ar, html[dir="rtl"] i.lang-ar { display: inline !important; }
-

@@ -112,7 +112,7 @@ $renderCard = function (array $p): string {
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260613-localization-7">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260614-header-call-fit">
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
