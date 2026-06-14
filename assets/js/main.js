@@ -102,13 +102,7 @@ CSS TABLE OF CONTENTS
 					"OTP mode is built for verification codes with a template and the <code>/otp/send</code> endpoint. SMS mode sends plain transactional or marketing messages up to 160 characters via <code>/sms/send</code>. You can use both from the same app.",
 				faq3Question: "How do I integrate ZADX into my app?",
 				faq3AnswerHtml:
-					"Create an app in your dashboard to get your API key and secret, pick a sender ID, then call our REST API. We provide a ready Postman collection so you can test in minutes.",
-				faq4Question: "What happens if a message fails to send?",
-				faq4AnswerHtml:
-					"If the upstream provider rejects a message, we automatically refund the credit &mdash; so you only pay for messages that actually go out.",
-				faq5Question: "Can I use my own sender ID?",
-				faq5AnswerHtml:
-					"Yes. Request a sender ID from your dashboard; once we approve and register it upstream, your messages are delivered under your own name.",
+					"Pick the plan that fits and contact us. We create your account, set up your app, generate your API key and secret, and prepare your sender ID &mdash; then send you your credentials. From there you just call our REST API, and a ready Postman collection lets you test in minutes.",
 				footerSummary:
 					"ZADX SMS helps apps and brands launch OTP and SMS delivery quickly with ready APIs, instant sender ID access, and a dashboard that keeps setup simple.",
 				footerContactHeading: "Contact",
@@ -181,12 +175,12 @@ CSS TABLE OF CONTENTS
 				whyLearnMore: "اعرف أكثر",
 				whyTryFree: "اعرف المزيد",
 				brandsTitleHtml:
-					"مصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
-				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة",
+					"مُصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
+				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة  &mdash;  في غضون ٥ دقائق",
 				step1Label: "الخطوة 01",
 				step1Title: "تواصل معنا واختر الباقة",
 				step1Description:
-					"اخبرنا بحالة الاستخدام لديك واختر الباقة المناسبة لحجم الإرسال الشهري.",
+					"اخبرنا بحالة الاستخدام لديك واختر الباقة المناسبة لحجم الإرسال.",
 				step2Label: "الخطوة 02",
 				step2Title: "نجهز تطبيقك",
 				step2Description:
@@ -216,17 +210,9 @@ CSS TABLE OF CONTENTS
 				faq2AnswerHtml:
 					"نمط OTP مخصص لرسائل التحقق باستخدام قالب ورسالة عبر نقطة النهاية <code>/otp/send</code>. أما نمط SMS فيرسل رسائل معاملات أو تسويق عادية حتى 160 حرفًا عبر <code>/sms/send</code>. ويمكنك استخدام النمطين من التطبيق نفسه.",
 				faq3Question:
-					"كيف أربط ZADX بتطبيقي؟",
+					"كيف أربط ZADX SMS بتطبيقي؟",
 				faq3AnswerHtml:
-					"أنشئ تطبيقًا من لوحة التحكم للحصول على مفتاح الـ API والسر الخاص بك، ثم اختر Sender ID وابدأ باستخدام REST API الخاص بنا. كما نوفر ملف Postman جاهزًا للتجربة خلال دقائق.",
-				faq4Question:
-					"ماذا يحدث إذا فشل إرسال رسالة؟",
-				faq4AnswerHtml:
-					"إذا رفض المزوّد الخارجي الرسالة، نعيد الرصيد تلقائيًا حتى تدفع فقط مقابل الرسائل التي تم إرسالها فعليًا.",
-				faq5Question:
-					"هل يمكنني استخدام Sender ID خاص بي؟",
-				faq5AnswerHtml:
-					"نعم. اطلب Sender ID من لوحة التحكم، وبعد الموافقة عليه وتسجيله لدى المزوّد سيتم تسليم رسائلك باسمك الخاص.",
+					"اختر الباقة المناسبة وتواصل معنا، ونحن نُنشئ حسابك ونجهّز تطبيقك ونولّد مفتاح الـ API والسر الخاص بك ونُعدّ الـ Sender ID، ثم نرسل لك بياناتك. بعدها تبدأ باستخدام الـ REST API الخاص بنا، ونوفّر لك ملف Postman جاهزًا للتجربة خلال دقائق.",
 				footerSummary:
 					"تساعد ZADX SMS التطبيقات والعلامات التجارية على إطلاق إرسال OTP وSMS بسرعة من خلال واجهات API جاهزة وSender ID فوري ولوحة تحكم تجعل الإعداد بسيطًا.",
 				footerContactHeading: "تواصل معنا",
@@ -392,7 +378,9 @@ CSS TABLE OF CONTENTS
 				// Ignore storage access errors and fall back to browser language.
 			}
 
-			return /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+			// Default to Arabic for new visitors regardless of browser language.
+			// An explicit ?lang= param or a saved preference still wins above.
+			return "ar";
 		};
 
 		const persistLocale = function (locale) {
@@ -554,8 +542,6 @@ CSS TABLE OF CONTENTS
 				["faq1Question", "faq1AnswerHtml"],
 				["faq2Question", "faq2AnswerHtml"],
 				["faq3Question", "faq3AnswerHtml"],
-				["faq4Question", "faq4AnswerHtml"],
-				["faq5Question", "faq5AnswerHtml"],
 			];
 
 			currentLocale = normalizeLocale(locale);
