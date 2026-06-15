@@ -6969,6 +6969,13 @@ input.main-search-input::placeholder {
   opacity: 0;
 }
 
+.pricing-subtitle {
+  color: var(--p1-clr);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
 .pricing-section.style3 .pricing-items {
   overflow: hidden;
 }

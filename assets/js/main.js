@@ -84,6 +84,9 @@ CSS TABLE OF CONTENTS
 				pricingTabMonth: "Month",
 				pricingTabQuarter: "3 Months",
 				pricingTabHalfyear: "6 Months",
+				pricingSubtitleMonth: "Trial Packages",
+				pricingSubtitleQuarter: "Growth Packages",
+				pricingSubtitleHalfyear: "Productivity Packages",
 				pricingUnavailable:
 					"Plans are temporarily unavailable. Please check back shortly.",
 				pricingDaySuffix: "/ {{days}} days",
@@ -193,6 +196,9 @@ CSS TABLE OF CONTENTS
 				pricingTabMonth: "شهر",
 				pricingTabQuarter: "3 أشهر",
 				pricingTabHalfyear: "6 أشهر",
+				pricingSubtitleMonth: "باقات التجربة",
+				pricingSubtitleQuarter: "باقات النمو",
+				pricingSubtitleHalfyear: "باقات الإنتاجية",
 				pricingUnavailable:
 					"الخطط غير متاحة مؤقتًا. يرجى المحاولة مرة أخرى قريبًا.",
 				pricingDaySuffix: "/ {{days}} يومًا",
@@ -325,6 +331,20 @@ CSS TABLE OF CONTENTS
 			document.querySelectorAll(selector).forEach(function (element) {
 				element.textContent = value;
 			});
+		};
+
+		const pricingSubtitleKeyByTab = {
+			"month-tab": "pricingSubtitleMonth",
+			"quarter-tab": "pricingSubtitleQuarter",
+			"halfyear-tab": "pricingSubtitleHalfyear",
+		};
+
+		const updatePricingSubtitle = function () {
+			const activeTab = document.querySelector("#myTab .nav-link.active");
+			const key =
+				(activeTab && pricingSubtitleKeyByTab[activeTab.id]) ||
+				"pricingSubtitleMonth";
+			setText("#pricing-subtitle", t(key));
 		};
 
 		const setHtml = function (selector, value) {
@@ -690,6 +710,7 @@ CSS TABLE OF CONTENTS
 			setText("#month-tab", t("pricingTabMonth"));
 			setText("#quarter-tab", t("pricingTabQuarter"));
 			setText("#halfyear-tab", t("pricingTabHalfyear"));
+			updatePricingSubtitle();
 			setText("#pricing > .container > p.text-center", t("pricingUnavailable"));
 			setTrailingIconLabel(".pricing-items .common-btn", t("ctaGetStarted"));
 			syncPricingCards();
@@ -789,6 +810,8 @@ CSS TABLE OF CONTENTS
 		$(document).on("click", "[data-lang-switch]", function () {
 			applyLocale(this.getAttribute("data-lang-switch"));
 		});
+
+		$(document).on("shown.bs.tab", "#myTab .nav-link", updatePricingSubtitle);
 
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
