@@ -89,7 +89,7 @@ CSS TABLE OF CONTENTS
 				pricingDaySuffix: "/ {{days}} days",
 				pricingQuota: "{{count}} SMS included",
 				pricingValidity: "{{days}}-day validity",
-				pricingRate: "{{rate}} / SMS",
+				pricingRate: "OTP & SMS",
 				pricingFree: "Free to try",
 				faqTitle: "Frequently Asked Questions",
 				faq1Question:
@@ -198,7 +198,7 @@ CSS TABLE OF CONTENTS
 				pricingDaySuffix: "/ {{days}} يومًا",
 				pricingQuota: "يشمل {{count}} رسالة",
 				pricingValidity: "صلاحية {{days}} يومًا",
-				pricingRate: "{{rate}} / رسالة",
+				pricingRate: "OTP & SMS",
 				pricingFree: "تجربة مجانية",
 				faqTitle: "الأسئلة الشائعة",
 				faq1Question:

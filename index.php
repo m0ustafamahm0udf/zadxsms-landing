@@ -72,7 +72,7 @@ $renderCard = function (array $p): string {
     $currency = htmlspecialchars($p['currency'] ?? 'EGP');
     // Effective per-message rate, e.g. "0.70 EGP / SMS" (free plans excepted).
     $rate = ($cents > 0 && $quotaInt > 0)
-        ? number_format(($cents / 100) / $quotaInt, 2) . ' ' . $currency . ' / SMS'
+        ? 'OTP & SMS'
         : 'Free to try';
     ob_start(); ?>
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
