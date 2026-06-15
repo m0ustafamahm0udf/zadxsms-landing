@@ -52,7 +52,7 @@ CSS TABLE OF CONTENTS
 				modeOtpDescription:
 					"Send one-time passwords for login, signup, and verification with your own message template and sender ID.",
 				modeSmsDescription:
-					"Plain transactional or marketing messages such as order updates, alerts, and promos up to 160 characters per message.",
+					"Plain transactional or marketing messages such as order updates, alerts, and promos.",
 				modeHybridDescription:
 					"Use one app for everything. OTP and SMS share the same keys, sender IDs, and quota, so you can scale without friction.",
 				whyTitleHtml:
@@ -161,7 +161,7 @@ CSS TABLE OF CONTENTS
 				modeOtpDescription:
 					"أرسل رموز التحقق لتسجيل الدخول وإنشاء الحساب والتحقق من الهوية باستخدام قالب رسالة ومعرّف مرسل خاص بك.",
 				modeSmsDescription:
-					"رسائل معاملات أو تسويق عادية مثل تحديثات الطلبات والتنبيهات والعروض حتى 160 حرفًا للرسالة الواحدة.",
+					"رسائل معاملات أو تسويق عادية مثل تحديثات الطلبات والتنبيهات والعروض وتعزيز المبيعات والخصومات  والترويج للأحداث الخاصة.",
 				modeHybridDescription:
 					"شغّل OTP وSMS من تطبيق واحد بالمفاتيح نفسها ومعرّفات الإرسال نفسها والرصيد نفسه، ووسّع استخدامك بسهولة.",
 				whyTitleHtml:
