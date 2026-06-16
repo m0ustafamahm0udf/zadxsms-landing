@@ -52,7 +52,7 @@ CSS TABLE OF CONTENTS
 				modeOtpDescription:
 					"Send one-time passwords for login, signup, and verification with your own message template and sender ID.",
 				modeSmsDescription:
-					"Plain transactional or marketing messages such as order updates, alerts, and promos up to 160 characters per message.",
+					"Plain transactional or marketing messages such as order updates, alerts, and promos.",
 				modeHybridDescription:
 					"Use one app for everything. OTP and SMS share the same keys, sender IDs, and quota, so you can scale without friction.",
 				whyTitleHtml:
@@ -64,7 +64,7 @@ CSS TABLE OF CONTENTS
 				whyList3: "Full dashboard to manage apps, keys, and usage",
 				whyList4: "Ready-made Postman collection so you can test in minutes",
 				whyLearnMore: "Learn More",
-				whyTryFree: "Try for free",
+				whyTryFree: "Learn More",
 				brandsTitleHtml:
 					"Built for brands &mdash; send discounts, promos, and updates to your customers in seconds",
 				howTitle: "Up and running in three simple steps",
@@ -84,12 +84,15 @@ CSS TABLE OF CONTENTS
 				pricingTabMonth: "Month",
 				pricingTabQuarter: "3 Months",
 				pricingTabHalfyear: "6 Months",
+				pricingSubtitleMonth: "Trial Packages",
+				pricingSubtitleQuarter: "Growth Packages",
+				pricingSubtitleHalfyear: "Productivity Packages",
 				pricingUnavailable:
 					"Plans are temporarily unavailable. Please check back shortly.",
 				pricingDaySuffix: "/ {{days}} days",
 				pricingQuota: "{{count}} SMS included",
 				pricingValidity: "{{days}}-day validity",
-				pricingRate: "{{rate}} / SMS",
+				pricingRate: "OTP & SMS",
 				pricingFree: "Free to try",
 				faqTitle: "Frequently Asked Questions",
 				faq1Question:
@@ -102,13 +105,7 @@ CSS TABLE OF CONTENTS
 					"OTP mode is built for verification codes with a template and the <code>/otp/send</code> endpoint. SMS mode sends plain transactional or marketing messages up to 160 characters via <code>/sms/send</code>. You can use both from the same app.",
 				faq3Question: "How do I integrate ZADX into my app?",
 				faq3AnswerHtml:
-					"Create an app in your dashboard to get your API key and secret, pick a sender ID, then call our REST API. We provide a ready Postman collection so you can test in minutes.",
-				faq4Question: "What happens if a message fails to send?",
-				faq4AnswerHtml:
-					"If the upstream provider rejects a message, we automatically refund the credit &mdash; so you only pay for messages that actually go out.",
-				faq5Question: "Can I use my own sender ID?",
-				faq5AnswerHtml:
-					"Yes. Request a sender ID from your dashboard; once we approve and register it upstream, your messages are delivered under your own name.",
+					"Pick the plan that fits and contact us. We create your account, set up your app, generate your API key and secret, and prepare your sender ID &mdash; then send you your credentials. From there you just call our REST API, and a ready Postman collection lets you test in minutes.",
 				footerSummary:
 					"ZADX SMS helps apps and brands launch OTP and SMS delivery quickly with ready APIs, instant sender ID access, and a dashboard that keeps setup simple.",
 				footerContactHeading: "Contact",
@@ -167,26 +164,26 @@ CSS TABLE OF CONTENTS
 				modeOtpDescription:
 					"أرسل رموز التحقق لتسجيل الدخول وإنشاء الحساب والتحقق من الهوية باستخدام قالب رسالة ومعرّف مرسل خاص بك.",
 				modeSmsDescription:
-					"رسائل معاملات أو تسويق عادية مثل تحديثات الطلبات والتنبيهات والعروض حتى 160 حرفًا للرسالة الواحدة.",
+					"رسائل معاملات أو تسويق عادية مثل تحديثات الطلبات والتنبيهات والعروض وتعزيز المبيعات والخصومات  والترويج للأحداث الخاصة.",
 				modeHybridDescription:
 					"شغّل OTP وSMS من تطبيق واحد بالمفاتيح نفسها ومعرّفات الإرسال نفسها والرصيد نفسه، ووسّع استخدامك بسهولة.",
 				whyTitleHtml:
 					"ابدأ الإرسال خلال دقائق &mdash; من دون أوراق",
 				whyDescriptionHtml:
-					"لا تحتاج إلى سجل تجاري ولا بطاقة ضريبية. ابدأ مباشرة باستخدام Sender ID مسجل باسمنا، مع لوحة تحكم كاملة وملف Postman جاهز لتكون جاهزًا للإطلاق خلال دقائق.",
+					"لا تحتاج إلى سجل تجاري ولا بطاقة ضريبية. ابدأ مباشرة باستخدام Sender ID مسجل بإسمنا، مع لوحة تحكم كاملة وملف Postman جاهز لتكون جاهزًا للإطلاق خلال دقائق.",
 				whyList1: "لا حاجة إلى سجل تجاري أو بطاقة ضريبية",
-				whyList2: "أرسل باستخدام Sender ID مسجل باسمنا",
+				whyList2: "أرسل باستخدام Sender ID مسجل بإسمنا",
 				whyList3: "لوحة تحكم كاملة لإدارة التطبيقات والمفاتيح والاستخدام",
 				whyList4: "ملف Postman جاهز لتجربتك خلال دقائق",
 				whyLearnMore: "اعرف أكثر",
-				whyTryFree: "جرّب مجانًا",
+				whyTryFree: "اعرف المزيد",
 				brandsTitleHtml:
-					"مصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
-				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة",
+					"مُصمم للعلامات التجارية &mdash; أرسل الخصومات والعروض والتحديثات لعملائك خلال ثوانٍ",
+				howTitle: "جاهز للعمل في ثلاث خطوات بسيطة  &mdash;  في غضون ٥ دقائق",
 				step1Label: "الخطوة 01",
 				step1Title: "تواصل معنا واختر الباقة",
 				step1Description:
-					"اخبرنا بحالة الاستخدام لديك واختر الباقة المناسبة لحجم الإرسال الشهري.",
+					"اخبرنا بحالة الاستخدام لديك واختر الباقة المناسبة لحجم الإرسال.",
 				step2Label: "الخطوة 02",
 				step2Title: "نجهز تطبيقك",
 				step2Description:
@@ -199,34 +196,29 @@ CSS TABLE OF CONTENTS
 				pricingTabMonth: "شهر",
 				pricingTabQuarter: "3 أشهر",
 				pricingTabHalfyear: "6 أشهر",
+				pricingSubtitleMonth: "باقات التجربة",
+				pricingSubtitleQuarter: "باقات النمو",
+				pricingSubtitleHalfyear: "باقات الإنتاجية",
 				pricingUnavailable:
 					"الخطط غير متاحة مؤقتًا. يرجى المحاولة مرة أخرى قريبًا.",
 				pricingDaySuffix: "/ {{days}} يومًا",
 				pricingQuota: "يشمل {{count}} رسالة",
 				pricingValidity: "صلاحية {{days}} يومًا",
-				pricingRate: "{{rate}} / رسالة",
+				pricingRate: "OTP & SMS",
 				pricingFree: "تجربة مجانية",
 				faqTitle: "الأسئلة الشائعة",
 				faq1Question:
 					"هل أحتاج إلى سجل تجاري أو بطاقة ضريبية؟",
 				faq1AnswerHtml:
-					"لا. يمكنك البدء في الإرسال فورًا باستخدام Sender ID مسجل باسمنا &mdash; من دون أي أوراق.",
+					"لا. يمكنك البدء في الإرسال فورًا باستخدام Sender ID مسجل بإسمنا &mdash; من دون أي أوراق.",
 				faq2Question:
 					"ما الفرق بين نمط OTP ونمط SMS؟",
 				faq2AnswerHtml:
 					"نمط OTP مخصص لرسائل التحقق باستخدام قالب ورسالة عبر نقطة النهاية <code>/otp/send</code>. أما نمط SMS فيرسل رسائل معاملات أو تسويق عادية حتى 160 حرفًا عبر <code>/sms/send</code>. ويمكنك استخدام النمطين من التطبيق نفسه.",
 				faq3Question:
-					"كيف أربط ZADX بتطبيقي؟",
+					"كيف أربط ZADX SMS بتطبيقي؟",
 				faq3AnswerHtml:
-					"أنشئ تطبيقًا من لوحة التحكم للحصول على مفتاح الـ API والسر الخاص بك، ثم اختر Sender ID وابدأ باستخدام REST API الخاص بنا. كما نوفر ملف Postman جاهزًا للتجربة خلال دقائق.",
-				faq4Question:
-					"ماذا يحدث إذا فشل إرسال رسالة؟",
-				faq4AnswerHtml:
-					"إذا رفض المزوّد الخارجي الرسالة، نعيد الرصيد تلقائيًا حتى تدفع فقط مقابل الرسائل التي تم إرسالها فعليًا.",
-				faq5Question:
-					"هل يمكنني استخدام Sender ID خاص بي؟",
-				faq5AnswerHtml:
-					"نعم. اطلب Sender ID من لوحة التحكم، وبعد الموافقة عليه وتسجيله لدى المزوّد سيتم تسليم رسائلك باسمك الخاص.",
+					"اختر الباقة المناسبة وتواصل معنا، ونحن نُنشئ حسابك ونجهّز تطبيقك ونولّد مفتاح الـ API والسر الخاص بك ونُعدّ الـ Sender ID، ثم نرسل لك بياناتك. بعدها تبدأ باستخدام الـ REST API الخاص بنا، ونوفّر لك ملف Postman جاهزًا للتجربة خلال دقائق.",
 				footerSummary:
 					"تساعد ZADX SMS التطبيقات والعلامات التجارية على إطلاق إرسال OTP وSMS بسرعة من خلال واجهات API جاهزة وSender ID فوري ولوحة تحكم تجعل الإعداد بسيطًا.",
 				footerContactHeading: "تواصل معنا",
@@ -341,6 +333,20 @@ CSS TABLE OF CONTENTS
 			});
 		};
 
+		const pricingSubtitleKeyByTab = {
+			"month-tab": "pricingSubtitleMonth",
+			"quarter-tab": "pricingSubtitleQuarter",
+			"halfyear-tab": "pricingSubtitleHalfyear",
+		};
+
+		const updatePricingSubtitle = function () {
+			const activeTab = document.querySelector("#myTab .nav-link.active");
+			const key =
+				(activeTab && pricingSubtitleKeyByTab[activeTab.id]) ||
+				"pricingSubtitleMonth";
+			setText("#pricing-subtitle", t(key));
+		};
+
 		const setHtml = function (selector, value) {
 			document.querySelectorAll(selector).forEach(function (element) {
 				element.innerHTML = value;
@@ -392,7 +398,9 @@ CSS TABLE OF CONTENTS
 				// Ignore storage access errors and fall back to browser language.
 			}
 
-			return /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+			// Default to Arabic for new visitors regardless of browser language.
+			// An explicit ?lang= param or a saved preference still wins above.
+			return "ar";
 		};
 
 		const persistLocale = function (locale) {
@@ -554,8 +562,6 @@ CSS TABLE OF CONTENTS
 				["faq1Question", "faq1AnswerHtml"],
 				["faq2Question", "faq2AnswerHtml"],
 				["faq3Question", "faq3AnswerHtml"],
-				["faq4Question", "faq4AnswerHtml"],
-				["faq5Question", "faq5AnswerHtml"],
 			];
 
 			currentLocale = normalizeLocale(locale);
@@ -704,6 +710,7 @@ CSS TABLE OF CONTENTS
 			setText("#month-tab", t("pricingTabMonth"));
 			setText("#quarter-tab", t("pricingTabQuarter"));
 			setText("#halfyear-tab", t("pricingTabHalfyear"));
+			updatePricingSubtitle();
 			setText("#pricing > .container > p.text-center", t("pricingUnavailable"));
 			setTrailingIconLabel(".pricing-items .common-btn", t("ctaGetStarted"));
 			syncPricingCards();
@@ -803,6 +810,8 @@ CSS TABLE OF CONTENTS
 		$(document).on("click", "[data-lang-switch]", function () {
 			applyLocale(this.getAttribute("data-lang-switch"));
 		});
+
+		$(document).on("shown.bs.tab", "#myTab .nav-link", updatePricingSubtitle);
 
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
