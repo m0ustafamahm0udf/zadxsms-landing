@@ -1,0 +1,14 @@
+# Serve the dynamic, API-driven page instead of the static index.html.
+# Apache's default DirectoryIndex lists index.html first, which would shadow
+# index.php and serve stale hard-coded prices — force PHP to win.
+<IfModule mod_dir.c>
+    DirectoryIndex index.php index.html
+</IfModule>
+
+# Public landing-plans API config, read by index.php via getenv().
+# Kept in .htaccess (outside the served HTML) so the shared secret never
+# reaches a visitor's browser. Do NOT commit the real key to git.
+<IfModule mod_env.c>
+    SetEnv ZADX_LANDING_ENDPOINT "https://smsapi.zadx.net/api/landing/plans"
+    SetEnv ZADX_LANDING_KEY "po6HtldmmGwjE9rTkNfwoanMVPSGEsZ97A0f4bVdGtU="
+</IfModule>
