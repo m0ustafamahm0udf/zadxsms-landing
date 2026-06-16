@@ -201,9 +201,9 @@ CSS TABLE OF CONTENTS
 				pricingSubtitleHalfyear: "باقات الإنتاجية",
 				pricingUnavailable:
 					"الخطط غير متاحة مؤقتًا. يرجى المحاولة مرة أخرى قريبًا.",
-				pricingDaySuffix: "/ {{days}} يومًا",
+				pricingDaySuffix: "/ {{days}} يوما",
 				pricingQuota: "يشمل {{count}} رسالة",
-				pricingValidity: "صلاحية {{days}} يومًا",
+				pricingValidity: "صلاحية {{days}} يوما",
 				pricingRate: "OTP & SMS",
 				pricingFree: "تجربة مجانية",
 				faqTitle: "الأسئلة الشائعة",
@@ -301,14 +301,37 @@ CSS TABLE OF CONTENTS
 			).format(numeric);
 		};
 
-		const localizeMoneyText = function (value) {
-			const match = String(value).trim().match(/^([\d.,]+)\s+(.+)$/);
+		const localizeCurrency = function (value) {
+			const currency = String(value).trim();
 
-			if (!match) {
-				return value;
+			if (currentLocale === "ar" && currency.toUpperCase() === "EGP") {
+				return "جنيه";
 			}
 
-			return `${formatDecimalString(match[1])} ${match[2]}`;
+			return currency;
+		};
+
+		const localizeMoneyText = function (value) {
+			const normalized = String(value).trim().replace(/\s+/g, " ");
+			const amountFirstMatch = normalized.match(/^([\d.,]+)\s+(.+)$/);
+			const currencyFirstMatch = normalized.match(/^([^\d\s.,]+)\s+([\d.,]+)$/);
+
+			if (amountFirstMatch) {
+				return `${formatDecimalString(amountFirstMatch[1])} ${localizeCurrency(
+					amountFirstMatch[2]
+				)}`;
+			}
+
+			if (currencyFirstMatch) {
+				const currency = localizeCurrency(currencyFirstMatch[1]);
+				const amount = formatDecimalString(currencyFirstMatch[2]);
+
+				return currentLocale === "ar"
+					? `${amount} ${currency}`
+					: `${currency} ${amount}`;
+			}
+
+			return value;
 		};
 
 		const localizeRateBase = function (value) {
@@ -456,7 +479,7 @@ CSS TABLE OF CONTENTS
 			}
 
 			const titleElement = card.querySelector("h3");
-			const priceElement = card.querySelector("h2");
+			const priceElement = card.querySelector(".pricing-price");
 			const priceSpan = priceElement ? priceElement.querySelector("span") : null;
 			const listItems = card.querySelectorAll(".price-list li");
 			const titleText = titleElement ? titleElement.textContent.trim() : "";
@@ -492,7 +515,7 @@ CSS TABLE OF CONTENTS
 			document.querySelectorAll(".pricing-items").forEach(function (card) {
 				const base = getPricingCardBase(card);
 				const titleElement = card.querySelector("h3");
-				const priceElement = card.querySelector("h2");
+				const priceElement = card.querySelector(".pricing-price");
 				const listItems = card.querySelectorAll(".price-list li");
 				const titleMatch = base.titleText.match(/^([\d,]+)\s+SMS$/i);
 
@@ -813,6 +836,38 @@ CSS TABLE OF CONTENTS
 
 		$(document).on("shown.bs.tab", "#myTab .nav-link", updatePricingSubtitle);
 
+		const getAnchorScrollTop = function (target) {
+			const scrollMarginTop =
+				parseFloat(window.getComputedStyle(target).scrollMarginTop) ||
+				($("#header-sticky").outerHeight() || 0) + 16;
+
+			return Math.max(
+				target.getBoundingClientRect().top +
+					window.pageYOffset -
+					scrollMarginTop,
+				0
+			);
+		};
+
+		const clearLocationHash = function () {
+			if (!window.history || !window.history.replaceState) {
+				return;
+			}
+
+			window.history.replaceState(
+				null,
+				"",
+				`${window.location.pathname}${window.location.search}`
+			);
+		};
+
+		const scrollToAnchor = function (target, behavior) {
+			window.scrollTo({
+				top: getAnchorScrollTop(target),
+				behavior: behavior,
+			});
+		};
+
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
 			"click",
@@ -835,26 +890,34 @@ CSS TABLE OF CONTENTS
 				const prefersReducedMotion = window.matchMedia(
 					"(prefers-reduced-motion: reduce)"
 				).matches;
-				const scrollMarginTop =
-					parseFloat(window.getComputedStyle(target).scrollMarginTop) ||
-					($("#header-sticky").outerHeight() || 0) + 16;
-				const scrollTop = Math.max(
-					target.getBoundingClientRect().top +
-						window.pageYOffset -
-						scrollMarginTop,
-					0
-				);
-
-				window.scrollTo({
-					top: scrollTop,
-					behavior: prefersReducedMotion ? "auto" : "smooth",
-				});
-
-				if (window.history && window.history.pushState) {
-					window.history.pushState(null, "", hash);
-				}
+				scrollToAnchor(target, prefersReducedMotion ? "auto" : "smooth");
+				clearLocationHash();
 			}
 		);
+
+		if (window.location.hash === "#pricing") {
+			const pricingTarget = document.querySelector("#pricing");
+
+			if (pricingTarget) {
+				const restoreInitialPricingScroll = function () {
+					window.setTimeout(function () {
+						scrollToAnchor(pricingTarget, "auto");
+						clearLocationHash();
+					}, 250);
+				};
+
+				clearLocationHash();
+				window.setTimeout(function () {
+					scrollToAnchor(pricingTarget, "auto");
+				}, 0);
+
+				if (document.readyState === "complete") {
+					restoreInitialPricingScroll();
+				} else {
+					$(window).one("load", restoreInitialPricingScroll);
+				}
+			}
+		}
 
 		$(document).on("click", "[data-copy-phone]", async function () {
 			const $button = $(this);

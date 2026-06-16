@@ -9460,6 +9460,9 @@ input.main-search-input::placeholder {
 /* ===== Single-page nav: smooth scroll + sticky-header offset ===== */
 html { scroll-behavior: smooth !important; }
 #hero, #modes, #why, #how, #pricing, #faq, #contact { scroll-margin-top: 110px; }
+@media (max-width: 767px) {
+  html { scroll-behavior: auto !important; }
+}
 
 /* ===== About section CTA hierarchy ===== */
 .contact-learn-link {
