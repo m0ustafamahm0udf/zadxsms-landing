@@ -30,9 +30,9 @@ CSS TABLE OF CONTENTS
 		const translations = {
 			en: {
 				metaTitle:
-					"ZADX SMS | OTP & SMS Delivery by ZADX Software Solutions",
+					"ZADX SMS | OTP API & SMS Delivery in Egypt",
 				metaDescription:
-					"ZADX SMS provides OTP and SMS delivery with ready APIs, quick setup, and a simple dashboard from ZADX Software Solutions.",
+					"Launch OTP API and SMS delivery in Egypt with ready APIs, sender ID access, dashboard, Postman collection, and flexible SMS packages.",
 				loading: "Loading",
 				offcanvasContact: "Contact Info",
 				ctaGetStarted: "Get Started",
@@ -142,9 +142,9 @@ CSS TABLE OF CONTENTS
 			},
 			ar: {
 				metaTitle:
-					"ZADX SMS | إرسال OTP وSMS من ZADX Software Solutions",
+					"ZADX SMS | API لإرسال OTP ورسائل SMS في مصر",
 				metaDescription:
-					"توفر ZADX SMS خدمة إرسال رموز التحقق OTP ورسائل SMS بسرعة عبر واجهات API جاهزة ولوحة تحكم بسيطة من ZADX Software Solutions.",
+					"أطلق إرسال OTP ورسائل SMS في مصر مع واجهات API جاهزة وSender ID ولوحة تحكم وملف Postman وباقات مرنة.",
 				loading: "جارٍ التحميل",
 				offcanvasContact: "معلومات التواصل",
 				ctaGetStarted: "ابدأ الآن",

@@ -78,7 +78,7 @@ $renderCard = function (array $p): string {
                             <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                                 <div class="pricing-items pricing-hover1 rounded-4 white-bg">
                                     <h3 class="black-clr mb-lg-3 mb-2 text-center"><?= $name ?></h3>
-                                    <h2 class="text-center mb-4"><?= $price ?> <span>/ <?= $days ?> days</span></h2>
+                                    <p class="pricing-price text-center mb-4"><?= $price ?> <span>/ <?= $days ?> days</span></p>
                                     <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
                                         <li class="d-flex align-items-center gap-2">
                                             <i class="fa-solid fa-angles-right black-clr"></i> <?= $quota ?> SMS included
@@ -111,13 +111,19 @@ $renderCard = function (array $p): string {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ZADX Software Solutions">
-    <meta name="description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
+    <meta name="description" content="Launch OTP API and SMS delivery in Egypt with ZADX SMS: ready APIs, sender ID access, dashboard, Postman collection, and flexible SMS packages.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://sms.zadx.net/">
+    <link rel="alternate" hreflang="en" href="https://sms.zadx.net/">
+    <link rel="alternate" hreflang="ar" href="https://sms.zadx.net/?lang=ar">
+    <link rel="alternate" hreflang="x-default" href="https://sms.zadx.net/">
     <meta property="og:site_name" content="ZADX">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ar_EG">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sms.zadx.net/">
-    <meta property="og:title" content="ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions">
-    <meta property="og:description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
+    <meta property="og:title" content="ZADX SMS | OTP API &amp; SMS Delivery in Egypt">
+    <meta property="og:description" content="Launch OTP API and SMS delivery in Egypt with ready APIs, sender ID access, dashboard, Postman collection, and flexible SMS packages.">
     <meta property="og:image" content="https://sms.zadx.net/assets/img/icon/android-icon-512.png">
     <meta property="og:image:secure_url" content="https://sms.zadx.net/assets/img/icon/android-icon-512.png">
     <meta property="og:image:type" content="image/png">
@@ -125,12 +131,12 @@ $renderCard = function (array $p): string {
     <meta property="og:image:height" content="512">
     <meta property="og:image:alt" content="ZADX SMS logo">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions">
-    <meta name="twitter:description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
+    <meta name="twitter:title" content="ZADX SMS | OTP API &amp; SMS Delivery in Egypt">
+    <meta name="twitter:description" content="Launch OTP API and SMS delivery in Egypt with ready APIs, sender ID access, dashboard, Postman collection, and flexible SMS packages.">
     <meta name="twitter:image" content="https://sms.zadx.net/assets/img/icon/android-icon-512.png">
     <meta name="twitter:image:alt" content="ZADX SMS logo">
     <!-- ======== Page title ============ -->
-    <title>ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions</title>
+    <title>ZADX SMS | OTP API &amp; SMS Delivery in Egypt</title>
     <!--<< Favicon >>-->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon/android-icon-192.png">
@@ -154,6 +160,89 @@ $renderCard = function (array $p): string {
     <link rel="stylesheet" href="assets/css/main.css?v=20260614-header-call-fit">
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://sms.zadx.net/#organization",
+                "name": "ZADX Software Solutions",
+                "url": "https://zadx.net",
+                "logo": "https://sms.zadx.net/assets/img/icon/android-icon-512.png",
+                "sameAs": [
+                    "https://www.facebook.com/zadxapps",
+                    "https://www.instagram.com/zadxapps",
+                    "https://www.linkedin.com/company/zadxapps"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+201062429287",
+                    "contactType": "sales",
+                    "areaServed": "EG",
+                    "availableLanguage": ["en", "ar"]
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://sms.zadx.net/#website",
+                "url": "https://sms.zadx.net/",
+                "name": "ZADX SMS",
+                "publisher": {"@id": "https://sms.zadx.net/#organization"},
+                "inLanguage": ["en", "ar"]
+            },
+            {
+                "@type": "Service",
+                "@id": "https://sms.zadx.net/#service",
+                "name": "ZADX SMS OTP API and SMS Delivery",
+                "serviceType": "OTP API, transactional SMS, and SMS delivery service",
+                "description": "ZADX SMS helps apps and brands send OTP, transactional SMS, marketing SMS, and customer updates through ready APIs, sender ID access, and a dashboard.",
+                "provider": {"@id": "https://sms.zadx.net/#organization"},
+                "areaServed": {"@type": "Country", "name": "Egypt"},
+                "url": "https://sms.zadx.net/",
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "ZADX SMS packages",
+                    "itemListElement": [
+                        {"@type": "Offer", "name": "Trial SMS package", "price": "0.00", "priceCurrency": "EGP", "description": "50 SMS included for 14 days."},
+                        {"@type": "Offer", "name": "100 SMS package", "price": "70.00", "priceCurrency": "EGP", "description": "100 SMS included for 30 days."},
+                        {"@type": "Offer", "name": "1,000 SMS package", "price": "500.00", "priceCurrency": "EGP", "description": "1,000 SMS included for 90 days."}
+                    ]
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://sms.zadx.net/#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Do I need a commercial registration or tax card?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. You can start sending right away using a sender ID registered under our name with no paperwork required."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What's the difference between OTP and SMS modes?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "OTP mode is built for verification codes with a template and the /otp/send endpoint. SMS mode sends plain transactional or marketing messages up to 160 characters via /sms/send. You can use both from the same app."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How do I integrate ZADX SMS into my app?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pick a plan and contact ZADX. We create your account, set up your app, generate your API key and secret, prepare your sender ID, and provide a ready Postman collection for testing."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body class="body-bg ">
@@ -252,7 +341,7 @@ $renderCard = function (array $p): string {
                             </div>
                         </div>
                         <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
-                            <img src="assets/img/banner/contact-view.jpg" alt="img" class="w-100 rounded-4">
+                            <img src="assets/img/banner/contact-view.jpg" alt="Contact ZADX SMS" class="w-100 rounded-4">
                         </a>
                     </div>
                 </div>
@@ -296,7 +385,7 @@ $renderCard = function (array $p): string {
                             </div>
                             <div class="header__hamburger d-xl-none my-auto">
                                 <div class="sidebar__toggle">
-                                    <img src="assets/img/icon/menu.png" alt="icon">
+                                    <img src="assets/img/icon/menu.png" alt="Open menu">
                                 </div>
                             </div>
                         </div>
@@ -359,8 +448,8 @@ $renderCard = function (array $p): string {
                  
                 </div>
                 <!-- Ele -->
-                <img src="assets/img/element/home1-ele1.png" alt="img" class="home1-ele1">
-                <img src="assets/img/element/home1-ele2.png" alt="img" class="home1-ele2">
+                <img src="assets/img/element/home1-ele1.png" alt="" class="home1-ele1">
+                <img src="assets/img/element/home1-ele2.png" alt="" class="home1-ele2">
             </div>
         </section>
 
@@ -514,7 +603,7 @@ $renderCard = function (array $p): string {
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 d-sm-block d-none">
                         <div class="tv-laptop w-100">
-                            <img src="assets/img/brand/tv-labtop.png" alt="img" class="w-100">
+                            <img src="assets/img/brand/tv-labtop.png" alt="ZADX SMS dashboard across devices" class="w-100">
                         </div>
                     </div>
                 </div>
@@ -683,7 +772,7 @@ $renderCard = function (array $p): string {
                             <div class="swiper-slide">
                                 <div class="testimonial-items1">
                                     <div class="thumb">
-                                        <img src="assets/img/testimonial/testimonial1-thumb.png" alt="img">
+                                        <img src="assets/img/testimonial/testimonial1-thumb.png" alt="Client testimonial portrait">
                                     </div>
                                     <div class="content">
                                         <div
@@ -945,7 +1034,7 @@ $renderCard = function (array $p): string {
                         </ul>
                     </div>
                     <!-- Ele -->
-                    <img src="assets/img/element/footer1-ele1.png" alt="img" class="footer-ele1">
+                    <img src="assets/img/element/footer1-ele1.png" alt="" class="footer-ele1">
                 </div>
             </div>
         </footer>

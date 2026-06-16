@@ -7007,7 +7007,8 @@ input.main-search-input::placeholder {
   padding: 30px 30px;
   container-type: inline-size;
 }
-.pricing-items h2 {
+.pricing-items h2,
+.pricing-items .pricing-price {
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -7018,7 +7019,8 @@ input.main-search-input::placeholder {
   line-height: 1;
   color: var(--black);
 }
-.pricing-items h2 span {
+.pricing-items h2 span,
+.pricing-items .pricing-price span {
   flex: 0 0 auto;
   font-size: clamp(11px, 4cqw, 16px);
   color: var(--black2);

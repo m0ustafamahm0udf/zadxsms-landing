@@ -33,7 +33,8 @@
 .pricing-items {
 	padding: 30px 30px;
 	container-type: inline-size;
-	h2 {
+	h2,
+	.pricing-price {
 		display: flex;
 		align-items: baseline;
 		justify-content: center;
