@@ -1,0 +1,61 @@
+// Industries Section
+.industries-section {
+	.industries-subtitle {
+		max-width: 640px;
+	}
+
+	.industry-col.is-hidden {
+		display: none;
+	}
+
+	.industry-item {
+		height: 100%;
+		padding: 30px 22px;
+		border-radius: 20px;
+		border: 1px solid var(--cmn-border);
+		box-shadow: $shadow;
+		transition: transform 0.3s ease, box-shadow 0.3s ease,
+			border-color 0.3s ease;
+
+		.industry-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 64px;
+			height: 64px;
+			margin-bottom: 18px;
+			border-radius: 16px;
+			background: rgba(0, 0, 0, 0.04);
+
+			i {
+				font-size: 30px;
+				color: $p1-clr;
+			}
+		}
+
+		.industry-title {
+			font-size: 20px;
+			margin-bottom: 12px;
+		}
+
+		.industry-desc {
+			margin-bottom: 0;
+		}
+
+		&:hover {
+			transform: translateY(-6px);
+			border-color: $p1-clr;
+			box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	.industries-toggle {
+		i {
+			transition: transform 0.3s ease;
+		}
+
+		&[aria-expanded="true"] i {
+			transform: rotate(180deg);
+		}
+	}
+}

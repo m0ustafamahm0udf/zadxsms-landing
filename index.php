@@ -513,6 +513,113 @@ $renderCard = function (array $p): string {
         </section>
 
 
+        <!-- Industries Section Start -->
+        <section id="industries" class="industries-section space-top">
+            <div class="container">
+                <div class="cont text-center mb-50">
+                    <span class="fs-seven fw-semibold p1-clr d-block mb-lg-3 mb-2" style="letter-spacing: 3.2px;">
+                        Industries We Serve
+                    </span>
+                    <h2 class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s">
+                        Messaging solutions for every industry
+                    </h2>
+                    <p class="industries-subtitle pra fs-eight mt-3 mx-auto">
+                        Use ZADX SMS across every sector &mdash; reminders, promotions, alerts, and exclusive offers your
+                        customers actually read.
+                    </p>
+                </div>
+                <div class="industries-grid">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="0">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                                <h3 class="industry-title">E-commerce</h3>
+                                <p class="industry-desc pra fs-eight">Confirm orders, push tracking links the moment a parcel ships, and win back abandoned carts with a single message.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="1">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-store"></i></span>
+                                <h3 class="industry-title">Retail</h3>
+                                <p class="industry-desc pra fs-eight">Alert shoppers to deals and flash sales, launch new arrivals, and reward regulars with exclusive discount codes.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="2">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-utensils"></i></span>
+                                <h3 class="industry-title">Food &amp; Beverage</h3>
+                                <p class="industry-desc pra fs-eight">Confirm reservations and delivery orders, announce new menu items, and send daily offers to your regulars.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="3">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-stethoscope"></i></span>
+                                <h3 class="industry-title">Healthcare</h3>
+                                <p class="industry-desc pra fs-eight">Cut no-shows with appointment reminders, and deliver results and sensitive alerts behind a secure verification code.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="4">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-spa"></i></span>
+                                <h3 class="industry-title">Health &amp; Beauty</h3>
+                                <p class="industry-desc pra fs-eight">Manage session bookings, remind clients of upcoming visits, and launch seasonal packages and event offers.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="5">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-dumbbell"></i></span>
+                                <h3 class="industry-title">Fitness</h3>
+                                <p class="industry-desc pra fs-eight">Remind members of classes, flag expiring memberships, and drive renewals with members-only offers.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="6">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-hotel"></i></span>
+                                <h3 class="industry-title">Hospitality</h3>
+                                <p class="industry-desc pra fs-eight">Confirm bookings, send check-in details, and treat guests to tailored stay offers.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="7">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-plane-departure"></i></span>
+                                <h3 class="industry-title">Travel &amp; Tourism</h3>
+                                <p class="industry-desc pra fs-eight">Keep travelers posted on schedules and changes in real time, and suggest destinations and deals for their next trip.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="8">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-house"></i></span>
+                                <h3 class="industry-title">Real Estate</h3>
+                                <p class="industry-desc pra fs-eight">Share new listings the moment they go live, schedule viewings, and follow up with interested buyers right on time.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="9">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-car-side"></i></span>
+                                <h3 class="industry-title">Automotive</h3>
+                                <p class="industry-desc pra fs-eight">Remind customers of scheduled servicing, announce new model arrivals, and send exclusive service offers.</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="10">
+                            <div class="industry-item white-bg text-center">
+                                <span class="industry-icon"><i class="fa-solid fa-tower-cell"></i></span>
+                                <h3 class="industry-title">Telecommunications</h3>
+                                <p class="industry-desc pra fs-eight">Send bundle-usage and renewal alerts, launch new plans, and secure logins with instant verification codes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <button type="button" aria-expanded="false"
+                        class="common-btn industries-toggle box-style btn2 blackbg d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-500 white-clr py-3 overflow-hidden rounded100">
+                        Show more
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Process Section Start -->
         <section id="how" class="process-section fix section-padding">
             <div class="container">
