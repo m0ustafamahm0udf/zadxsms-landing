@@ -9460,6 +9460,9 @@ input.main-search-input::placeholder {
 /* ===== Single-page nav: smooth scroll + sticky-header offset ===== */
 html { scroll-behavior: smooth !important; }
 #hero, #modes, #why, #how, #pricing, #faq, #contact { scroll-margin-top: 110px; }
+@media (max-width: 767px) {
+  html { scroll-behavior: auto !important; }
+}
 
 /* ===== About section CTA hierarchy ===== */
 .contact-learn-link {
@@ -9880,3 +9883,51 @@ html[dir="rtl"] .lang-ar { display: block !important; }
 span.lang-ar, a.lang-ar, i.lang-ar { display: none !important; }
 html[dir="rtl"] span.lang-en, html[dir="rtl"] a.lang-en, html[dir="rtl"] i.lang-en { display: none !important; }
 html[dir="rtl"] span.lang-ar, html[dir="rtl"] a.lang-ar, html[dir="rtl"] i.lang-ar { display: inline !important; }
+
+/* Industries Section */
+.industries-section .industries-subtitle {
+  max-width: 640px;
+}
+.industries-section .industry-col.is-hidden {
+  display: none;
+}
+.industries-section .industry-item {
+  height: 100%;
+  padding: 30px 22px;
+  border-radius: 20px;
+  border: 1px solid var(--cmn-border);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.industries-section .industry-item .industry-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.04);
+}
+.industries-section .industry-item .industry-icon i {
+  font-size: 30px;
+  color: var(--p1-clr);
+}
+.industries-section .industry-item .industry-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.industries-section .industry-item .industry-desc {
+  margin-bottom: 0;
+}
+.industries-section .industry-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--p1-clr);
+  box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.1);
+}
+.industries-section .industries-toggle i {
+  transition: transform 0.3s ease;
+}
+.industries-section .industries-toggle[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}

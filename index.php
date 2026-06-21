@@ -157,7 +157,7 @@ $renderCard = function (array $p): string {
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260617-ios-hash-scroll">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260621-hostinger-refresh">
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">
@@ -1242,7 +1242,7 @@ $renderCard = function (array $p): string {
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260617-ios-hash-scroll"></script>
+    <script src="assets/js/main.js?v=20260621-hostinger-refresh"></script>
 </body>
 
 </html>

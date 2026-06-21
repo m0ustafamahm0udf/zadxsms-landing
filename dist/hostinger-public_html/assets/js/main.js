@@ -139,6 +139,45 @@ CSS TABLE OF CONTENTS
 				facebookLabel: "Facebook",
 				instagramLabel: "Instagram",
 				linkedinLabel: "LinkedIn",
+				industriesEyebrow: "Industries We Serve",
+				industriesTitleHtml: "Messaging solutions for every industry",
+				industriesSubtitle:
+					"Use ZADX SMS across every sector — reminders, promotions, alerts, and exclusive offers your customers actually read.",
+				industriesShowMore: "Show more",
+				industriesShowLess: "Show less",
+				industry1_title: "E-commerce",
+				industry1_desc:
+					"Confirm orders, push tracking links the moment a parcel ships, and win back abandoned carts with a single message.",
+				industry2_title: "Retail",
+				industry2_desc:
+					"Alert shoppers to deals and flash sales, launch new arrivals, and reward regulars with exclusive discount codes.",
+				industry3_title: "Food & Beverage",
+				industry3_desc:
+					"Confirm reservations and delivery orders, announce new menu items, and send daily offers to your regulars.",
+				industry4_title: "Healthcare",
+				industry4_desc:
+					"Cut no-shows with appointment reminders, and deliver results and sensitive alerts behind a secure verification code.",
+				industry5_title: "Health & Beauty",
+				industry5_desc:
+					"Manage session bookings, remind clients of upcoming visits, and launch seasonal packages and event offers.",
+				industry6_title: "Fitness",
+				industry6_desc:
+					"Remind members of classes, flag expiring memberships, and drive renewals with members-only offers.",
+				industry7_title: "Hospitality",
+				industry7_desc:
+					"Confirm bookings, send check-in details, and treat guests to tailored stay offers.",
+				industry8_title: "Travel & Tourism",
+				industry8_desc:
+					"Keep travelers posted on schedules and changes in real time, and suggest destinations and deals for their next trip.",
+				industry9_title: "Real Estate",
+				industry9_desc:
+					"Share new listings the moment they go live, schedule viewings, and follow up with interested buyers right on time.",
+				industry10_title: "Automotive",
+				industry10_desc:
+					"Remind customers of scheduled servicing, announce new model arrivals, and send exclusive service offers.",
+				industry11_title: "Telecommunications",
+				industry11_desc:
+					"Send bundle-usage and renewal alerts, launch new plans, and secure logins with instant verification codes.",
 			},
 			ar: {
 				metaTitle:
@@ -201,9 +240,9 @@ CSS TABLE OF CONTENTS
 				pricingSubtitleHalfyear: "باقات الإنتاجية",
 				pricingUnavailable:
 					"الخطط غير متاحة مؤقتًا. يرجى المحاولة مرة أخرى قريبًا.",
-				pricingDaySuffix: "/ {{days}} يومًا",
+				pricingDaySuffix: "/ {{days}} يوما",
 				pricingQuota: "يشمل {{count}} رسالة",
-				pricingValidity: "صلاحية {{days}} يومًا",
+				pricingValidity: "صلاحية {{days}} يوما",
 				pricingRate: "OTP & SMS",
 				pricingFree: "تجربة مجانية",
 				faqTitle: "الأسئلة الشائعة",
@@ -252,6 +291,45 @@ CSS TABLE OF CONTENTS
 				facebookLabel: "فيسبوك",
 				instagramLabel: "إنستغرام",
 				linkedinLabel: "لينكدإن",
+				industriesEyebrow: "قطاعات نخدمها",
+				industriesTitleHtml: "حلول رسائل لكل قطاع",
+				industriesSubtitle:
+					"استخدم ZADX SMS في كل القطاعات — تذكيرات وعروض وتنبيهات وعروض حصرية يقرأها عملاؤك فعلًا.",
+				industriesShowMore: "عرض المزيد",
+				industriesShowLess: "عرض أقل",
+				industry1_title: "التجارة الإلكترونية",
+				industry1_desc:
+					"أكّد الطلبات، وأرسل روابط التتبّع لحظة الشحن، واسترجع السلات المتروكة برسالة واحدة تصل في ثوانٍ.",
+				industry2_title: "المتاجر والتجزئة",
+				industry2_desc:
+					"نبّه عملاءك للعروض والتخفيضات السريعة، وأطلق المنتجات الجديدة، وكافئ الأوفياء بأكواد خصم حصرية.",
+				industry3_title: "المطاعم والكافيهات",
+				industry3_desc:
+					"أكّد الحجوزات وطلبات التوصيل، وأعلِن أصناف القائمة الجديدة، وأرسل عروض اليوم لزبائنك الدائمين.",
+				industry4_title: "الرعاية الصحية",
+				industry4_desc:
+					"قلّل تخلّف المرضى عن المواعيد بالتذكيرات، وأرسل النتائج والتنبيهات الحسّاسة خلف رمز تحقّق آمن.",
+				industry5_title: "العناية والتجميل",
+				industry5_desc:
+					"نظّم حجوزات الجلسات، وذكّر العميلات بمواعيدهن، وأطلق الباقات الموسمية وعروض المناسبات.",
+				industry6_title: "اللياقة والأندية",
+				industry6_desc:
+					"ذكّر الأعضاء بالحصص، ونبّههم قبل انتهاء الاشتراك، وحفّز التجديد بعروض حصرية للأعضاء.",
+				industry7_title: "الفنادق والضيافة",
+				industry7_desc:
+					"أكّد الحجوزات، وأرسل تفاصيل تسجيل الدخول، ودلّل النزلاء بعروض إقامة مخصّصة.",
+				industry8_title: "السفر والسياحة",
+				industry8_desc:
+					"أبلِغ المسافرين بمواعيد الرحلات وأي تغييرات لحظيًا، واقترح وجهات وعروضًا تناسب رحلتهم القادمة.",
+				industry9_title: "العقارات",
+				industry9_desc:
+					"شارك الوحدات الجديدة فور توفّرها، ونسّق مواعيد المعاينة، وتابع العملاء المهتمّين في الوقت المناسب.",
+				industry10_title: "السيارات والصيانة",
+				industry10_desc:
+					"ذكّر العملاء بمواعيد الصيانة الدورية، وأعلِن وصول الموديلات الجديدة، وأرسل عروض خدمة حصرية.",
+				industry11_title: "الاتصالات",
+				industry11_desc:
+					"أرسل تنبيهات استهلاك الباقة وتجديدها، وأطلق العروض الجديدة، وأمّن تسجيل الدخول برموز تحقّق فورية.",
 			},
 		};
 
@@ -301,14 +379,37 @@ CSS TABLE OF CONTENTS
 			).format(numeric);
 		};
 
-		const localizeMoneyText = function (value) {
-			const match = String(value).trim().match(/^([\d.,]+)\s+(.+)$/);
+		const localizeCurrency = function (value) {
+			const currency = String(value).trim();
 
-			if (!match) {
-				return value;
+			if (currentLocale === "ar" && currency.toUpperCase() === "EGP") {
+				return "جنيه";
 			}
 
-			return `${formatDecimalString(match[1])} ${match[2]}`;
+			return currency;
+		};
+
+		const localizeMoneyText = function (value) {
+			const normalized = String(value).trim().replace(/\s+/g, " ");
+			const amountFirstMatch = normalized.match(/^([\d.,]+)\s+(.+)$/);
+			const currencyFirstMatch = normalized.match(/^([^\d\s.,]+)\s+([\d.,]+)$/);
+
+			if (amountFirstMatch) {
+				return `${formatDecimalString(amountFirstMatch[1])} ${localizeCurrency(
+					amountFirstMatch[2]
+				)}`;
+			}
+
+			if (currencyFirstMatch) {
+				const currency = localizeCurrency(currencyFirstMatch[1]);
+				const amount = formatDecimalString(currencyFirstMatch[2]);
+
+				return currentLocale === "ar"
+					? `${amount} ${currency}`
+					: `${currency} ${amount}`;
+			}
+
+			return value;
 		};
 
 		const localizeRateBase = function (value) {
@@ -373,6 +474,20 @@ CSS TABLE OF CONTENTS
 				const iconHtml = icon ? icon.outerHTML : "";
 				element.innerHTML = iconHtml ? `${iconHtml} ${label}` : label;
 			});
+		};
+
+		const setIndustriesToggleLabel = function () {
+			const toggle = document.querySelector(".industries-toggle");
+
+			if (!toggle) {
+				return;
+			}
+
+			const expanded = toggle.getAttribute("aria-expanded") === "true";
+			setTrailingIconLabel(
+				".industries-toggle",
+				t(expanded ? "industriesShowLess" : "industriesShowMore")
+			);
 		};
 
 		const getInitialLocale = function () {
@@ -456,7 +571,7 @@ CSS TABLE OF CONTENTS
 			}
 
 			const titleElement = card.querySelector("h3");
-			const priceElement = card.querySelector("h2");
+			const priceElement = card.querySelector(".pricing-price");
 			const priceSpan = priceElement ? priceElement.querySelector("span") : null;
 			const listItems = card.querySelectorAll(".price-list li");
 			const titleText = titleElement ? titleElement.textContent.trim() : "";
@@ -492,7 +607,7 @@ CSS TABLE OF CONTENTS
 			document.querySelectorAll(".pricing-items").forEach(function (card) {
 				const base = getPricingCardBase(card);
 				const titleElement = card.querySelector("h3");
-				const priceElement = card.querySelector("h2");
+				const priceElement = card.querySelector(".pricing-price");
 				const listItems = card.querySelectorAll(".price-list li");
 				const titleMatch = base.titleText.match(/^([\d,]+)\s+SMS$/i);
 
@@ -678,6 +793,27 @@ CSS TABLE OF CONTENTS
 			setTrailingIconLabel("#why .contact-learn-link", t("whyLearnMore"));
 			setTrailingIconLabel("#why .about-primary-cta", t("whyTryFree"));
 			setHtml(".tv-section h2", t("brandsTitleHtml"));
+
+			setText("#industries .cont > span", t("industriesEyebrow"));
+			setHtml("#industries .cont h2", t("industriesTitleHtml"));
+			setText("#industries .industries-subtitle", t("industriesSubtitle"));
+			document
+				.querySelectorAll("#industries .industry-col")
+				.forEach(function (col) {
+					const index =
+						Number(col.getAttribute("data-industry-index")) + 1;
+					const title = col.querySelector(".industry-title");
+					const description = col.querySelector(".industry-desc");
+
+					if (title) {
+						title.textContent = t("industry" + index + "_title");
+					}
+					if (description) {
+						description.textContent = t("industry" + index + "_desc");
+					}
+				});
+			setIndustriesToggleLabel();
+
 			setText("#how > .container > h2", t("howTitle"));
 
 			processItems.forEach(function (item, index) {
@@ -811,7 +947,53 @@ CSS TABLE OF CONTENTS
 			applyLocale(this.getAttribute("data-lang-switch"));
 		});
 
+		$(document).on("click", ".industries-toggle", function () {
+			const expanded = this.getAttribute("aria-expanded") !== "true";
+
+			this.setAttribute("aria-expanded", String(expanded));
+			document
+				.querySelectorAll("#industries .industry-col[data-industry-index]")
+				.forEach(function (col) {
+					if (Number(col.getAttribute("data-industry-index")) >= 8) {
+						col.classList.toggle("is-hidden", !expanded);
+					}
+				});
+			setIndustriesToggleLabel();
+		});
+
 		$(document).on("shown.bs.tab", "#myTab .nav-link", updatePricingSubtitle);
+
+		const getAnchorScrollTop = function (target) {
+			const scrollMarginTop =
+				parseFloat(window.getComputedStyle(target).scrollMarginTop) ||
+				($("#header-sticky").outerHeight() || 0) + 16;
+
+			return Math.max(
+				target.getBoundingClientRect().top +
+					window.pageYOffset -
+					scrollMarginTop,
+				0
+			);
+		};
+
+		const clearLocationHash = function () {
+			if (!window.history || !window.history.replaceState) {
+				return;
+			}
+
+			window.history.replaceState(
+				null,
+				"",
+				`${window.location.pathname}${window.location.search}`
+			);
+		};
+
+		const scrollToAnchor = function (target, behavior) {
+			window.scrollTo({
+				top: getAnchorScrollTop(target),
+				behavior: behavior,
+			});
+		};
 
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
@@ -835,26 +1017,34 @@ CSS TABLE OF CONTENTS
 				const prefersReducedMotion = window.matchMedia(
 					"(prefers-reduced-motion: reduce)"
 				).matches;
-				const scrollMarginTop =
-					parseFloat(window.getComputedStyle(target).scrollMarginTop) ||
-					($("#header-sticky").outerHeight() || 0) + 16;
-				const scrollTop = Math.max(
-					target.getBoundingClientRect().top +
-						window.pageYOffset -
-						scrollMarginTop,
-					0
-				);
-
-				window.scrollTo({
-					top: scrollTop,
-					behavior: prefersReducedMotion ? "auto" : "smooth",
-				});
-
-				if (window.history && window.history.pushState) {
-					window.history.pushState(null, "", hash);
-				}
+				scrollToAnchor(target, prefersReducedMotion ? "auto" : "smooth");
+				clearLocationHash();
 			}
 		);
+
+		if (window.location.hash === "#pricing") {
+			const pricingTarget = document.querySelector("#pricing");
+
+			if (pricingTarget) {
+				const restoreInitialPricingScroll = function () {
+					window.setTimeout(function () {
+						scrollToAnchor(pricingTarget, "auto");
+						clearLocationHash();
+					}, 250);
+				};
+
+				clearLocationHash();
+				window.setTimeout(function () {
+					scrollToAnchor(pricingTarget, "auto");
+				}, 0);
+
+				if (document.readyState === "complete") {
+					restoreInitialPricingScroll();
+				} else {
+					$(window).one("load", restoreInitialPricingScroll);
+				}
+			}
+		}
 
 		$(document).on("click", "[data-copy-phone]", async function () {
 			const $button = $(this);
