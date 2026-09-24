@@ -10,6 +10,14 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://sms.zadx.net/docs.php</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sms.zadx.net/docs.php"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://sms.zadx.net/docs.php?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sms.zadx.net/docs.php"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://sms.zadx.net/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

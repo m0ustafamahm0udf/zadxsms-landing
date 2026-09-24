@@ -42,6 +42,7 @@ CSS TABLE OF CONTENTS
 				navHow: "How It Works",
 				navPricing: "Pricing",
 				navFaq: "FAQ",
+				navDocs: "Docs",
 				navContact: "Contact",
 				heroTrusted: "Trusted Customers",
 				heroTitleHtml:
@@ -178,6 +179,9 @@ CSS TABLE OF CONTENTS
 				industry11_title: "Telecommunications",
 				industry11_desc:
 					"Send bundle-usage and renewal alerts, launch new plans, and secure logins with instant verification codes.",
+				docsMetaTitle: "API Documentation | ZADX SMS",
+				docsMetaDescription:
+					"ZADX SMS API documentation: send OTP codes and SMS with a simple REST API. Authentication, endpoints, error codes, rate limits and code samples.",
 			},
 			ar: {
 				metaTitle:
@@ -193,6 +197,7 @@ CSS TABLE OF CONTENTS
 				navHow: "كيف تعمل",
 				navPricing: "الأسعار",
 				navFaq: "الأسئلة الشائعة",
+				navDocs: "التوثيق",
 				navContact: "تواصل معنا",
 				heroTrusted: "عملاء يثقون بنا",
 				heroTitleHtml:
@@ -330,10 +335,137 @@ CSS TABLE OF CONTENTS
 				industry11_title: "الاتصالات",
 				industry11_desc:
 					"أرسل تنبيهات استهلاك الباقة وتجديدها، وأطلق العروض الجديدة، وأمّن تسجيل الدخول برموز تحقّق فورية.",
+				// Docs section: English lives in index.php; these keys override it
+				// through [data-i18n] (see applyDataI18n).
+				docsMetaTitle: "توثيق API | ZADX SMS",
+				docsMetaDescription:
+					"توثيق ZADX SMS API: أرسل رموز OTP ورسائل SMS عبر واجهة REST بسيطة. المصادقة ونقاط النهاية ورموز الأخطاء وحدود المعدل وأمثلة الكود.",
+				docsPageTitle: "توثيق API",
+				docsSubtitle:
+					"المرجع العام لواجهة ZADX SMS API. أرسل رموز OTP ورسائل SMS من أي خادم باستخدام ترويستين وطلب JSON واحد.",
+				docsCta: "احصل على مفاتيح API",
+				docsGroupStart: "البدء",
+				docsGroupSend: "إرسال الرسائل",
+				docsGroupRead: "القراءة",
+				docsGroupRef: "المرجع",
+				docsNavQuickstart: "البدء السريع",
+				docsNavAuth: "المصادقة",
+				docsNavOtp: "إرسال OTP",
+				docsNavSms: "إرسال SMS",
+				docsNavBalance: "الرصيد",
+				docsNavSenders: "معرّفات المرسل",
+				docsNavMessages: "الرسائل",
+				docsNavErrors: "رموز الأخطاء",
+				docsNavLimits: "حدود المعدل",
+				docsQsLead: "أرسل أول رسالة SMS في أقل من دقيقة.",
+				docsQs1Html:
+					"<strong>احصل على بيانات الاعتماد.</strong> بعد تفعيل اشتراكك نُنشئ تطبيقك، وتجد الرابط الأساسي و<code>X-Api-Key</code> و<code>X-Api-Secret</code> في لوحة التحكم.",
+				docsQs2Html:
+					"<strong>احفظها على خادمك.</strong> ضعها في متغيرات بيئة: <code>ZADX_BASE_URL</code> و<code>ZADX_API_KEY</code> و<code>ZADX_API_SECRET</code> &mdash; ولا تكتبها داخل الكود.",
+				docsQs3Html:
+					"<strong>أرسل طلبك.</strong> استدعِ <code>POST /sms/send</code> أو <code>POST /otp/send</code> بجسم JSON.",
+				docsAuthLeadHtml:
+					"كل طلب API يحتاج إلى <code>X-Api-Key</code> و<code>X-Api-Secret</code>. ترويسة <code>Idempotency-Key</code> مطلوبة في طلبات الإرسال؛ إعادة المحاولة بنفس المفتاح والمحتوى لا تكرر خصم رسالة SMS أبدًا.",
+				docsThHeader: "الترويسة",
+				docsThRequired: "مطلوب",
+				docsThNotes: "ملاحظات",
+				docsThField: "الحقل",
+				docsThType: "النوع",
+				docsThCode: "رمز الخطأ",
+				docsThFix: "كيفية الإصلاح",
+				docsThScope: "النطاق",
+				docsThDefault: "الافتراضي",
+				docsThBehavior: "السلوك",
+				docsAlways: "دائمًا",
+				docsOnSend: "في طلبات الإرسال",
+				docsOnPost: "في طلبات POST",
+				docsYes: "نعم",
+				docsNo: "لا",
+				docsAuthKeyNote: "المفتاح العام لتطبيقك.",
+				docsAuthSecretNote: "السر الخاص بتطبيقك.",
+				docsAuthIdemNote: "نفس المفتاح مع نفس المحتوى يعيد الاستجابة الأصلية.",
+				docsAuthWarnTitle: "احمِ السر الخاص بك",
+				docsAuthWarnHtml:
+					"استدعِ ZADX من الخادم فقط. لا تضع <code>X-Api-Secret</code> أبدًا داخل تطبيق موبايل أو كود متصفح أو مستودع عام &mdash; وإذا تسرّب غيّره فورًا. ولمزيد من الحماية، قيّد تطبيقك بعناوين IP الخاصة بخوادمك.",
+				docsOtpLead:
+					"أرسل رمز تحقق. أنت تُنشئ رمز OTP، وZADX يوصله مرة واحدة فقط ولا يعيد المحاولة أو الإرسال تلقائيًا.",
+				docsTemplateLabel: "القالب الافتراضي",
+				docsTemplateText: "كود التحقق الخاص بـ {app_name} هو: {otp}",
+				docsOtpToNote: "رقم موبايل مصري، مثل <code>01012345678</code> أو <code>+201012345678</code>.",
+				docsOtpOtpNote: "من 4 إلى 6 أرقام.",
+				docsOtpTplNote:
+					"معرّف قالب نشط ومعتمد تابع لتطبيقك. عند حذفه يُستخدم القالب الافتراضي.",
+				docsSenderNote: "يجب أن يكون مخصصًا لتطبيقك، مثل ZADX.",
+				docsOtpLocaleNote:
+					"<code>ar</code> أو <code>en</code>، والافتراضي <code>ar</code>. القوالب المعتمدة تستخدم لغتها ونصها المحفوظين.",
+				docsOtpNotesHtml:
+					"يستبدل الخادم <code>{otp}</code> و<code>{app_name}</code> تلقائيًا، ويتجاهل أي نص رسالة يُرسل مباشرة &mdash; لا يمكن إرسال نص حر عبر هذه الطريقة. تجد معرّفات القوالب المعتمدة في لوحة التحكم؛ والمعرّف غير الموجود أو غير النشط يعيد <code>422 invalid_template_id</code> دون إرسال أو خصم.",
+				docsResponseTitle: "شكل استجابة النجاح",
+				docsResponseLeadHtml:
+					"الإرسال المدفوع يحجز الرصيد ويعيد <code>202 queued</code>. ينفّذ العامل محاولة واحدة مع المزوّد؛ وعند انتهاء المهلة تصبح الحالة <code>pending_verification</code> مع بقاء الرصيد محجوزًا &mdash; دون إعادة إرسال أو ردّ تلقائي.",
+				docsSmsLead:
+					"رسالة SMS معاملاتية عادية. أنت تقدّم نص الرسالة كاملًا دون استبدال قوالب. لا نعيد تلقائيًا محاولة فشل المزوّد أو انتهاء المهلة. يُضاف اسم التطبيق تلقائيًا كسطر أخير إجباري في كل رسالة.",
+				docsPolicyTitle: "تطبيق سياسة المحتوى",
+				docsPolicyText:
+					"يفحص الـ API رسائل SMS قبل الإرسال أو حجز الرصيد. تُحظر المخالفة وتُضاف مخالفة واحدة وتُخصم ‎10% من حصة الباقة الحالية، وتؤدي المخالفة الثالثة إلى إيقاف الحساب. رسائل OTP مستثناة.",
+				docsSmsToNote: "نفس قواعد الهاتف الخاصة بـ <code>/otp/send</code>.",
+				docsSmsMsgNote: "حتى 800 حرف، وتُحتسب لكل مقطع.",
+				docsEncTitle: "الترميز والفوترة",
+				docsEnc1Html: "إنجليزية عادية (GSM-7): <strong>160</strong> حرفًا لكل مقطع.",
+				docsEnc2Html:
+					"عربية أو رموز تعبيرية أو أحرف خاصة (UCS-2): <strong>70</strong> حرفًا لكل مقطع.",
+				docsEnc3Html:
+					"<code>cost_credits</code> في الاستجابة يساوي <code>segments</code>.",
+				docsEnc4Html:
+					"حد أقصى 6 مقاطع لكل طلب؛ الرسائل الأطول تعيد <code>422 too_many_segments</code>.",
+				docsBalanceLead: "تعيد الرصيد المتبقي والخطة النشطة الحالية للتطبيق المُصادَق عليه.",
+				docsSendersLead: "تسرد فقط معرّفات المرسل المخصصة صراحةً للتطبيق المُصادَق عليه.",
+				docsMessagesLeadHtml:
+					"سجل مُقسّم لكل عمليات الإرسال للتطبيق المُصادَق عليه. استخدم <code>?per_page=25&amp;page=1</code> للتقسيم.",
+				docsMessageOneLeadHtml:
+					"جلب رسالة واحدة. تبدأ الحالة بـ <code>queued</code> ثم تصبح <code>sent</code> أو <code>delivered</code>، أو <code>failed</code> بعد رفض صريح، أو <code>pending_verification</code> عندما يكون قبول المزوّد غير معروف.",
+				docsErrorsLead: "كل أخطاء API تتبع نفس الصيغة.",
+				docsErr1: "أضف X-Api-Key و X-Api-Secret.",
+				docsErr2: "حدّث بيانات اعتماد تطبيقك.",
+				docsErr3: "اشترِ خطة أو جدّدها.",
+				docsErr4: "أضف خطة أخرى أو قم بالترقية.",
+				docsErr5: "التطبيق موقوف أو ملغى من قبل الإدارة.",
+				docsErr6: "أضف عنوان IP المتصل إلى قائمة السماح.",
+				docsErr7: "استخدم معرّف مرسل مخصصًا لتطبيقك.",
+				docsErr8: "استخدم نقطة النهاية المسموح بها لوضع تطبيقك.",
+				docsErr9: "أعد استخدام نفس المفتاح فقط مع نفس المحتوى.",
+				docsErr10: "أضف ترويسة Idempotency-Key فريدة لكل طلب إرسال.",
+				docsErr11: "راجع جسم الطلب &mdash; مثل template_id بصيغة غير صحيحة.",
+				docsErr12: "القالب غير موجود أو غير نشط أو تابع لتطبيق آخر. لا يتم الإرسال أو الخصم.",
+				docsErr13: "مرّر رقم موبايل مصري صالح.",
+				docsErr14: "أبقِ نص الرسالة أقل من 800 حرف.",
+				docsErr15: "أبقِ النص ضمن 6 مقاطع SMS.",
+				docsErr16: "خفّف السرعة واحترم ترويسة Retry-After.",
+				docsErr17: "هذا المستلم بلغ بالفعل حد الدقيقة.",
+				docsErr18: "هذا المستلم بلغ بالفعل الحد بالساعة.",
+				docsErr19:
+					"رفض المزوّد الصريح يصبح failed مع ردّ الرصيد. انتهاء المهلة يصبح pending_verification مع بقاء الرصيد محجوزًا &mdash; لا تُعد الإرسال تلقائيًا.",
+				docsLimitsLeadHtml: "تجاوز أي حد يعيد <code>429</code>. انتظر قبل إعادة المحاولة.",
+				docsLimScopeApp: "لكل تطبيق",
+				docsLimScopePhone: "لكل هاتف مستلم",
+				docsLimAppVal: "60 إرسال / دقيقة",
+				docsLimMinVal: "1 إرسال / دقيقة",
+				docsLimHourVal: "5 إرسال / ساعة",
+				docsLimAppNoteHtml: "بعض الخطط يمكنها تجاوز هذا عبر <code>max_sms_per_minute</code>.",
+				docsLimMinNote:
+					"يمنع الإرسال المزدوج العرضي. تُحتسب عمليات الإرسال المقبولة سواء كانت مُرسلة أو مُسلّمة أو في الطابور.",
+				docsLimHourNote: "يمنع الحلقات من إغراق رقم واحد.",
+				docsIdemTitleHtml: "ترويسة <code>Idempotency-Key</code> مطلوبة في طلبات الكتابة.",
+				docsIdemLeadHtml:
+					"استخدم قيمة ثابتة لكل إجراء منطقي، مثل <code>order-{orderId}-shipped</code> أو <code>signup-{userId}-{attempt}</code>.",
+				docsIdem1: "نفس المفتاح مع نفس المحتوى يعيد الاستجابة الأصلية.",
+				docsIdem2Html: "نفس المفتاح مع محتوى مختلف يعيد <code>409 idempotency_conflict</code>.",
+				docsIdem3: "تُحفظ المفاتيح لمدة 24 ساعة.",
 			},
 		};
 
 		const pricingCardCache = new WeakMap();
+		const i18nSourceCache = new WeakMap();
 		let currentLocale = "en";
 
 		const normalizeLocale = function (value) {
@@ -451,6 +583,55 @@ CSS TABLE OF CONTENTS
 				const iconHtml = icon ? icon.outerHTML : "";
 				element.innerHTML = iconHtml ? `${iconHtml} ${label}` : label;
 			});
+		};
+
+		// Elements marked [data-i18n] keep their English markup in the HTML;
+		// other locales swap in translations[locale][key] when present.
+		const applyDataI18n = function () {
+			document.querySelectorAll("[data-i18n]").forEach(function (element) {
+				if (!i18nSourceCache.has(element)) {
+					i18nSourceCache.set(element, element.innerHTML);
+				}
+
+				const key = element.getAttribute("data-i18n");
+				element.innerHTML =
+					(currentLocale !== "en" && translations[currentLocale][key]) ||
+					i18nSourceCache.get(element);
+			});
+		};
+
+		const setDocsCopyButtonsIdle = function () {
+			document.querySelectorAll(".docs-copy-btn").forEach(function (button) {
+				button.classList.remove("copied");
+				button.innerHTML = `<i class="fa-regular fa-copy"></i><span>${t(
+					"copyLabel"
+				)}</span>`;
+			});
+		};
+
+		const copyText = async function (text) {
+			if (navigator.clipboard && window.isSecureContext) {
+				try {
+					await navigator.clipboard.writeText(text);
+					return;
+				} catch (error) {
+					// Permission denied; fall through to the legacy copy path.
+				}
+			}
+
+			const input = document.createElement("textarea");
+			input.value = text;
+			input.setAttribute("readonly", "");
+			input.style.position = "absolute";
+			input.style.left = "-9999px";
+			document.body.appendChild(input);
+			input.select();
+			const copied = document.execCommand("copy");
+			document.body.removeChild(input);
+
+			if (!copied) {
+				throw new Error("Copy failed");
+			}
 		};
 
 		const setIndustriesToggleLabel = function () {
@@ -659,11 +840,11 @@ CSS TABLE OF CONTENTS
 			currentLocale = normalizeLocale(locale);
 			document.documentElement.lang = currentLocale;
 			document.documentElement.dir = currentLocale === "ar" ? "rtl" : "ltr";
-			document.title = t("metaTitle");
+			document.title = t(document.body.dataset.metaTitle || "metaTitle");
 			setAttr(
 				'meta[name="description"]',
 				"content",
-				t("metaDescription")
+				t(document.body.dataset.metaDescription || "metaDescription")
 			);
 			setText("#preloader p.text-center", t("loading"));
 			setText(".offcanvas__contact h4", t("offcanvasContact"));
@@ -672,31 +853,35 @@ CSS TABLE OF CONTENTS
 				t("ctaGetStarted")
 			);
 			setText(
-				"#mobile-menu a[href='#hero'], .mean-nav a[href='#hero']",
+				"#mobile-menu a[href$='#hero'], .mean-nav a[href$='#hero']",
 				t("navHome")
 			);
 			setText(
-				"#mobile-menu a[href='#modes'], .mean-nav a[href='#modes']",
+				"#mobile-menu a[href$='#modes'], .mean-nav a[href$='#modes']",
 				t("navModes")
 			);
 			setText(
-				"#mobile-menu a[href='#why'], .mean-nav a[href='#why']",
+				"#mobile-menu a[href$='#why'], .mean-nav a[href$='#why']",
 				t("navWhy")
 			);
 			setText(
-				"#mobile-menu a[href='#how'], .mean-nav a[href='#how']",
+				"#mobile-menu a[href$='#how'], .mean-nav a[href$='#how']",
 				t("navHow")
 			);
 			setText(
-				"#mobile-menu a[href='#pricing'], .mean-nav a[href='#pricing']",
+				"#mobile-menu a[href$='#pricing'], .mean-nav a[href$='#pricing']",
 				t("navPricing")
 			);
 			setText(
-				"#mobile-menu a[href='#faq'], .mean-nav a[href='#faq']",
+				"#mobile-menu a[href$='#faq'], .mean-nav a[href$='#faq']",
 				t("navFaq")
 			);
 			setText(
-				"#mobile-menu a[href='#contact'], .mean-nav a[href='#contact']",
+				"#mobile-menu a[href='docs.php'], .mean-nav a[href='docs.php']",
+				t("navDocs")
+			);
+			setText(
+				"#mobile-menu a[href$='#contact'], .mean-nav a[href$='#contact']",
 				t("navContact")
 			);
 			setText(".trusted-partner-wrap > span", t("heroTrusted"));
@@ -852,15 +1037,16 @@ CSS TABLE OF CONTENTS
 			setText("footer .list-area li:first-child span", t("footerPhoneLabel"));
 			setText("footer .list-area li:last-child span", t("footerEmailLabel"));
 			setText("footer .footer-content p", t("footerSummary"));
-			setLeadingIconLabel("footer .list-linkes a[href='#hero']", t("navHome"));
-			setLeadingIconLabel("footer .list-linkes a[href='#modes']", t("navModes"));
-			setLeadingIconLabel("footer .list-linkes a[href='#why']", t("navWhy"));
-			setLeadingIconLabel("footer .list-linkes a[href='#how']", t("navHow"));
+			setLeadingIconLabel("footer .list-linkes a[href$='#hero']", t("navHome"));
+			setLeadingIconLabel("footer .list-linkes a[href$='#modes']", t("navModes"));
+			setLeadingIconLabel("footer .list-linkes a[href$='#why']", t("navWhy"));
+			setLeadingIconLabel("footer .list-linkes a[href$='#how']", t("navHow"));
 			setLeadingIconLabel(
-				"footer .list-linkes a[href='#pricing']",
+				"footer .list-linkes a[href$='#pricing']",
 				t("navPricing")
 			);
-			setLeadingIconLabel("footer .list-linkes a[href='#faq']", t("navFaq"));
+			setLeadingIconLabel("footer .list-linkes a[href$='#faq']", t("navFaq"));
+			setLeadingIconLabel("footer .list-linkes a[href='docs.php']", t("navDocs"));
 			setHtml("footer .footer-bottom p.body-font", t("copyrightHtml"));
 			setText("footer a[href='terms.html']", t("terms"));
 			setText("footer a[href='privacy.html']", t("privacy"));
@@ -904,6 +1090,8 @@ CSS TABLE OF CONTENTS
 				t("linkedinLabel")
 			);
 			setCopyButtonsIdle();
+			applyDataI18n();
+			setDocsCopyButtonsIdle();
 			updateLocaleButtons();
 
 			if (settings.persist) {
@@ -940,10 +1128,125 @@ CSS TABLE OF CONTENTS
 
 		$(document).on("shown.bs.tab", "#myTab .nav-link", updatePricingSubtitle);
 
+		//>> Docs Section Js Start <<//
+		// Highlight the sidebar link of the section currently being read.
+		const docsPanels = Array.from(document.querySelectorAll(".docs-panel"));
+		const docsNav = document.querySelector(".docs-nav");
+		let activeDocsId = null;
+
+		const updateDocsNav = function () {
+			if (!docsPanels.length) {
+				return;
+			}
+
+			// Match the CSS scroll-margin-top so a clicked link's section is
+			// the one that ends up highlighted.
+			const offset =
+				(parseFloat(window.getComputedStyle(docsPanels[0]).scrollMarginTop) ||
+					110) + 20;
+			const atBottom =
+				window.innerHeight + window.pageYOffset >=
+				document.documentElement.scrollHeight - 2;
+			let current = docsPanels[0];
+
+			docsPanels.forEach(function (panel) {
+				if (panel.getBoundingClientRect().top <= offset) {
+					current = panel;
+				}
+			});
+
+			if (atBottom && docsPanels[docsPanels.length - 1].getBoundingClientRect().top < window.innerHeight) {
+				current = docsPanels[docsPanels.length - 1];
+			}
+
+			if (current.id === activeDocsId) {
+				return;
+			}
+
+			activeDocsId = current.id;
+			document.querySelectorAll(".docs-nav__link").forEach(function (link) {
+				const isActive = link.hash === "#" + activeDocsId;
+				link.classList.toggle("is-active", isActive);
+				if (isActive) {
+					link.setAttribute("aria-current", "true");
+
+					// Keep the active chip centred in the horizontal mobile nav.
+					if (docsNav && docsNav.scrollWidth > docsNav.clientWidth) {
+						const linkRect = link.getBoundingClientRect();
+						const navRect = docsNav.getBoundingClientRect();
+						docsNav.scrollBy({
+							left:
+								linkRect.left +
+								linkRect.width / 2 -
+								(navRect.left + navRect.width / 2),
+							behavior: "smooth",
+						});
+					}
+				} else {
+					link.removeAttribute("aria-current");
+				}
+			});
+		};
+
+		if (docsPanels.length) {
+			let docsNavTicking = false;
+
+			window.addEventListener(
+				"scroll",
+				function () {
+					if (!docsNavTicking) {
+						docsNavTicking = true;
+						window.requestAnimationFrame(function () {
+							docsNavTicking = false;
+							updateDocsNav();
+						});
+					}
+				},
+				{ passive: true }
+			);
+			updateDocsNav();
+		}
+
+		// Picking a language in one snippet switches every snippet on the page.
+		$(document).on("click", ".docs-lang-tabs button", function () {
+			const lang = this.getAttribute("data-docs-lang");
+
+			document.querySelectorAll(".docs-lang-tabs button").forEach(function (button) {
+				button.classList.toggle(
+					"is-active",
+					button.getAttribute("data-docs-lang") === lang
+				);
+			});
+			document
+				.querySelectorAll(".docs-code[data-docs-lang-block]")
+				.forEach(function (block) {
+					block.hidden = block.getAttribute("data-docs-lang-block") !== lang;
+				});
+		});
+
+		$(document).on("click", "[data-docs-copy]", async function () {
+			const button = this;
+			const source = button.closest(".docs-code").querySelector("pre");
+
+			try {
+				await copyText(source.textContent.trim());
+				button.classList.add("copied");
+				button.innerHTML = `<i class="fa-solid fa-check"></i><span>${t(
+					"copiedLabel"
+				)}</span>`;
+			} catch (error) {
+				button.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i><span>${t(
+					"copyFailedLabel"
+				)}</span>`;
+			}
+
+			setTimeout(setDocsCopyButtonsIdle, 1800);
+		});
+
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
 			"click",
-			"#header-sticky a[href^='#'], .mean-nav a[href^='#'], .modes-grid .rarrow[href^='#'], .about-exchange-content .common-btn[href^='#'], .process-section a[href^='#']",
+			"#header-sticky a[href^='#'], .mean-nav a[href^='#'], .modes-grid .rarrow[href^='#'], .about-exchange-content .common-btn[href^='#'], .process-section a[href^='#'], .docs-section a[href^='#']",
 			function (e) {
 				const hash = this.hash;
 

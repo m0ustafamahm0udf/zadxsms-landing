@@ -1,106 +1,3 @@
-<?php
-/**
- * ZADX SMS landing — server-side render.
- * Plans are fetched here on the SERVER with the shared X-Landing-Key, so the
- * secret never reaches the browser (see backend/docs/landing-plans-api.md).
- *   Serve with:  php -S localhost:5500 -t "/Users/m/Desktop/zadx sms landing"
- */
-// Read config from the environment. SetEnv in .htaccess may surface values via
-// getenv() (mod_php) or $_SERVER (LiteSpeed/PHP-FPM, e.g. Hostinger), so check
-// both. See .htaccess.example for the expected keys.
-$readEnv = function (string $name, string $default = ''): string {
-    $val = getenv($name);
-    if ($val === false || $val === '') {
-        $val = $_SERVER[$name] ?? $_ENV[$name] ?? $default;
-    }
-    return (string) $val;
-};
-
-$endpoint = $readEnv('ZADX_LANDING_ENDPOINT', 'http://localhost:8000/api/landing/plans');
-$key = $readEnv('ZADX_LANDING_KEY');
-
-$plans   = [];
-$body     = '';
-$status   = 0;
-$curlErr  = '';
-if ($key !== '') {
-    $ch = curl_init($endpoint);
-    curl_setopt_array($ch, [
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_TIMEOUT        => 5,
-        CURLOPT_HTTPHEADER     => ['X-Landing-Key: ' . $key, 'Accept: application/json'],
-    ]);
-    $body    = curl_exec($ch);
-    $status  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curlErr = curl_error($ch);
-    curl_close($ch);
-    if ($status === 200) {
-        $plans = json_decode($body, true)['data'] ?? [];
-    }
-}
-
-// Temporary diagnostics: append ?debug=1 to the URL to see why plans are empty.
-// Never prints the secret itself - only whether it was found and its length.
-if (isset($_GET['debug'])) {
-    header('Content-Type: text/plain');
-    echo "endpoint     : {$endpoint}\n";
-    echo "key present  : " . ($key !== '' ? 'yes' : 'NO - SetEnv not reaching PHP') . "\n";
-    echo "key length   : " . strlen($key) . "\n";
-    echo "http status  : {$status}\n";
-    echo "curl error   : " . ($curlErr !== '' ? $curlErr : '(none)') . "\n";
-    echo "plans count  : " . count($plans) . "\n";
-    echo "raw body     :\n" . substr((string) $body, 0, 2000) . "\n";
-    exit;
-}
-
-// Bucket plans by validity window to match the pricing tabs.
-$buckets = ['month' => [], 'quarter' => [], 'halfyear' => []];
-foreach ($plans as $p) {
-    $d = (int) ($p['duration_days'] ?? 0);
-    if ($d <= 30)     { $buckets['month'][]    = $p; }
-    elseif ($d <= 90) { $buckets['quarter'][]  = $p; }
-    else              { $buckets['halfyear'][] = $p; }
-}
-
-$renderCard = function (array $p): string {
-    $name     = htmlspecialchars($p['name'] ?? '');
-    $price    = htmlspecialchars($p['price_formatted'] ?? '');
-    $quotaInt = (int) ($p['sms_quota'] ?? 0);
-    $quota    = number_format($quotaInt);
-    $days     = (int) ($p['duration_days'] ?? 0);
-    $cents    = (int) ($p['price_cents'] ?? 0);
-    $currency = htmlspecialchars($p['currency'] ?? 'EGP');
-    // Effective per-message rate, e.g. "0.70 EGP / SMS" (free plans excepted).
-    $rate = ($cents > 0 && $quotaInt > 0)
-        ? 'OTP & SMS'
-        : 'Free to try';
-    ob_start(); ?>
-                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                                <div class="pricing-items pricing-hover1 rounded-4 white-bg">
-                                    <h3 class="black-clr mb-lg-3 mb-2 text-center"><?= $name ?></h3>
-                                    <h2 class="text-center mb-4"><?= $price ?> <span>/ <?= $days ?> days</span></h2>
-                                    <ul class="price-list d-grid gap-xl-3 gap-2 mb-4">
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $quota ?> SMS included
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $days ?>-day validity
-                                        </li>
-                                        <li class="d-flex align-items-center gap-2">
-                                            <i class="fa-solid fa-angles-right black-clr"></i> <?= $rate ?>
-                                        </li>
-                                    </ul>
-                                    <a href="#contactOptionsModal" data-bs-toggle="modal" data-bs-target="#contactOptionsModal"
-                                        class="common-btn box-style btn5 d-flex justify-content-center align-items-center gap-xxl-2 gap-2 border fw-500 black overflow-hidden white-bg rounded100">
-                                        Get Started
-                                        <i class="fa-solid fa-plus"></i>
-                                    </a>
-                                </div>
-                            </div>
-<?php
-    return ob_get_clean();
-};
-?>
 <!DOCTYPE html>
 <html lang="en">
 <!--<< Header Area >>-->
@@ -111,7 +8,8 @@ $renderCard = function (array $p): string {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ZADX Software Solutions">
-    <meta name="description" content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
+    <meta name="description"
+        content="ZADX SMS provides OTP and SMS delivery as a service from ZADX Software Solutions.">
     <!-- ======== Page title ============ -->
     <title>ZADX SMS | OTP &amp; SMS Delivery by ZADX Software Solutions</title>
     <!--<< Favicon >>-->
@@ -134,9 +32,10 @@ $renderCard = function (array $p): string {
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260614-header-call-fit">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260924-docs">
     <!--<< IBM Plex Sans Arabic >>-->
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="body-bg ">
@@ -208,15 +107,16 @@ $renderCard = function (array $p): string {
                                 </li>
                                 <li class="d-flex align-items-center">
                                     <div class="offcanvas__contact-icon mr-15">
-                                        <i class="fas fa-phone-alt"></i>
+                                        <i class="fab fa-whatsapp"></i>
                                     </div>
                                     <div class="offcanvas__contact-text">
-                                        <a href="tel:+201062429287" class="d-block">01062429287</a>
+                                        <a href="https://wa.me/201010626698" target="_blank" rel="noopener"
+                                            class="d-block">01010626698</a>
                                     </div>
                                 </li>
                             </ul>
                             <div class="header-button mt-4">
-                                <a href="#pricing"
+                                <a href="#contact"
                                     class="common-btn text-white box-style first-box d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-seven fw-normal black overflow-hidden rounded-1 p1-bg py-2">
                                     Get Started
                                     <i class="fa-solid fa-arrow-right"></i>
@@ -224,14 +124,19 @@ $renderCard = function (array $p): string {
                             </div>
                             <div class="offcanvas-locale-switcher">
                                 <div class="locale-toggle" role="group" aria-label="Language switcher">
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="en"
+                                        aria-pressed="true">EN</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar"
+                                        aria-pressed="false">AR</button>
                                 </div>
                             </div>
                             <div class="social-icon d-flex align-items-center">
-                                <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener"
+                                    aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener"
+                                    aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener"
+                                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                         <a href="#" class="contact-view-thumb w-100 mt-4 d-xl-block d-none mb-4 cmn-bg rounded-4 p-4">
@@ -264,7 +169,7 @@ $renderCard = function (array $p): string {
                                             <li><a href="#modes">Modes</a></li>
                                             <li><a href="#why">Why ZADX</a></li>
                                             <li><a href="#how">How It Works</a></li>
-                                            <li><a href="#pricing">Pricing</a></li>
+                                            <li><a href="docs.php">Docs</a></li>
                                             <li><a href="#faq">FAQ</a></li>
                                             <li><a href="#contact">Contact</a></li>
                                         </ul>
@@ -273,8 +178,10 @@ $renderCard = function (array $p): string {
                             </div>
                             <div class="header-locale-switcher d-flex align-items-center">
                                 <div class="locale-toggle" role="group" aria-label="Language switcher">
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="en" aria-pressed="true">EN</button>
-                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar" aria-pressed="false">AR</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="en"
+                                        aria-pressed="true">EN</button>
+                                    <button type="button" class="locale-toggle__button" data-lang-switch="ar"
+                                        aria-pressed="false">AR</button>
                                 </div>
                             </div>
                             <div class="header__hamburger d-xl-none my-auto">
@@ -283,12 +190,12 @@ $renderCard = function (array $p): string {
                                 </div>
                             </div>
                         </div>
-                        <a href="tel:+201062429287"
+                        <a href="https://wa.me/201010626698" target="_blank" rel="noopener"
                             class="blackbg call-version1 d-sm-flex d-none align-items-center gap-2 rounded-5 py-2 ps-2 pe-xxl-4 pe-4">
                             <div class="icon d-center p1-bg rounded-circle">
-                                <i class="fas fa-phone-alt white-clr"></i>
+                                <i class="fab fa-whatsapp white-clr"></i>
                             </div>
-                            <span class="fs-seven fw-normal white-clr">01062429287</span>
+                            <span class="fs-seven fw-normal white-clr">01010626698</span>
                         </a>
                     </div>
                 </div>
@@ -306,20 +213,24 @@ $renderCard = function (array $p): string {
                                     data-wow-delay=".5s">
                                     <div class="partner-inner">
                                         <div class="partner-icon">
-                                            <img src="assets/img/hero-images/zadx-customer-avatar-01.jpg" alt="ZADX SMS customer">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-01.jpg"
+                                                alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon">
-                                            <img src="assets/img/hero-images/zadx-customer-avatar-02.jpg" alt="ZADX SMS customer">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-02.jpg"
+                                                alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon">
-                                            <img src="assets/img/hero-images/zadx-customer-avatar-03.jpg" alt="ZADX SMS customer">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-03.jpg"
+                                                alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon">
-                                            <img src="assets/img/hero-images/zadx-customer-avatar-04.jpg" alt="ZADX SMS customer">
+                                            <img src="assets/img/hero-images/zadx-customer-avatar-04.jpg"
+                                                alt="ZADX SMS customer">
                                         </div>
                                         <div class="partner-icon d-center white-bg">
                                             <span class="fs-eight black-clr fw-500">
-                                                +10
+                                                +35K
                                             </span>
                                         </div>
                                     </div>
@@ -330,7 +241,7 @@ $renderCard = function (array $p): string {
                                     <span class="stext">ZADX SMS</span> &mdash; OTP &amp; SMS delivery as a service
                                 </h1>
                                 <div class="text-center wow fadeInUp" data-wow-delay=".7s">
-                                    <a href="#pricing"
+                                    <a href="#contact"
                                         class="common-btn box-style btn2 blackbg d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-500 white-clr py-3 overflow-hidden rounded100">
                                         Get Started
                                         <i class="fa-solid fa-arrow-right-long"></i>
@@ -339,7 +250,7 @@ $renderCard = function (array $p): string {
                             </div>
                         </div>
                     </div>
-                 
+
                 </div>
                 <!-- Ele -->
                 <img src="assets/img/element/home1-ele1.png" alt="img" class="home1-ele1">
@@ -362,7 +273,7 @@ $renderCard = function (array $p): string {
                             Three sending modes <br> for developers &amp; brands
                         </h2>
                     </div>
-                   
+
                 </div>
                 <div class="modes-grid">
                     <div class="row g-4">
@@ -378,7 +289,8 @@ $renderCard = function (array $p): string {
                                     Send one-time passwords for login, signup, and verification &mdash; with your
                                     own message template and sender ID.
                                 </p>
-                                <a href="#pricing" class="rarrow d-center white-bg rounded-5 py-3" aria-label="View OTP plans">
+                                <a href="#contact" class="rarrow d-center white-bg rounded-5 py-3"
+                                    aria-label="View OTP plans">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -400,7 +312,8 @@ $renderCard = function (array $p): string {
                                     Plain transactional or marketing messages &mdash; order updates, alerts, and
                                     promos &mdash; up to 160 characters per message.
                                 </p>
-                                <a href="#pricing" class="rarrow d-center white-bg rounded-5 py-3" aria-label="View SMS plans">
+                                <a href="#contact" class="rarrow d-center white-bg rounded-5 py-3"
+                                    aria-label="View SMS plans">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -422,7 +335,8 @@ $renderCard = function (array $p): string {
                                     Use one app for everything &mdash; OTP and SMS share the same keys, sender IDs,
                                     and quota. Mix and match as you grow.
                                 </p>
-                                <a href="#pricing" class="rarrow d-center white-bg rounded-5 py-3" aria-label="View OTP and SMS plans">
+                                <a href="#contact" class="rarrow d-center white-bg rounded-5 py-3"
+                                    aria-label="View OTP and SMS plans">
                                     <svg width="44" height="24" viewBox="0 0 44 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -443,7 +357,8 @@ $renderCard = function (array $p): string {
                 <div class="row g-4 align-items-center">
                     <div class="col-lg-6 col-md-6">
                         <div class="about-exchange-thumb w-100 reveal-left pe-lg-4">
-                            <img src="assets/img/about/about-section.png" alt="ZADX SMS dashboard sending messages without paperwork" class="w-100">
+                            <img src="assets/img/about/about-section.png"
+                                alt="ZADX SMS dashboard sending messages without paperwork" class="w-100">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -458,22 +373,25 @@ $renderCard = function (array $p): string {
                             </p>
                             <ul class="listing-exchange mb-xl-4 mb-3 pb-lg-2 wow fadeInUp" data-wow-delay=".4s">
                                 <li class="fs-eight pra d-flex align-items-center gap-xl-2 gap-2">
-                                    <i class="fa-solid fa-check p1-clr"></i> No commercial registration or tax card required
+                                    <i class="fa-solid fa-check p1-clr"></i> No commercial registration or tax card
+                                    required
                                 </li>
                                 <li class="fs-eight pra d-flex align-items-center gap-xl-2 gap-2">
                                     <i class="fa-solid fa-check p1-clr"></i> Send under our registered sender ID
                                 </li>
                                 <li class="fs-eight pra d-flex align-items-center gap-xl-2 gap-2">
-                                    <i class="fa-solid fa-check p1-clr"></i> Full dashboard to manage apps, keys &amp; usage
+                                    <i class="fa-solid fa-check p1-clr"></i> Full dashboard to manage apps, keys &amp;
+                                    usage
                                 </li>
                                 <li class="fs-eight pra d-flex align-items-center gap-xl-2 gap-2">
-                                    <i class="fa-solid fa-check p1-clr"></i> Ready-made Postman collection &mdash; test in minutes
+                                    <i class="fa-solid fa-check p1-clr"></i> Ready-made Postman collection &mdash; test
+                                    in minutes
                                 </li>
                             </ul>
                             <div class="about-cta-row d-flex align-items-center gap-xl-4 gap-lg-3 gap-2 fadeInUp"
                                 data-wow-delay=".5s">
-                               
-                                <a href="#pricing"
+
+                                <a href="#contact"
                                     class="common-btn about-primary-cta box-style btn2 d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-600 white-clr py-3 overflow-hidden rounded100">
                                     Learn More
                                     <i class="fa-solid fa-arrow-right-long"></i>
@@ -524,7 +442,8 @@ $renderCard = function (array $p): string {
                         Messaging solutions for every industry
                     </h2>
                     <p class="industries-subtitle pra fs-eight mt-3 mx-auto">
-                        Use ZADX SMS across every sector &mdash; reminders, promotions, alerts, and exclusive offers your
+                        Use ZADX SMS across every sector &mdash; reminders, promotions, alerts, and exclusive offers
+                        your
                         customers actually read.
                     </p>
                 </div>
@@ -534,77 +453,88 @@ $renderCard = function (array $p): string {
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-cart-shopping"></i></span>
                                 <h3 class="industry-title">E-commerce</h3>
-                                <p class="industry-desc pra fs-eight">Confirm orders, push tracking links the moment a parcel ships, and win back abandoned carts with a single message.</p>
+                                <p class="industry-desc pra fs-eight">Confirm orders, push tracking links the moment a
+                                    parcel ships, and win back abandoned carts with a single message.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="1">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-store"></i></span>
                                 <h3 class="industry-title">Retail</h3>
-                                <p class="industry-desc pra fs-eight">Alert shoppers to deals and flash sales, launch new arrivals, and reward regulars with exclusive discount codes.</p>
+                                <p class="industry-desc pra fs-eight">Alert shoppers to deals and flash sales, launch
+                                    new arrivals, and reward regulars with exclusive discount codes.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="2">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-utensils"></i></span>
                                 <h3 class="industry-title">Food &amp; Beverage</h3>
-                                <p class="industry-desc pra fs-eight">Confirm reservations and delivery orders, announce new menu items, and send daily offers to your regulars.</p>
+                                <p class="industry-desc pra fs-eight">Confirm reservations and delivery orders, announce
+                                    new menu items, and send daily offers to your regulars.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="3">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-stethoscope"></i></span>
                                 <h3 class="industry-title">Healthcare</h3>
-                                <p class="industry-desc pra fs-eight">Cut no-shows with appointment reminders, and deliver results and sensitive alerts behind a secure verification code.</p>
+                                <p class="industry-desc pra fs-eight">Cut no-shows with appointment reminders, and
+                                    deliver results and sensitive alerts behind a secure verification code.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="4">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-spa"></i></span>
                                 <h3 class="industry-title">Health &amp; Beauty</h3>
-                                <p class="industry-desc pra fs-eight">Manage session bookings, remind clients of upcoming visits, and launch seasonal packages and event offers.</p>
+                                <p class="industry-desc pra fs-eight">Manage session bookings, remind clients of
+                                    upcoming visits, and launch seasonal packages and event offers.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="5">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-dumbbell"></i></span>
                                 <h3 class="industry-title">Fitness</h3>
-                                <p class="industry-desc pra fs-eight">Remind members of classes, flag expiring memberships, and drive renewals with members-only offers.</p>
+                                <p class="industry-desc pra fs-eight">Remind members of classes, flag expiring
+                                    memberships, and drive renewals with members-only offers.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="6">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-hotel"></i></span>
                                 <h3 class="industry-title">Hospitality</h3>
-                                <p class="industry-desc pra fs-eight">Confirm bookings, send check-in details, and treat guests to tailored stay offers.</p>
+                                <p class="industry-desc pra fs-eight">Confirm bookings, send check-in details, and treat
+                                    guests to tailored stay offers.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col" data-industry-index="7">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-plane-departure"></i></span>
                                 <h3 class="industry-title">Travel &amp; Tourism</h3>
-                                <p class="industry-desc pra fs-eight">Keep travelers posted on schedules and changes in real time, and suggest destinations and deals for their next trip.</p>
+                                <p class="industry-desc pra fs-eight">Keep travelers posted on schedules and changes in
+                                    real time, and suggest destinations and deals for their next trip.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="8">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-house"></i></span>
                                 <h3 class="industry-title">Real Estate</h3>
-                                <p class="industry-desc pra fs-eight">Share new listings the moment they go live, schedule viewings, and follow up with interested buyers right on time.</p>
+                                <p class="industry-desc pra fs-eight">Share new listings the moment they go live,
+                                    schedule viewings, and follow up with interested buyers right on time.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="9">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-car-side"></i></span>
                                 <h3 class="industry-title">Automotive</h3>
-                                <p class="industry-desc pra fs-eight">Remind customers of scheduled servicing, announce new model arrivals, and send exclusive service offers.</p>
+                                <p class="industry-desc pra fs-eight">Remind customers of scheduled servicing, announce
+                                    new model arrivals, and send exclusive service offers.</p>
                             </div>
                         </div>
                         <div class="col-6 col-md-4 col-lg-3 industry-col is-hidden" data-industry-index="10">
                             <div class="industry-item white-bg text-center">
                                 <span class="industry-icon"><i class="fa-solid fa-tower-cell"></i></span>
                                 <h3 class="industry-title">Telecommunications</h3>
-                                <p class="industry-desc pra fs-eight">Send bundle-usage and renewal alerts, launch new plans, and secure logins with instant verification codes.</p>
+                                <p class="industry-desc pra fs-eight">Send bundle-usage and renewal alerts, launch new
+                                    plans, and secure logins with instant verification codes.</p>
                             </div>
                         </div>
                     </div>
@@ -633,11 +563,12 @@ $renderCard = function (array $p): string {
                         <div class="content d-lg-flex d-grid gap-2 align-items-center justify-content-between">
                             <span class="precess-title fs-seven fw-500 black-clr">Step-01</span>
                             <h3>
-                                <a href="#pricing">Talk to us &amp; pick a plan</a>
+                                <a href="#contact">Talk to us &amp; pick a plan</a>
                             </h3>
                         </div>
                         <div class="process-pra">
-                            <a href="#pricing" class="arrow d-center rounded-circle p1-bg" aria-label="View pricing plans">
+                            <a href="#contact" class="arrow d-center rounded-circle p1-bg"
+                                aria-label="View pricing plans">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -656,11 +587,12 @@ $renderCard = function (array $p): string {
                         <div class="content d-lg-flex d-grid gap-2 align-items-center justify-content-between">
                             <span class="precess-title fs-seven fw-500 black-clr">Step-02</span>
                             <h3>
-                                <a href="#pricing">We set up your app</a>
+                                <a href="#contact">We set up your app</a>
                             </h3>
                         </div>
                         <div class="process-pra">
-                            <a href="#pricing" class="arrow d-center rounded-circle p1-bg" aria-label="View pricing plans">
+                            <a href="#contact" class="arrow d-center rounded-circle p1-bg"
+                                aria-label="View pricing plans">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -679,11 +611,12 @@ $renderCard = function (array $p): string {
                         <div class="content d-lg-flex d-grid gap-2 align-items-center justify-content-between">
                             <span class="precess-title fs-seven fw-500 black-clr">Step-03</span>
                             <h3>
-                                <a href="#pricing">Activate &amp; start sending</a>
+                                <a href="#contact">Activate &amp; start sending</a>
                             </h3>
                         </div>
                         <div class="process-pra">
-                            <a href="#pricing" class="arrow d-center rounded-circle p1-bg" aria-label="View pricing plans">
+                            <a href="#contact" class="arrow d-center rounded-circle p1-bg"
+                                aria-label="View pricing plans">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -698,56 +631,6 @@ $renderCard = function (array $p): string {
                     </div>
                     <div class="line"></div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section Start -->
-        <section id="pricing" class="pricing-section">
-            <div class="container">
-                <div
-                    class="d-flex gap-3 flex-sm-nowrap flex-wrap align-items-end justify-content-sm-between justify-content-center mb-50">
-                    <div class="wow fadeInUp visible-slowly-right text-center text-sm-start" data-wow-delay=".3s">
-                        <h2 class="black mb-0">
-                            Our Pricing Plans
-                        </h2>
-                        <p id="pricing-subtitle" class="pricing-subtitle mb-0 mt-2">Trial Packages</p>
-                    </div>
-                    <ul class="nav pricing-tabbing nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="month-tab" data-bs-toggle="tab" data-bs-target="#month"
-                                type="button" role="tab" aria-controls="month" aria-selected="true">Month</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="quarter-tab" data-bs-toggle="tab" data-bs-target="#quarter"
-                                type="button" role="tab" aria-controls="quarter" aria-selected="false">3 Months</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="halfyear-tab" data-bs-toggle="tab" data-bs-target="#halfyear"
-                                type="button" role="tab" aria-controls="halfyear" aria-selected="false">6 Months</button>
-                        </li>
-                    </ul>
-                </div>
-                <?php if (empty($plans)): ?>
-                <p class="text-center pra fs-eight">Plans are temporarily unavailable. Please check back shortly.</p>
-                <?php else: ?>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="month" role="tabpanel" aria-labelledby="month-tab">
-                        <div class="row g-4">
-<?php foreach ($buckets['month'] as $p) { echo $renderCard($p); } ?>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="quarter" role="tabpanel" aria-labelledby="quarter-tab">
-                        <div class="row g-4">
-<?php foreach ($buckets['quarter'] as $p) { echo $renderCard($p); } ?>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="halfyear" role="tabpanel" aria-labelledby="halfyear-tab">
-                        <div class="row g-4">
-<?php foreach ($buckets['halfyear'] as $p) { echo $renderCard($p); } ?>
-                        </div>
-                    </div>
-                </div>
-                <?php endif; ?>
             </div>
         </section>
 
@@ -872,8 +755,10 @@ $renderCard = function (array $p): string {
                                     <div class="accordion-body pt-1">
                                         <p class="fs-16">
                                             Pick the plan that fits and contact us. We create your account, set up your
-                                            app, generate your API key and secret, and prepare your sender ID &mdash; then
-                                            send you your credentials. From there you just call our REST API, and a ready
+                                            app, generate your API key and secret, and prepare your sender ID &mdash;
+                                            then
+                                            send you your credentials. From there you just call our REST API, and a
+                                            ready
                                             Postman collection lets you test in minutes.
                                         </p>
                                     </div>
@@ -883,7 +768,8 @@ $renderCard = function (array $p): string {
                     </div>
                     <div class="col-lg-6">
                         <div class="faq-thumb1 w-100 reveal-left">
-                            <img src="assets/img/faq-section/qa-section.png" alt="FAQ support illustration" class="rounded-4 w-100">
+                            <img src="assets/img/faq-section/qa-section.png" alt="FAQ support illustration"
+                                class="rounded-4 w-100">
                         </div>
                     </div>
                 </div>
@@ -902,7 +788,8 @@ $renderCard = function (array $p): string {
                                 <div class="single-footer-widget wow fadeInUp" data-wow-delay="0.4s">
                                     <div class="widget-head">
                                         <a href="#hero">
-                                            <img src="assets/img/logo/zadx-logo-light.png" alt="ZADX Software Solutions">
+                                            <img src="assets/img/logo/zadx-logo-light.png"
+                                                alt="ZADX Software Solutions">
                                         </a>
                                     </div>
                                     <div class="footer-content">
@@ -912,13 +799,16 @@ $renderCard = function (array $p): string {
                                             simple.
                                         </p>
                                         <div class="social-wrapper d-flex flex-wrap align-items-center gap-xxl-3 gap-2">
-                                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Facebook">
+                                            <a href="https://www.facebook.com/zadxapps" target="_blank" rel="noopener"
+                                                class="rounded-circle cmn-bg" aria-label="Facebook">
                                                 <i class="fab fa-facebook-f"></i>
                                             </a>
-                                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="Instagram">
+                                            <a href="https://www.instagram.com/zadxapps" target="_blank" rel="noopener"
+                                                class="rounded-circle cmn-bg" aria-label="Instagram">
                                                 <i class="fa-brands fa-instagram"></i>
                                             </a>
-                                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank" rel="noopener" class="rounded-circle cmn-bg" aria-label="LinkedIn">
+                                            <a href="https://www.linkedin.com/company/zadxapps" target="_blank"
+                                                rel="noopener" class="rounded-circle cmn-bg" aria-label="LinkedIn">
                                                 <i class="fab fa-linkedin-in"></i>
                                             </a>
                                         </div>
@@ -933,13 +823,14 @@ $renderCard = function (array $p): string {
                                     <ul class="list-area d-grid gap-md-4 gap-3">
                                         <li class="d-flex align-items-center gap-xl-3 gap-2">
                                             <div class="icon d-center cmn-bg w-40 rounded-circle">
-                                                <i class="fa-solid fa-phone black-clr"></i>
+                                                <i class="fa-brands fa-whatsapp black-clr"></i>
                                             </div>
-                                            <a href="tel:+201062429287" class="d-block fs-seven black-clr fw-500">
+                                            <a href="https://wa.me/201010626698" target="_blank" rel="noopener"
+                                                class="d-block fs-seven black-clr fw-500">
                                                 <span class="fs-eight pra d-block">
-                                                    Phone Number
+                                                    WhatsApp
                                                 </span>
-                                                01062429287
+                                                01010626698
                                             </a>
                                         </li>
                                         <li class="d-flex align-items-center gap-xl-3 gap-2">
@@ -978,36 +869,32 @@ $renderCard = function (array $p): string {
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#why"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
+                                                <a href="#why" class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
                                                     Why ZADX
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#how"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
+                                                <a href="#how" class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
                                                     How It Works
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#pricing"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
-                                                    <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
-                                                    Pricing
                                                 </a>
                                             </li>
                                         </ul>
                                         <ul class="list-linkes d-flex flex-column gap-3">
                                             <li>
-                                                <a href="#faq"
-                                                    class="d-flex align-items-center gap-2 pra-clr fs-seven">
+                                                <a href="#faq" class="d-flex align-items-center gap-2 pra-clr fs-seven">
                                                     <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
                                                     FAQ
                                                 </a>
                                             </li>
-                                           
+                                            <li>
+                                                <a href="docs.php" class="d-flex align-items-center gap-2 pra-clr fs-seven">
+                                                    <i class="fa-solid fa-angles-right black-clr fs-eight"></i>
+                                                    Docs
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -1017,7 +904,8 @@ $renderCard = function (array $p): string {
                     <div
                         class="footer-bottom py-4 cmn-border-top d-flex flex-sm-nowrap flex-wrap align-items-center justify-content-sm-between justify-content-center gap-sm-0 gap-2">
                         <p class="body-font fs-eight pra text-center">
-                            &copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span> | All Rights Reserved
+                            &copy; <a href="https://zadx.net" class="p1-clr">ZADX</a> <span class="current-year"></span>
+                            | All Rights Reserved
                         </p>
                         <ul
                             class="condition d-flex flex-sm-nowrap flex-wrap justify-content-sm-start justify-content-center align-items-center gap-xxl-4 gap-xl-3 gap-sm-2 gap-1">
@@ -1031,7 +919,7 @@ $renderCard = function (array $p): string {
                                     Privacy Policy
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </div>
                     <!-- Ele -->
@@ -1070,17 +958,17 @@ $renderCard = function (array $p): string {
                 <div class="modal-body pt-3">
                     <div class="d-grid gap-3">
                         <div class="contact-option d-flex align-items-center gap-3 rounded-4 cmn-border">
-                            <a href="tel:+201062429287" class="contact-option-main d-flex align-items-center gap-3">
+                            <a href="tel:+201010626698" class="contact-option-main d-flex align-items-center gap-3">
                                 <span class="contact-option-icon rounded-circle d-center cmn-bg">
                                     <i class="fa-solid fa-phone black-clr"></i>
                                 </span>
                                 <span>
                                     <span class="d-block fs-seven black-clr fw-600">Call us on mobile</span>
-                                    <span class="d-block pra fs-eight">01062429287</span>
+                                    <span class="d-block pra fs-eight">01010626698</span>
                                 </span>
                             </a>
                             <button type="button" class="contact-copy-btn rounded100 fw-600"
-                                data-copy-phone="01062429287" aria-label="Copy mobile number">
+                                data-copy-phone="01010626698" aria-label="Copy mobile number">
                                 <i class="fa-regular fa-copy"></i>
                                 <span>Copy</span>
                             </button>
@@ -1136,7 +1024,7 @@ $renderCard = function (array $p): string {
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260613-localization"></script>
+    <script src="assets/js/main.js?v=20260924-docs"></script>
 </body>
 
 </html>
