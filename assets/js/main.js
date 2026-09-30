@@ -40,6 +40,7 @@ CSS TABLE OF CONTENTS
 				navModes: "Modes",
 				navWhy: "Why ZADX",
 				navHow: "How It Works",
+				navReviews: "Reviews",
 				navPricing: "Pricing",
 				navFaq: "FAQ",
 				navDocs: "Docs",
@@ -195,6 +196,7 @@ CSS TABLE OF CONTENTS
 				navModes: "أنماط الإرسال",
 				navWhy: "لماذا ZADX",
 				navHow: "كيف تعمل",
+				navReviews: "آراء العملاء",
 				navPricing: "الأسعار",
 				navFaq: "الأسئلة الشائعة",
 				navDocs: "التوثيق",
@@ -335,6 +337,47 @@ CSS TABLE OF CONTENTS
 				industry11_title: "الاتصالات",
 				industry11_desc:
 					"أرسل تنبيهات استهلاك الباقة وتجديدها، وأطلق العروض الجديدة، وأمّن تسجيل الدخول برموز تحقّق فورية.",
+				// Reviews section: English lives in index.php and is swapped through
+				// [data-i18n]. Quotes are the customers' original Arabic messages.
+				reviewsEyebrow: "ماذا يقول عملاؤنا",
+				reviewsTitle: "آراء حقيقية من عملاء حقيقيين",
+				reviewsSubtitle:
+					"رسائل وصلتنا من عملائنا على واتساب &mdash; عن سرعة وصول الـ OTP، وسهولة ربط الـ API، ووضوح لوحة التحكم.",
+				reviewsThemeSpeed: "سرعة الوصول",
+				reviewsThemeApi: "ربط API سهل",
+				reviewsThemeDashboard: "لوحة تحكم واضحة",
+				reviewsThemeSupport: "دعم فني ممتاز",
+				reviewsAuthor: "عميل ZADX SMS",
+				reviewsSource: "عبر واتساب",
+				reviewsCta:
+					'انضم لعملائنا <i class="fa-solid fa-arrow-right-long"></i>',
+				review1:
+					"ربط الـ API كان <strong>سهل وبسيط وماخدش وقت</strong>، وخدمة الـ SMS مميزة ومستقرة. شكرًا على الاحترافية",
+				review2:
+					"<strong>سرعة فائقة في وصول الـ OTP</strong> ودعم فني ممتاز، سهّلت علينا شغل كتير جدًا. بالتوفيق دائمًا &#10084;&#65039;",
+				review3:
+					"جربنا الخدمة والحقيقة الـ OTP <strong>سريع جدًا</strong>، والـ API اتربط معانا بسهولة من غير تعقيد",
+				review4:
+					"الـ Dashboard <strong>واضحة جدًا وسهلة في الاستخدام</strong>، وده فرق معانا كتير في متابعة الرسائل",
+				review5:
+					"بصراحة الخدمة <strong>وفرت علينا وقت ومجهود</strong>، خصوصًا إن الربط بالـ API سهل والاستجابة سريعة جدًا",
+				review6:
+					"بجد من أحسن الحاجات في الخدمة إن <strong>الـ API سهل جدًا في الربط</strong>، والـ OTP سريع ومفيش مشاكل في الإرسال",
+				review7:
+					"الخدمة ممتازة لحد دلوقتي، والـ Dashboard منظمة جدًا وسهلة في التعامل، والرسائل <strong>بتوصل بسرعة</strong>",
+				review8:
+					"<strong>أفضل داشبورد اتعاملت معاها</strong> لإرسال الـ SMS. كل حاجة واضحة والسرعة ممتازة، تجربة ممتازة بكل المقاييس",
+				review9:
+					"بصراحة الخدمة ممتازة جدًا، الـ OTP <strong>بيوصل بسرعة</strong> والـ Dashboard سهلة وواضحة جدًا",
+				review10: "الخدمة ممتازة",
+				review11:
+					"حتى الآن الأمور تمام <strong>وهنشتغل معاكم على طول</strong> بإذن الله، وليدر الفريق التقني هيجدد شحن معاكم",
+				review12:
+					"وشكرًا على <strong>الـ API documentation الجميل ده</strong>، والـ Dashboard عظيمة",
+				review13:
+					"الخدمة تمام جدًا. إحنا لسه في التيستينج فيز فمش بنستخدمها كتير، وقريب هنطلع بروداكشن وأكيد هنشوف الدنيا فيها. <strong>ومفيش مشاكل فيها</strong>، شكرًا ليكم",
+				review14:
+					"الخدمة ممتازة ودعم فني محترم، وبصراحة <strong>أنا هرشحكم لكل زمايلي</strong>",
 				// Docs section: English lives in index.php; these keys override it
 				// through [data-i18n] (see applyDataI18n).
 				docsMetaTitle: "توثيق API | ZADX SMS",
@@ -869,6 +912,10 @@ CSS TABLE OF CONTENTS
 				t("navHow")
 			);
 			setText(
+				"#mobile-menu a[href$='#reviews'], .mean-nav a[href$='#reviews']",
+				t("navReviews")
+			);
+			setText(
 				"#mobile-menu a[href$='#pricing'], .mean-nav a[href$='#pricing']",
 				t("navPricing")
 			);
@@ -1106,6 +1153,19 @@ CSS TABLE OF CONTENTS
 			meanExpand: ['<i class="far fa-plus"></i>'],
 		});
 
+		//>> Reviews Marquee Js Start <<//
+		// Append a copy of each row's cards so the CSS scroll loops seamlessly.
+		// Runs before the first applyLocale so clones cache their English
+		// markup for [data-i18n]; they're decorative, so hide them from AT.
+		document.querySelectorAll(".reviews-track").forEach(function (track) {
+			Array.from(track.children).forEach(function (card) {
+				const clone = card.cloneNode(true);
+				clone.setAttribute("aria-hidden", "true");
+				clone.setAttribute("inert", "");
+				track.appendChild(clone);
+			});
+		});
+
 		applyLocale(getInitialLocale(), { persist: false });
 
 		$(document).on("click", "[data-lang-switch]", function () {
@@ -1246,7 +1306,7 @@ CSS TABLE OF CONTENTS
 		// Smooth-scroll same-page header links without the browser's hash jump.
 		$(document).on(
 			"click",
-			"#header-sticky a[href^='#'], .mean-nav a[href^='#'], .modes-grid .rarrow[href^='#'], .about-exchange-content .common-btn[href^='#'], .process-section a[href^='#'], .docs-section a[href^='#']",
+			"#header-sticky a[href^='#'], .mean-nav a[href^='#'], .modes-grid .rarrow[href^='#'], .about-exchange-content .common-btn[href^='#'], .process-section a[href^='#'], .reviews-section a[href^='#'], .docs-section a[href^='#']",
 			function (e) {
 				const hash = this.hash;
 

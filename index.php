@@ -32,7 +32,7 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260924-docs">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260930-nav">
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -169,6 +169,7 @@
                                             <li><a href="#modes">Modes</a></li>
                                             <li><a href="#why">Why ZADX</a></li>
                                             <li><a href="#how">How It Works</a></li>
+                                            <li><a href="#reviews">Reviews</a></li>
                                             <li><a href="docs.php">Docs</a></li>
                                             <li><a href="#faq">FAQ</a></li>
                                             <li><a href="#contact">Contact</a></li>
@@ -634,66 +635,259 @@
             </div>
         </section>
 
-        <!-- clients  -->
-        <!-- <section class="testimonial-section">
+        <!-- Reviews Section Start -->
+        <section id="reviews" class="reviews-section fix" aria-labelledby="reviews-title">
             <div class="container">
-                <div class="testimonail-wrapper-style1">
-                    <div
-                        class="d-flex flex-sm-nowrap flex-wrap align-items-center justify-content-sm-between justify-content-center gap-sm-3 gap-2 mb-sm-2 mb-3">
-                        <h2 class="white-clr mb-xl-4 mb-3 visible-slowly-right text-sm-start text-center">What Our
-                            Clients Say</h2>
-                        <div class="array-button verstion-2 gap-xxl-4 gap-3 d-flex wow fadeInUp" data-wow-delay=".5s">
-                            <button class="array-prev d-center">
-                                <i class="fa-solid fa-arrow-left p2-clr"></i>
-                            </button>
-                            <button class="array-next active d-center">
-                                <i class="fa-solid fa-arrow-right p2-clr"></i>
-                            </button>
-                        </div>
+                <div class="cont text-center mb-50">
+                    <span class="fs-seven fw-semibold p1-clr d-block mb-lg-3 mb-2" style="letter-spacing: 3.2px;"
+                        data-i18n="reviewsEyebrow">What Our Customers Say</span>
+                    <h2 id="reviews-title" class="wow fadeInUp black visible-slowly-right" data-wow-delay=".3s"
+                        data-i18n="reviewsTitle">Real feedback from real customers</h2>
+                    <p class="reviews-subtitle pra fs-eight mt-3 mx-auto" data-i18n="reviewsSubtitle">
+                        Messages our customers sent us on WhatsApp &mdash; about fast OTP delivery, easy API
+                        integration, and a dashboard that just makes sense.
+                    </p>
+                    <ul class="reviews-themes wow fadeInUp" data-wow-delay=".4s">
+                        <li><i class="fa-solid fa-bolt"></i><span data-i18n="reviewsThemeSpeed">Fast delivery</span></li>
+                        <li><i class="fa-solid fa-plug"></i><span data-i18n="reviewsThemeApi">Easy API integration</span></li>
+                        <li><i class="fa-solid fa-chart-line"></i><span data-i18n="reviewsThemeDashboard">Clear dashboard</span></li>
+                        <li><i class="fa-solid fa-headset"></i><span data-i18n="reviewsThemeSupport">Great support</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="reviews-marquee wow fadeInUp" data-wow-delay=".3s">
+                <div class="reviews-row">
+                    <div class="reviews-track">
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review1">
+                                Hooking up the API was <strong>simple and quick</strong> &mdash; it took no time at
+                                all. The SMS service is excellent and stable. Thanks for the professionalism.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review2">
+                                <strong>Lightning-fast OTP delivery</strong> and excellent technical support. You've
+                                made our work so much easier &mdash; wishing you continued success &#10084;&#65039;
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card review-card--dark">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review10">
+                                The service is excellent.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review3">
+                                We tried the service and honestly, the OTP is <strong>really fast</strong>, and the API
+                                integrated with our system easily, no complications.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review4">
+                                The dashboard is <strong>very clear and easy to use</strong>, and that made a big
+                                difference for us in keeping track of our messages.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review5">
+                                Honestly, the service has <strong>saved us time and effort</strong>, especially since
+                                the API integration is easy and the response is very fast.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review8">
+                                <strong>The best dashboard I've used</strong> for sending SMS. Everything is clear and
+                                the speed is excellent &mdash; an excellent experience by every measure.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
                     </div>
-                    <div class="swiper testimonial-slider1">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testimonial-items1">
-                                    <div class="thumb">
-                                        <img src="assets/img/testimonial/testimonial1-thumb.png" alt="img">
-                                    </div>
-                                    <div class="content">
-                                        <div
-                                            class="d-md-flex d-grid align-items-center justify-content-md-between justify-content-center text-md-start text-center gap-2 mb-3">
-                                            <div class="cont">
-                                                <h3 class="white-clr mb-1">
-                                                    Dianne Russell
-                                                </h3>
-                                                <span class="fs-eight white-clr d-block">President of Sales</span>
-                                            </div>
-                                            <div
-                                                class="d-flex justify-content-md-start justify-content-center align-items-center gap-1">
-                                                <i class="fa-solid fa-star fs-seven p5-clr"></i>
-                                                <i class="fa-solid fa-star fs-seven p5-clr"></i>
-                                                <i class="fa-solid fa-star fs-seven p5-clr"></i>
-                                                <i class="fa-solid fa-star fs-seven p5-clr"></i>
-                                                <i class="fa-solid fa-star fs-seven p5-clr"></i>
-                                            </div>
-                                        </div>
-                                        <p class="white-clr text-md-start text-center">
-                                            Information Technology is a broad field a encompassing the design,
-                                            development implementation, and the an a maintenance
-                                            of the computer systems and applications. This industry plays a crucial role
-                                            in shaping our modern world, with
-                                            innovations
-                                        </p>
-                                        <div class="d-flex align-items-center gap-2 fs-six fw_600 black">
-                                            <div class="line"></div> Mukesh Kumer
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+                <div class="reviews-row reviews-row--reverse">
+                    <div class="reviews-track">
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review6">
+                                Honestly, one of the best things about the service is how <strong>easy the API is to
+                                    integrate</strong>. The OTP is fast and there are no sending issues.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card review-card--accent">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review14">
+                                The service is excellent and the technical support is outstanding. Honestly,
+                                <strong>I'll be recommending you to all my colleagues.</strong>
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review7">
+                                The service has been excellent so far. The dashboard is very well organized and easy
+                                to work with, and messages <strong>arrive quickly</strong>.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review12">
+                                And thanks for this <strong>great API documentation</strong> &mdash; and the dashboard
+                                is superb.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review9">
+                                Honestly, the service is excellent. The OTP <strong>arrives fast</strong> and the
+                                dashboard is easy and very clear.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review11">
+                                So far everything is great, and <strong>we'll keep working with you for the long
+                                    run</strong>. Our tech lead will be renewing our top-up with you.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                        <figure class="review-card">
+                            <span class="review-card__icon"><i class="fa-solid fa-quote-left"></i></span>
+                            <blockquote class="review-card__quote" data-i18n="review13">
+                                The service is great. We're still in the testing phase so we're not using it heavily
+                                yet, but we're going to production soon. <strong>No issues at all</strong> &mdash;
+                                thank you.
+                            </blockquote>
+                            <figcaption class="review-card__author">
+                                <span class="review-card__avatar"><i class="fa-solid fa-user"></i></span>
+                                <span class="review-card__meta">
+                                    <span class="review-card__name" data-i18n="reviewsAuthor">ZADX SMS customer</span>
+                                    <span class="review-card__source"><i class="fa-brands fa-whatsapp"></i><span
+                                            data-i18n="reviewsSource">via WhatsApp</span></span>
+                                </span>
+                            </figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
-        </section> -->
+            <div class="container">
+                <p class="reviews-note lang-en text-center pra fs-eight">
+                    Quotes translated from the original Arabic messages.
+                </p>
+                <div class="text-center mt-5">
+                    <a href="#contact" data-i18n="reviewsCta"
+                        class="common-btn box-style btn2 blackbg d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fw-500 white-clr py-3 overflow-hidden rounded100">
+                        Join our customers
+                        <i class="fa-solid fa-arrow-right-long"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
         <!-- Faq Section Start -->
         <section id="faq" class="faq-section fix">
@@ -1024,7 +1218,7 @@
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260924-docs"></script>
+    <script src="assets/js/main.js?v=20260930-nav"></script>
 </body>
 
 </html>

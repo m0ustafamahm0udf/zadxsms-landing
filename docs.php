@@ -33,7 +33,7 @@
     <!--<< Nice Select.css >>-->
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <!--<< Main.css >>-->
-    <link rel="stylesheet" href="assets/css/main.css?v=20260924-docs">
+    <link rel="stylesheet" href="assets/css/main.css?v=20260930-nav">
     <!--<< IBM Plex Sans Arabic >>-->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -170,6 +170,7 @@
                                             <li><a href="index.php#modes">Modes</a></li>
                                             <li><a href="index.php#why">Why ZADX</a></li>
                                             <li><a href="index.php#how">How It Works</a></li>
+                                            <li><a href="index.php#reviews">Reviews</a></li>
                                             <li><a href="docs.php">Docs</a></li>
                                             <li><a href="index.php#faq">FAQ</a></li>
                                             <li><a href="index.php#contact">Contact</a></li>
@@ -1175,7 +1176,7 @@ data = res.json()</code></pre>
     <!--<< Mixitup Js >>-->
     <script src="assets/js/mixitup.min.js"></script>
     <!--<< Main.js >>-->
-    <script src="assets/js/main.js?v=20260924-docs"></script>
+    <script src="assets/js/main.js?v=20260930-nav"></script>
 </body>
 
 </html>

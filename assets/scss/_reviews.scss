@@ -1,0 +1,296 @@
+// Reviews Section
+.reviews-section {
+	.reviews-subtitle {
+		max-width: 640px;
+	}
+
+	.reviews-themes {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 10px;
+		margin: 28px 0 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 9px 18px;
+			border: 1px solid var(--cmn-border);
+			border-radius: 100px;
+			background: $white;
+			color: $black;
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 1;
+
+			i {
+				color: $p1-clr;
+				font-size: 13px;
+			}
+		}
+	}
+
+	.reviews-note {
+		margin: 8px 0 0;
+	}
+}
+
+// Two rows of cards scrolling in opposite directions. main.js appends a
+// copy of each row's cards, so translating by -50% loops seamlessly.
+.reviews-marquee {
+	display: grid;
+	gap: 4px;
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+	mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.reviews-row {
+	direction: ltr;
+	overflow: hidden;
+	padding: 12px 0 28px;
+
+	&:hover .reviews-track {
+		animation-play-state: paused;
+	}
+}
+
+.reviews-track {
+	display: flex;
+	width: max-content;
+	animation: reviews-scroll 75s linear infinite;
+}
+
+.reviews-row--reverse .reviews-track {
+	animation-direction: reverse;
+	animation-duration: 85s;
+}
+
+@keyframes reviews-scroll {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+.review-card {
+	display: flex;
+	flex: 0 0 380px;
+	flex-direction: column;
+	gap: 20px;
+	margin: 0 12px;
+	padding: 30px 28px 24px;
+	border: 1px solid var(--cmn-border);
+	border-radius: 24px;
+	border-end-start-radius: 6px;
+	background: $white;
+	box-shadow: $shadow;
+	transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+	&:hover {
+		transform: translateY(-6px);
+		border-color: $p1-clr;
+		box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.1);
+	}
+
+	.review-card__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 44px;
+		height: 44px;
+		border-radius: 12px;
+		background: rgba(251, 66, 31, 0.08);
+		color: $p1-clr;
+		font-size: 17px;
+	}
+
+	.review-card__quote {
+		margin: 0;
+		color: var(--n700-clr);
+		font-size: 17px;
+		line-height: 1.75;
+
+		strong {
+			background: linear-gradient(transparent 60%, rgba(251, 66, 31, 0.18) 60%);
+			color: $black;
+			font-weight: 600;
+		}
+	}
+
+	.review-card__author {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		margin-top: auto;
+		padding-top: 18px;
+		border-top: 1px dashed var(--cmn-border);
+	}
+
+	.review-card__avatar {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: $cmnbg;
+		color: $black;
+		font-size: 15px;
+	}
+
+	.review-card__name {
+		display: block;
+		color: $black;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	.review-card__source {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-top: 2px;
+		color: $pra;
+		font-size: 13px;
+		line-height: 1.3;
+
+		i {
+			color: #25d366;
+			font-size: 14px;
+		}
+	}
+
+	// Short quote set large on a dark card.
+	&.review-card--dark {
+		border-color: transparent;
+		background: $header;
+
+		.review-card__icon,
+		.review-card__avatar {
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.review-card__avatar {
+			color: $white;
+		}
+
+		.review-card__quote {
+			margin: auto 0;
+			color: $white;
+			font-size: 34px;
+			font-weight: 600;
+			line-height: 1.25;
+		}
+
+		.review-card__author {
+			border-top-color: rgba(255, 255, 255, 0.14);
+		}
+
+		.review-card__name {
+			color: $white;
+		}
+
+		.review-card__source {
+			color: rgba(255, 255, 255, 0.6);
+		}
+	}
+
+	&.review-card--accent {
+		border-color: transparent;
+		background: $p1-clr;
+
+		.review-card__icon,
+		.review-card__avatar {
+			background: rgba(255, 255, 255, 0.18);
+			color: $white;
+		}
+
+		.review-card__quote {
+			color: $white;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 1.6;
+
+			strong {
+				background: linear-gradient(transparent 60%, rgba(255, 255, 255, 0.28) 60%);
+				color: $white;
+			}
+		}
+
+		.review-card__author {
+			border-top-color: rgba(255, 255, 255, 0.35);
+		}
+
+		.review-card__name,
+		.review-card__source,
+		.review-card__source i {
+			color: $white;
+		}
+	}
+
+	&.review-card--dark:hover,
+	&.review-card--accent:hover {
+		border-color: transparent;
+	}
+}
+
+html[dir="rtl"] {
+	.review-card {
+		direction: rtl;
+		text-align: right;
+	}
+
+	.review-card__icon i {
+		transform: scaleX(-1);
+	}
+}
+
+@media (max-width: 767px) {
+	.reviews-section .reviews-themes li {
+		padding: 8px 14px;
+		font-size: 13px;
+	}
+
+	.review-card {
+		flex-basis: 300px;
+		margin: 0 8px;
+		padding: 24px 22px 20px;
+
+		.review-card__quote {
+			font-size: 16px;
+		}
+
+		&.review-card--dark .review-card__quote {
+			font-size: 28px;
+		}
+
+		&.review-card--accent .review-card__quote {
+			font-size: 18px;
+		}
+	}
+}
+
+// Without motion, each row becomes a swipeable strip of the original cards.
+@media (prefers-reduced-motion: reduce) {
+	.reviews-row {
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+	}
+
+	.reviews-track {
+		animation: none;
+	}
+
+	.review-card {
+		scroll-snap-align: center;
+
+		&[aria-hidden="true"] {
+			display: none;
+		}
+	}
+}

@@ -92,6 +92,11 @@
 				display: inline-block;
 				margin-inline-end: 26px;
 
+				// Tighter gaps keep all nav links clear of the logo below 1400px.
+				@media (max-width: 1399px) {
+					margin-inline-end: 20px;
+				}
+
 				&:last-child {
 					margin-inline-end: 0;
 				}
